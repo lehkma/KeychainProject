@@ -93,10 +93,10 @@ namespace KeychainProject {
 			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox1->ForeColor = System::Drawing::SystemColors::Control;
+			this->textBox1->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->textBox1->Location = System::Drawing::Point(3, 60);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(334, 32);
+			this->textBox1->Size = System::Drawing::Size(326, 32);
 			this->textBox1->TabIndex = 3;
 			this->textBox1->Text = L"Username";
 			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -120,7 +120,7 @@ namespace KeychainProject {
 			this->createLabel->Font = (gcnew System::Drawing::Font(L"Rubik", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->createLabel->ForeColor = System::Drawing::SystemColors::Control;
-			this->createLabel->Location = System::Drawing::Point(363, 0);
+			this->createLabel->Location = System::Drawing::Point(371, 0);
 			this->createLabel->Name = L"createLabel";
 			this->createLabel->Size = System::Drawing::Size(207, 34);
 			this->createLabel->TabIndex = 2;
@@ -149,7 +149,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				20)));
+				36)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
 			this->tableLayoutPanel1->Controls->Add(this->welcomeLabel, 0, 0);
@@ -166,8 +166,8 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->RowCount = 5;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 56)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 44)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 43)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 73)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 44)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 72)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 80)));
 			this->tableLayoutPanel1->Size = System::Drawing::Size(701, 299);
 			this->tableLayoutPanel1->TabIndex = 4;
@@ -196,10 +196,10 @@ namespace KeychainProject {
 			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBox2->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox2->ForeColor = System::Drawing::SystemColors::Control;
-			this->textBox2->Location = System::Drawing::Point(363, 60);
+			this->textBox2->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->textBox2->Location = System::Drawing::Point(371, 60);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(335, 32);
+			this->textBox2->Size = System::Drawing::Size(327, 32);
 			this->textBox2->TabIndex = 4;
 			this->textBox2->Text = L"Username";
 			this->textBox2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -214,10 +214,10 @@ namespace KeychainProject {
 			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBox3->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox3->ForeColor = System::Drawing::SystemColors::Control;
+			this->textBox3->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->textBox3->Location = System::Drawing::Point(3, 105);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(334, 32);
+			this->textBox3->Size = System::Drawing::Size(326, 32);
 			this->textBox3->TabIndex = 5;
 			this->textBox3->Text = L"Password";
 			this->textBox3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -232,10 +232,10 @@ namespace KeychainProject {
 			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox4->ForeColor = System::Drawing::SystemColors::Control;
-			this->textBox4->Location = System::Drawing::Point(363, 105);
+			this->textBox4->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->textBox4->Location = System::Drawing::Point(371, 105);
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(335, 32);
+			this->textBox4->Size = System::Drawing::Size(327, 32);
 			this->textBox4->TabIndex = 6;
 			this->textBox4->Text = L"Password";
 			this->textBox4->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -250,10 +250,10 @@ namespace KeychainProject {
 			this->textBox5->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBox5->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox5->ForeColor = System::Drawing::SystemColors::Control;
-			this->textBox5->Location = System::Drawing::Point(363, 148);
+			this->textBox5->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->textBox5->Location = System::Drawing::Point(371, 149);
 			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(335, 32);
+			this->textBox5->Size = System::Drawing::Size(327, 32);
 			this->textBox5->TabIndex = 7;
 			this->textBox5->Text = L"Confirm Password";
 			this->textBox5->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -265,9 +265,9 @@ namespace KeychainProject {
 			this->btLogin->BackColor = System::Drawing::SystemColors::Control;
 			this->btLogin->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btLogin->Location = System::Drawing::Point(103, 221);
+			this->btLogin->Location = System::Drawing::Point(95, 221);
 			this->btLogin->Name = L"btLogin";
-			this->btLogin->Size = System::Drawing::Size(234, 60);
+			this->btLogin->Size = System::Drawing::Size(234, 48);
 			this->btLogin->TabIndex = 8;
 			this->btLogin->Text = L"Log in";
 			this->btLogin->UseVisualStyleBackColor = false;
@@ -280,7 +280,7 @@ namespace KeychainProject {
 				static_cast<System::Byte>(0)));
 			this->btCreate->Location = System::Drawing::Point(464, 221);
 			this->btCreate->Name = L"btCreate";
-			this->btCreate->Size = System::Drawing::Size(234, 57);
+			this->btCreate->Size = System::Drawing::Size(234, 48);
 			this->btCreate->TabIndex = 9;
 			this->btCreate->Text = L"Create";
 			this->btCreate->UseVisualStyleBackColor = false;
@@ -291,11 +291,11 @@ namespace KeychainProject {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
-			this->ClientSize = System::Drawing::Size(776, 459);
+			this->ClientSize = System::Drawing::Size(776, 425);
 			this->Controls->Add(this->tableLayoutPanel2);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
-			this->MinimumSize = System::Drawing::Size(715, 498);
+			this->MinimumSize = System::Drawing::Size(792, 464);
 			this->Name = L"LoginForm";
 			this->Load += gcnew System::EventHandler(this, &LoginForm::LoginForm_Load);
 			this->tableLayoutPanel1->ResumeLayout(false);
