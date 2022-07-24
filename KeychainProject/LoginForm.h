@@ -34,32 +34,46 @@ namespace KeychainProject {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Label^ labelKeychain;
+	protected:
 
 	protected:
 
 
-	private: System::Windows::Forms::Label^ keychainLabel;
+
 
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
 	private: System::Windows::Forms::Button^ btCreate;
 	private: System::Windows::Forms::Button^ btLogin;
+	private: System::Windows::Forms::TextBox^ tbNewUsername;
 
 
-	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::Label^ createLabel;
-	private: System::Windows::Forms::Label^ welcomeLabel;
 
-	private: System::Windows::Forms::TextBox^ textBox3;
-	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::TextBox^ tbPassword;
+	private: System::Windows::Forms::Label^ labelCreate;
+	private: System::Windows::Forms::Label^ labelWelcome;
+
+
+
+	private: System::Windows::Forms::TextBox^ tbUsername;
+
+
+	private: System::Windows::Forms::Label^ labelUsername;
+
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
-	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Label^ labelPassword;
+
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
-	private: System::Windows::Forms::TextBox^ textBox5;
-	private: System::Windows::Forms::TextBox^ textBox4;
-	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::TextBox^ tbConfirmPassword;
+
+	private: System::Windows::Forms::TextBox^ tbNewPassword;
+
+	private: System::Windows::Forms::Label^ labelConfirmPassword;
+
+	private: System::Windows::Forms::Label^ labelNewPassword;
+
+	private: System::Windows::Forms::Label^ labelNewUsername;
+
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel4;
 
 
@@ -88,24 +102,24 @@ namespace KeychainProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->keychainLabel = (gcnew System::Windows::Forms::Label());
+			this->labelKeychain = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->btCreate = (gcnew System::Windows::Forms::Button());
 			this->btLogin = (gcnew System::Windows::Forms::Button());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->createLabel = (gcnew System::Windows::Forms::Label());
-			this->welcomeLabel = (gcnew System::Windows::Forms::Label());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->tbNewUsername = (gcnew System::Windows::Forms::TextBox());
+			this->tbPassword = (gcnew System::Windows::Forms::TextBox());
+			this->labelCreate = (gcnew System::Windows::Forms::Label());
+			this->labelWelcome = (gcnew System::Windows::Forms::Label());
+			this->tbUsername = (gcnew System::Windows::Forms::TextBox());
+			this->labelUsername = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->labelPassword = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
+			this->tbConfirmPassword = (gcnew System::Windows::Forms::TextBox());
+			this->tbNewPassword = (gcnew System::Windows::Forms::TextBox());
+			this->labelConfirmPassword = (gcnew System::Windows::Forms::Label());
+			this->labelNewUsername = (gcnew System::Windows::Forms::Label());
+			this->labelNewPassword = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel4 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->tableLayoutPanel2->SuspendLayout();
 			this->tableLayoutPanel3->SuspendLayout();
@@ -113,20 +127,20 @@ namespace KeychainProject {
 			this->tableLayoutPanel4->SuspendLayout();
 			this->SuspendLayout();
 			// 
-			// keychainLabel
+			// labelKeychain
 			// 
-			this->keychainLabel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->labelKeychain->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->keychainLabel->AutoSize = true;
-			this->keychainLabel->Font = (gcnew System::Drawing::Font(L"Rubik", 32.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->labelKeychain->AutoSize = true;
+			this->labelKeychain->Font = (gcnew System::Drawing::Font(L"Rubik", 32.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->keychainLabel->ForeColor = System::Drawing::SystemColors::Control;
-			this->keychainLabel->Location = System::Drawing::Point(3, 0);
-			this->keychainLabel->Name = L"keychainLabel";
-			this->keychainLabel->Size = System::Drawing::Size(914, 54);
-			this->keychainLabel->TabIndex = 0;
-			this->keychainLabel->Text = L"KeyChain";
-			this->keychainLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->labelKeychain->ForeColor = System::Drawing::SystemColors::Control;
+			this->labelKeychain->Location = System::Drawing::Point(3, 0);
+			this->labelKeychain->Name = L"labelKeychain";
+			this->labelKeychain->Size = System::Drawing::Size(914, 54);
+			this->labelKeychain->TabIndex = 0;
+			this->labelKeychain->Text = L"KeyChain";
+			this->labelKeychain->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// tableLayoutPanel2
 			// 
@@ -135,7 +149,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel2->ColumnCount = 1;
 			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
-			this->tableLayoutPanel2->Controls->Add(this->keychainLabel, 0, 0);
+			this->tableLayoutPanel2->Controls->Add(this->labelKeychain, 0, 0);
 			this->tableLayoutPanel2->Location = System::Drawing::Point(24, 37);
 			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
 			this->tableLayoutPanel2->RowCount = 1;
@@ -162,101 +176,101 @@ namespace KeychainProject {
 			this->btLogin->BackColor = System::Drawing::SystemColors::Control;
 			this->btLogin->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btLogin->Location = System::Drawing::Point(147, 218);
+			this->btLogin->Location = System::Drawing::Point(146, 218);
 			this->btLogin->Name = L"btLogin";
 			this->btLogin->Size = System::Drawing::Size(234, 48);
 			this->btLogin->TabIndex = 8;
 			this->btLogin->Text = L"Log in";
 			this->btLogin->UseVisualStyleBackColor = false;
 			// 
-			// textBox2
+			// tbNewUsername
 			// 
-			this->textBox2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->tbNewUsername->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+			this->tbNewUsername->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
-			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox2->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->tbNewUsername->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->tbNewUsername->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox2->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->textBox2->Location = System::Drawing::Point(236, 3);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(233, 32);
-			this->textBox2->TabIndex = 4;
-			this->textBox2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			this->textBox2->WordWrap = false;
+			this->tbNewUsername->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->tbNewUsername->Location = System::Drawing::Point(237, 3);
+			this->tbNewUsername->Name = L"tbNewUsername";
+			this->tbNewUsername->Size = System::Drawing::Size(233, 32);
+			this->tbNewUsername->TabIndex = 4;
+			this->tbNewUsername->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->tbNewUsername->WordWrap = false;
 			// 
-			// textBox1
+			// tbPassword
 			// 
-			this->textBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->tbPassword->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+			this->tbPassword->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
-			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->tbPassword->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->tbPassword->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox1->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->textBox1->Location = System::Drawing::Point(150, 43);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->PasswordChar = '*';
-			this->textBox1->Size = System::Drawing::Size(225, 32);
-			this->textBox1->TabIndex = 3;
-			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			this->textBox1->WordWrap = false;
+			this->tbPassword->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->tbPassword->Location = System::Drawing::Point(149, 43);
+			this->tbPassword->Name = L"tbPassword";
+			this->tbPassword->PasswordChar = '*';
+			this->tbPassword->Size = System::Drawing::Size(225, 32);
+			this->tbPassword->TabIndex = 3;
+			this->tbPassword->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->tbPassword->WordWrap = false;
 			// 
-			// createLabel
+			// labelCreate
 			// 
-			this->createLabel->AutoSize = true;
-			this->createLabel->Font = (gcnew System::Drawing::Font(L"Rubik", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->labelCreate->AutoSize = true;
+			this->labelCreate->Font = (gcnew System::Drawing::Font(L"Rubik", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->createLabel->ForeColor = System::Drawing::SystemColors::Control;
-			this->createLabel->Location = System::Drawing::Point(442, 0);
-			this->createLabel->Name = L"createLabel";
-			this->createLabel->Size = System::Drawing::Size(207, 34);
-			this->createLabel->TabIndex = 2;
-			this->createLabel->Text = L"Create account";
+			this->labelCreate->ForeColor = System::Drawing::SystemColors::Control;
+			this->labelCreate->Location = System::Drawing::Point(441, 0);
+			this->labelCreate->Name = L"labelCreate";
+			this->labelCreate->Size = System::Drawing::Size(209, 34);
+			this->labelCreate->TabIndex = 2;
+			this->labelCreate->Text = L"Create Account";
 			// 
-			// welcomeLabel
+			// labelWelcome
 			// 
-			this->welcomeLabel->AutoSize = true;
-			this->welcomeLabel->Font = (gcnew System::Drawing::Font(L"Rubik", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->labelWelcome->AutoSize = true;
+			this->labelWelcome->Font = (gcnew System::Drawing::Font(L"Rubik", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->welcomeLabel->ForeColor = System::Drawing::SystemColors::Control;
-			this->welcomeLabel->Location = System::Drawing::Point(3, 0);
-			this->welcomeLabel->Name = L"welcomeLabel";
-			this->welcomeLabel->Size = System::Drawing::Size(201, 34);
-			this->welcomeLabel->TabIndex = 1;
-			this->welcomeLabel->Text = L"Welcome back,";
+			this->labelWelcome->ForeColor = System::Drawing::SystemColors::Control;
+			this->labelWelcome->Location = System::Drawing::Point(3, 0);
+			this->labelWelcome->Name = L"labelWelcome";
+			this->labelWelcome->Size = System::Drawing::Size(203, 34);
+			this->labelWelcome->TabIndex = 1;
+			this->labelWelcome->Text = L"Welcome Back,";
 			// 
-			// textBox3
+			// tbUsername
 			// 
-			this->textBox3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->tbUsername->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+			this->tbUsername->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
-			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox3->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->tbUsername->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->tbUsername->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox3->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->textBox3->Location = System::Drawing::Point(150, 3);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(225, 32);
-			this->textBox3->TabIndex = 5;
-			this->textBox3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			this->textBox3->WordWrap = false;
+			this->tbUsername->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->tbUsername->Location = System::Drawing::Point(149, 3);
+			this->tbUsername->Name = L"tbUsername";
+			this->tbUsername->Size = System::Drawing::Size(225, 32);
+			this->tbUsername->TabIndex = 5;
+			this->tbUsername->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->tbUsername->WordWrap = false;
 			// 
-			// label1
+			// labelUsername
 			// 
-			this->label1->Anchor = System::Windows::Forms::AnchorStyles::Left;
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->labelUsername->Anchor = System::Windows::Forms::AnchorStyles::Left;
+			this->labelUsername->AutoSize = true;
+			this->labelUsername->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::SystemColors::Control;
-			this->label1->Location = System::Drawing::Point(3, 7);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(119, 26);
-			this->label1->TabIndex = 10;
-			this->label1->Text = L"Username:";
+			this->labelUsername->ForeColor = System::Drawing::SystemColors::Control;
+			this->labelUsername->Location = System::Drawing::Point(3, 7);
+			this->labelUsername->Name = L"labelUsername";
+			this->labelUsername->Size = System::Drawing::Size(119, 26);
+			this->labelUsername->TabIndex = 10;
+			this->labelUsername->Text = L"Username:";
 			// 
 			// tableLayoutPanel3
 			// 
@@ -267,30 +281,30 @@ namespace KeychainProject {
 				38.95705F)));
 			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				61.04295F)));
-			this->tableLayoutPanel3->Controls->Add(this->label2, 0, 1);
-			this->tableLayoutPanel3->Controls->Add(this->label1, 0, 0);
-			this->tableLayoutPanel3->Controls->Add(this->textBox1, 1, 1);
-			this->tableLayoutPanel3->Controls->Add(this->textBox3, 1, 0);
+			this->tableLayoutPanel3->Controls->Add(this->labelPassword, 0, 1);
+			this->tableLayoutPanel3->Controls->Add(this->labelUsername, 0, 0);
+			this->tableLayoutPanel3->Controls->Add(this->tbPassword, 1, 1);
+			this->tableLayoutPanel3->Controls->Add(this->tbUsername, 1, 0);
 			this->tableLayoutPanel3->Location = System::Drawing::Point(3, 56);
 			this->tableLayoutPanel3->Name = L"tableLayoutPanel3";
 			this->tableLayoutPanel3->RowCount = 2;
 			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 38)));
-			this->tableLayoutPanel3->Size = System::Drawing::Size(378, 78);
+			this->tableLayoutPanel3->Size = System::Drawing::Size(377, 78);
 			this->tableLayoutPanel3->TabIndex = 11;
 			// 
-			// label2
+			// labelPassword
 			// 
-			this->label2->Anchor = System::Windows::Forms::AnchorStyles::Left;
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->labelPassword->Anchor = System::Windows::Forms::AnchorStyles::Left;
+			this->labelPassword->AutoSize = true;
+			this->labelPassword->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::SystemColors::Control;
-			this->label2->Location = System::Drawing::Point(3, 46);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(113, 26);
-			this->label2->TabIndex = 11;
-			this->label2->Text = L"Password:";
+			this->labelPassword->ForeColor = System::Drawing::SystemColors::Control;
+			this->labelPassword->Location = System::Drawing::Point(3, 46);
+			this->labelPassword->Name = L"labelPassword";
+			this->labelPassword->Size = System::Drawing::Size(113, 26);
+			this->labelPassword->TabIndex = 11;
+			this->labelPassword->Text = L"Password:";
 			// 
 			// tableLayoutPanel1
 			// 
@@ -301,95 +315,95 @@ namespace KeychainProject {
 				49.5122F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50.4878F)));
-			this->tableLayoutPanel1->Controls->Add(this->textBox5, 1, 2);
-			this->tableLayoutPanel1->Controls->Add(this->textBox4, 1, 1);
-			this->tableLayoutPanel1->Controls->Add(this->label5, 0, 2);
-			this->tableLayoutPanel1->Controls->Add(this->label3, 0, 0);
-			this->tableLayoutPanel1->Controls->Add(this->label4, 0, 1);
-			this->tableLayoutPanel1->Controls->Add(this->textBox2, 1, 0);
-			this->tableLayoutPanel1->Location = System::Drawing::Point(442, 56);
+			this->tableLayoutPanel1->Controls->Add(this->tbConfirmPassword, 1, 2);
+			this->tableLayoutPanel1->Controls->Add(this->tbNewPassword, 1, 1);
+			this->tableLayoutPanel1->Controls->Add(this->labelConfirmPassword, 0, 2);
+			this->tableLayoutPanel1->Controls->Add(this->labelNewUsername, 0, 0);
+			this->tableLayoutPanel1->Controls->Add(this->labelNewPassword, 0, 1);
+			this->tableLayoutPanel1->Controls->Add(this->tbNewUsername, 1, 0);
+			this->tableLayoutPanel1->Location = System::Drawing::Point(441, 56);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 3;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 43)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(472, 123);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(473, 123);
 			this->tableLayoutPanel1->TabIndex = 12;
 			// 
-			// label3
+			// tbConfirmPassword
 			// 
-			this->label3->Anchor = System::Windows::Forms::AnchorStyles::Left;
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label3->ForeColor = System::Drawing::SystemColors::Control;
-			this->label3->Location = System::Drawing::Point(3, 7);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(119, 26);
-			this->label3->TabIndex = 11;
-			this->label3->Text = L"Username:";
-			// 
-			// label4
-			// 
-			this->label4->Anchor = System::Windows::Forms::AnchorStyles::Left;
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label4->ForeColor = System::Drawing::SystemColors::Control;
-			this->label4->Location = System::Drawing::Point(3, 47);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(113, 26);
-			this->label4->TabIndex = 12;
-			this->label4->Text = L"Password:";
-			// 
-			// label5
-			// 
-			this->label5->Anchor = System::Windows::Forms::AnchorStyles::Left;
-			this->label5->AutoSize = true;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label5->ForeColor = System::Drawing::SystemColors::Control;
-			this->label5->Location = System::Drawing::Point(3, 88);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(195, 26);
-			this->label5->TabIndex = 13;
-			this->label5->Text = L"Confirm Password:";
-			// 
-			// textBox4
-			// 
-			this->textBox4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->tbConfirmPassword->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBox4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
-				static_cast<System::Int32>(static_cast<System::Byte>(26)));
-			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox4->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->tbConfirmPassword->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)));
+			this->tbConfirmPassword->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->tbConfirmPassword->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox4->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->textBox4->Location = System::Drawing::Point(236, 43);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->PasswordChar = '*';
-			this->textBox4->Size = System::Drawing::Size(233, 32);
-			this->textBox4->TabIndex = 14;
-			this->textBox4->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			this->textBox4->WordWrap = false;
+			this->tbConfirmPassword->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->tbConfirmPassword->Location = System::Drawing::Point(237, 83);
+			this->tbConfirmPassword->Name = L"tbConfirmPassword";
+			this->tbConfirmPassword->PasswordChar = '*';
+			this->tbConfirmPassword->Size = System::Drawing::Size(233, 32);
+			this->tbConfirmPassword->TabIndex = 15;
+			this->tbConfirmPassword->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->tbConfirmPassword->WordWrap = false;
 			// 
-			// textBox5
+			// tbNewPassword
 			// 
-			this->textBox5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->tbNewPassword->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBox5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+			this->tbNewPassword->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
-			this->textBox5->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox5->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->tbNewPassword->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->tbNewPassword->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox5->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->textBox5->Location = System::Drawing::Point(236, 83);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->PasswordChar = '*';
-			this->textBox5->Size = System::Drawing::Size(233, 32);
-			this->textBox5->TabIndex = 15;
-			this->textBox5->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			this->textBox5->WordWrap = false;
+			this->tbNewPassword->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->tbNewPassword->Location = System::Drawing::Point(237, 43);
+			this->tbNewPassword->Name = L"tbNewPassword";
+			this->tbNewPassword->PasswordChar = '*';
+			this->tbNewPassword->Size = System::Drawing::Size(233, 32);
+			this->tbNewPassword->TabIndex = 14;
+			this->tbNewPassword->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->tbNewPassword->WordWrap = false;
+			// 
+			// labelConfirmPassword
+			// 
+			this->labelConfirmPassword->Anchor = System::Windows::Forms::AnchorStyles::Left;
+			this->labelConfirmPassword->AutoSize = true;
+			this->labelConfirmPassword->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->labelConfirmPassword->ForeColor = System::Drawing::SystemColors::Control;
+			this->labelConfirmPassword->Location = System::Drawing::Point(3, 88);
+			this->labelConfirmPassword->Name = L"labelConfirmPassword";
+			this->labelConfirmPassword->Size = System::Drawing::Size(195, 26);
+			this->labelConfirmPassword->TabIndex = 13;
+			this->labelConfirmPassword->Text = L"Confirm Password:";
+			// 
+			// labelNewUsername
+			// 
+			this->labelNewUsername->Anchor = System::Windows::Forms::AnchorStyles::Left;
+			this->labelNewUsername->AutoSize = true;
+			this->labelNewUsername->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->labelNewUsername->ForeColor = System::Drawing::SystemColors::Control;
+			this->labelNewUsername->Location = System::Drawing::Point(3, 7);
+			this->labelNewUsername->Name = L"labelNewUsername";
+			this->labelNewUsername->Size = System::Drawing::Size(119, 26);
+			this->labelNewUsername->TabIndex = 11;
+			this->labelNewUsername->Text = L"Username:";
+			// 
+			// labelNewPassword
+			// 
+			this->labelNewPassword->Anchor = System::Windows::Forms::AnchorStyles::Left;
+			this->labelNewPassword->AutoSize = true;
+			this->labelNewPassword->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->labelNewPassword->ForeColor = System::Drawing::SystemColors::Control;
+			this->labelNewPassword->Location = System::Drawing::Point(3, 47);
+			this->labelNewPassword->Name = L"labelNewPassword";
+			this->labelNewPassword->Size = System::Drawing::Size(113, 26);
+			this->labelNewPassword->TabIndex = 12;
+			this->labelNewPassword->Text = L"Password:";
 			// 
 			// tableLayoutPanel4
 			// 
@@ -400,10 +414,10 @@ namespace KeychainProject {
 			this->tableLayoutPanel4->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				12.67943F)));
 			this->tableLayoutPanel4->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				477)));
-			this->tableLayoutPanel4->Controls->Add(this->welcomeLabel, 0, 0);
+				478)));
+			this->tableLayoutPanel4->Controls->Add(this->labelWelcome, 0, 0);
 			this->tableLayoutPanel4->Controls->Add(this->btLogin, 0, 2);
-			this->tableLayoutPanel4->Controls->Add(this->createLabel, 2, 0);
+			this->tableLayoutPanel4->Controls->Add(this->labelCreate, 2, 0);
 			this->tableLayoutPanel4->Controls->Add(this->tableLayoutPanel1, 2, 1);
 			this->tableLayoutPanel4->Controls->Add(this->btCreate, 2, 2);
 			this->tableLayoutPanel4->Controls->Add(this->tableLayoutPanel3, 0, 1);
