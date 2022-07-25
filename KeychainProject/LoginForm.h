@@ -1,5 +1,11 @@
 #pragma once
+#include <msclr\marshal_cppstd.h>
 #include "User.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <fstream>
+#include "MyFunctions.h"
 
 namespace KeychainProject {
 
@@ -9,6 +15,7 @@ namespace KeychainProject {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace std;
 
 	/// <summary>
 	/// Summary for LoginForm
@@ -475,11 +482,11 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 	}
 }
 private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ newUser = this->tbNewUsername->Text;
-	String^ newPass = this->tbNewPassword->Text;
-	String^ newPassCon = this->tbConfirmPassword->Text;
+	string newUser = msclr::interop::marshal_as<std::string>(this->tbNewUsername->Text);
+	string newPass = msclr::interop::marshal_as<std::string>(this->tbNewPassword->Text);
+	string newPassCon = msclr::interop::marshal_as<std::string>(this->tbConfirmPassword->Text);
 
-	if (newUser->Length == 0 || newPass->Length == 0 || newPassCon->Length == 0) {
+	if (newUser.length() == 0 || newPass.length() == 0 || newPassCon.length() == 0) {
 		MessageBox::Show("Please enter your username and password", "Username or password is empty", MessageBoxButtons::OK);
 		return;
 	}
@@ -487,6 +494,22 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 	if (newPass != newPassCon) {
 		MessageBox::Show("Please make sure your passwords match", "Password mismatch", MessageBoxButtons::OK);
 		return;
+	}
+	else {
+		
+		fstream userFile;
+		if (exists_test(newUser + ".txt")) {
+			MessageBox::Show("This username is already taken. Please choose another one.", "Invalid username", MessageBoxButtons::OK);
+			return;
+		}
+		else {
+			userFile.open(newUser + ".txt", ios::out);
+			if (userFile.is_open()) {
+				userFile << newUser + "\n";
+				userFile << newPass + "\n";
+				userFile.close();
+		}
+		}
 	}
 }
 };
