@@ -473,11 +473,36 @@ namespace KeychainProject {
 
 
 private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ user = this->tbUsername->Text;
-	String^ pass = this->tbPassword->Text;
+	string user = msclr::interop::marshal_as<std::string>(this->tbUsername->Text);
+	string pass = msclr::interop::marshal_as<std::string>(this->tbPassword->Text);
+	string savedUser, savedPass;
 
-	if (user->Length == 0 || pass->Length == 0) {
+	if (user.length() == 0 || pass.length() == 0) {
 		MessageBox::Show("Please enter your username and password", "Username or password is empty", MessageBoxButtons::OK);
+		return;
+	}
+
+	fstream userFile;
+	if (exists_test(user + ".txt")) {
+		userFile.open(user + ".txt", ios::in);
+		if (userFile.is_open()) {
+			getline(userFile, savedUser);
+			getline(userFile, savedPass);
+			userFile.close();
+
+			if (user == savedUser && pass == savedPass) {
+				this->Close();
+				MessageBox::Show("You have succesfully logged in", "Login succesful", MessageBoxButtons::OK);
+				return;
+			}
+			else {
+				MessageBox::Show("Incorrect username or password", "Error", MessageBoxButtons::OK);
+				return;
+			}
+		}
+	}
+	else {
+		MessageBox::Show("Incorrect username or password", "Error", MessageBoxButtons::OK);
 		return;
 	}
 }
@@ -508,7 +533,8 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 				userFile << newUser + "\n";
 				userFile << newPass + "\n";
 				userFile.close();
-		}
+			}
+			this->Close();
 		}
 	}
 }
