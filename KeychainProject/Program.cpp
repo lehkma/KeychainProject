@@ -12,7 +12,10 @@ void main(array<String^>^ args)
 	//Application::Run(% loginForm);
 
 	loginForm.ShowDialog();
-
-	KeychainProject::MainForm mainForm;
-	Application::Run(% mainForm);
+	User^ usr = loginForm.usr;
+	
+	if (usr != nullptr) {
+		KeychainProject::MainForm mainForm;
+		Application::Run(% mainForm);
+	}
 }

@@ -471,6 +471,7 @@ namespace KeychainProject {
 
 
 
+public: User^ usr = nullptr;
 
 private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e) {
 	string user = msclr::interop::marshal_as<std::string>(this->tbUsername->Text);
@@ -491,9 +492,12 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 			userFile.close();
 
 			if (user == savedUser && pass == savedPass) {
+				//MessageBox::Show("You have succesfully logged in", "Login succesful", MessageBoxButtons::OK);
+				usr = gcnew User;
+				usr->username = this->tbUsername->Text;
+				usr->password = this->tbPassword->Text;
+
 				this->Close();
-				MessageBox::Show("You have succesfully logged in", "Login succesful", MessageBoxButtons::OK);
-				return;
 			}
 			else {
 				MessageBox::Show("Incorrect username or password", "Error", MessageBoxButtons::OK);
@@ -534,7 +538,11 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 				userFile << newPass + "\n";
 				userFile.close();
 			}
-			this->Close();
+
+			this->tbNewUsername->Text = "";
+			this->tbNewPassword->Text = "";
+			this->tbConfirmPassword->Text = "";
+			MessageBox::Show("You have succesfully signed up. Log in to continue.", "Sign up successful", MessageBoxButtons::OK);
 		}
 	}
 }
