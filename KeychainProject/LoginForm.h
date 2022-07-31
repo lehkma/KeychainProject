@@ -6,6 +6,8 @@
 #include <string>
 #include <fstream>
 #include "MyFunctions.h"
+#include <json/value.h>
+#include <json/json.h>
 
 namespace KeychainProject {
 
@@ -474,10 +476,12 @@ namespace KeychainProject {
 public: User^ usr = nullptr;
 
 private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e) {
+	//getting data from the login textboxes + init
 	string user = msclr::interop::marshal_as<std::string>(this->tbUsername->Text);
 	string pass = msclr::interop::marshal_as<std::string>(this->tbPassword->Text);
 	string savedUser, savedPass;
 
+	//empty check
 	if (user.length() == 0 || pass.length() == 0) {
 		MessageBox::Show("Please enter your username and password", "Username or password is empty", MessageBoxButtons::OK);
 		return;
@@ -511,38 +515,49 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 	}
 }
 private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ e) {
+	//getting data from the sign up textboxes
 	string newUser = msclr::interop::marshal_as<std::string>(this->tbNewUsername->Text);
 	string newPass = msclr::interop::marshal_as<std::string>(this->tbNewPassword->Text);
 	string newPassCon = msclr::interop::marshal_as<std::string>(this->tbConfirmPassword->Text);
 
+	//empty check
 	if (newUser.length() == 0 || newPass.length() == 0 || newPassCon.length() == 0) {
 		MessageBox::Show("Please enter your username and password", "Username or password is empty", MessageBoxButtons::OK);
 		return;
 	}
 
+	//mismatching passwords check
 	if (newPass != newPassCon) {
 		MessageBox::Show("Please make sure your passwords match", "Password mismatch", MessageBoxButtons::OK);
 		return;
 	}
 	else {
 		
-		fstream userFile;
-		if (exists_test(newUser + ".txt")) {
+		//fstream userFile;
+
+		//taken username check
+		if (exists_test(newUser + ".json")) {
 			MessageBox::Show("This username is already taken. Please choose another one.", "Invalid username", MessageBoxButtons::OK);
 			return;
 		}
 		else {
-			userFile.open(newUser + ".txt", ios::out);
-			if (userFile.is_open()) {
-				userFile << newUser + "\n";
-				userFile << newPass + "\n";
-				userFile.close();
-			}
+			//creating json file and writing in the login details
+			Json::Value actualJson;
+			actualJson["login"]["username"] = newUser;
+			actualJson["login"]["password"] = newPass;
 
+			//writing json data into a file
+			ofstream outfile("Data/" + newUser + ".json"); 
+			Json::StyledWriter styledWriter;
+			outfile << styledWriter.write(actualJson);
+			outfile.close();
+
+			//emptying the textboxes after succesful sign up
 			this->tbNewUsername->Text = "";
 			this->tbNewPassword->Text = "";
 			this->tbConfirmPassword->Text = "";
 			MessageBox::Show("You have succesfully signed up. Log in to continue.", "Sign up successful", MessageBoxButtons::OK);
+			return;
 		}
 	}
 }
