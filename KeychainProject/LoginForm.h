@@ -551,6 +551,13 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 			actualJson["login"]["username"] = newUser;
 			actualJson["login"]["password"] = newPass;
 
+			//adding default categories to the json file
+			Json::Value def_cat;
+			Json::Reader reader;
+			string content = "[[\"card\", \"description\", \"number\", \"CVV\", \"type\"], [\"web_login\", \"website\", \"username\",\"password\"], [\"phone\", \"description\", \"number\", \"PIN\", \"operator\"]]";
+			reader.parse(content.c_str(), def_cat);
+			actualJson["content"] = def_cat;
+
 			//writing json data into a file
 			ofstream outfile("Data/" + newUser + ".json"); 
 			Json::StyledWriter styledWriter;
