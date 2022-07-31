@@ -487,29 +487,37 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 		return;
 	}
 
-	fstream userFile;
-	if (exists_test(user + ".txt")) {
-		userFile.open(user + ".txt", ios::in);
-		if (userFile.is_open()) {
-			getline(userFile, savedUser);
-			getline(userFile, savedPass);
-			userFile.close();
+	//if the user exists, check his password
+	if (exists_test("Data/" + user + ".json")) {
+		//open a json file and create the json object
+		ifstream infile("Data/" + user + ".json");
+		Json::Value actualJson;
+		Json::Reader reader;
+		reader.parse(infile, actualJson);
 
-			if (user == savedUser && pass == savedPass) {
-				//MessageBox::Show("You have succesfully logged in", "Login succesful", MessageBoxButtons::OK);
-				usr = gcnew User;
-				usr->username = this->tbUsername->Text;
-				usr->password = this->tbPassword->Text;
+		//get the saved details from the json file, close the file
+		savedUser = actualJson["login"]["username"].asString();
+		savedPass = actualJson["login"]["password"].asString();
+		infile.close();
 
-				this->Close();
-			}
-			else {
-				MessageBox::Show("Incorrect username or password", "Error", MessageBoxButtons::OK);
-				return;
-			}
+		//compare the saved details with the ones provided by the user
+		if (user == savedUser && pass == savedPass) {
+			//login successful, create the object of logged in user
+			usr = gcnew User;
+			usr->username = this->tbUsername->Text;
+			usr->password = this->tbPassword->Text;
+			
+			//close the login form
+			this->Close();
+		}
+		else {
+			//incorrect password check
+			MessageBox::Show("Incorrect username or password", "Error", MessageBoxButtons::OK);
+			return;
 		}
 	}
 	else {
+		//non-existing user check
 		MessageBox::Show("Incorrect username or password", "Error", MessageBoxButtons::OK);
 		return;
 	}
@@ -532,11 +540,8 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 		return;
 	}
 	else {
-		
-		//fstream userFile;
-
 		//taken username check
-		if (exists_test(newUser + ".json")) {
+		if (exists_test("Data/" + newUser + ".json")) {
 			MessageBox::Show("This username is already taken. Please choose another one.", "Invalid username", MessageBoxButtons::OK);
 			return;
 		}
@@ -552,7 +557,7 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 			outfile << styledWriter.write(actualJson);
 			outfile.close();
 
-			//emptying the textboxes after succesful sign up
+			//emptying the textboxes after successful sign up
 			this->tbNewUsername->Text = "";
 			this->tbNewPassword->Text = "";
 			this->tbConfirmPassword->Text = "";
