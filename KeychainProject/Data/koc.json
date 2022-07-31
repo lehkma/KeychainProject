@@ -1,0 +1,11 @@
+{
+   "content" : [
+      [ "card", "description", "number", "CVV", "type" ],
+      [ "web_login", "website", "username", "password" ],
+      [ "phone", "description", "number", "PIN", "operator" ]
+   ],
+   "login" : {
+      "password" : "pes",
+      "username" : "koc"
+   }
+}

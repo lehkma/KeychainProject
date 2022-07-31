@@ -15,7 +15,7 @@ void main(array<String^>^ args)
 	User^ usr = loginForm.usr;
 	
 	if (usr != nullptr) {
-		KeychainProject::MainForm mainForm;
+		KeychainProject::MainForm mainForm(usr);
 		Application::Run(% mainForm);
 	}
 }

@@ -86,15 +86,6 @@ namespace KeychainProject {
 
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel4;
 
-
-
-
-
-
-
-
-
-
 	protected:
 
 	protected:
