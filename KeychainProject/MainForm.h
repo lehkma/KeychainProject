@@ -6,6 +6,7 @@
 #include <string>
 #include <json/value.h>
 #include <json/json.h>
+#include "AddNewDataForm.h"
 
 namespace KeychainProject {
 
@@ -27,8 +28,8 @@ namespace KeychainProject {
 		MainForm(User^ usr)
 		{
 			//constructor code here: passing the object User
-			InitializeComponent();
 			user = usr;
+			InitializeComponent();
 		}
 
 	protected:
@@ -95,7 +96,7 @@ namespace KeychainProject {
 			this->labelYourData->ForeColor = System::Drawing::SystemColors::Control;
 			this->labelYourData->Location = System::Drawing::Point(12, 74);
 			this->labelYourData->Name = L"labelYourData";
-			this->labelYourData->Size = System::Drawing::Size(869, 58);
+			this->labelYourData->Size = System::Drawing::Size(760, 58);
 			this->labelYourData->TabIndex = 0;
 			this->labelYourData->Text = L"Your Data";
 			this->labelYourData->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -119,11 +120,11 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->tableLayoutPanel1->ColumnCount = 3;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				11.47799F)));
+				14.0511F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				88.52201F)));
+				85.94891F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				156)));
+				157)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelView, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxView, 1, 0);
@@ -131,7 +132,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 1;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(826, 51);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(717, 51);
 			this->tableLayoutPanel1->TabIndex = 2;
 			// 
 			// btOK
@@ -140,9 +141,9 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(672, 3);
+			this->btOK->Location = System::Drawing::Point(562, 3);
 			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(151, 45);
+			this->btOK->Size = System::Drawing::Size(152, 45);
 			this->btOK->TabIndex = 5;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
@@ -157,9 +158,9 @@ namespace KeychainProject {
 			this->comboBoxView->FormattingEnabled = true;
 			this->comboBoxView->IntegralHeight = false;
 			this->comboBoxView->ItemHeight = 26;
-			this->comboBoxView->Location = System::Drawing::Point(79, 8);
+			this->comboBoxView->Location = System::Drawing::Point(81, 8);
 			this->comboBoxView->Name = L"comboBoxView";
-			this->comboBoxView->Size = System::Drawing::Size(587, 34);
+			this->comboBoxView->Size = System::Drawing::Size(475, 34);
 			this->comboBoxView->TabIndex = 2;
 			// 
 			// tableLayoutPanel2
@@ -176,7 +177,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel2->RowCount = 2;
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50.49505F)));
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 49.50495F)));
-			this->tableLayoutPanel2->Size = System::Drawing::Size(832, 115);
+			this->tableLayoutPanel2->Size = System::Drawing::Size(723, 115);
 			this->tableLayoutPanel2->TabIndex = 3;
 			// 
 			// tableLayoutPanel3
@@ -191,7 +192,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel3->Name = L"tableLayoutPanel3";
 			this->tableLayoutPanel3->RowCount = 1;
 			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel3->Size = System::Drawing::Size(826, 52);
+			this->tableLayoutPanel3->Size = System::Drawing::Size(717, 52);
 			this->tableLayoutPanel3->TabIndex = 5;
 			// 
 			// btAddNewData
@@ -202,10 +203,11 @@ namespace KeychainProject {
 				static_cast<System::Byte>(0)));
 			this->btAddNewData->Location = System::Drawing::Point(3, 3);
 			this->btAddNewData->Name = L"btAddNewData";
-			this->btAddNewData->Size = System::Drawing::Size(820, 46);
+			this->btAddNewData->Size = System::Drawing::Size(711, 46);
 			this->btAddNewData->TabIndex = 4;
 			this->btAddNewData->Text = L"+ Add New Data";
 			this->btAddNewData->UseVisualStyleBackColor = true;
+			this->btAddNewData->Click += gcnew System::EventHandler(this, &MainForm::btAddNewData_Click);
 			// 
 			// labelUsername
 			// 
@@ -213,7 +215,7 @@ namespace KeychainProject {
 			this->labelUsername->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->labelUsername->ForeColor = System::Drawing::SystemColors::Control;
-			this->labelUsername->Location = System::Drawing::Point(473, 27);
+			this->labelUsername->Location = System::Drawing::Point(360, 30);
 			this->labelUsername->Name = L"labelUsername";
 			this->labelUsername->Size = System::Drawing::Size(319, 23);
 			this->labelUsername->TabIndex = 4;
@@ -226,11 +228,12 @@ namespace KeychainProject {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
-			this->ClientSize = System::Drawing::Size(893, 665);
+			this->ClientSize = System::Drawing::Size(784, 678);
 			this->Controls->Add(this->labelUsername);
 			this->Controls->Add(this->tableLayoutPanel2);
 			this->Controls->Add(this->labelYourData);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+			this->MinimumSize = System::Drawing::Size(800, 0);
 			this->Name = L"MainForm";
 			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			this->tableLayoutPanel1->ResumeLayout(false);
@@ -261,6 +264,11 @@ private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e
 		comboBoxView->Items->Add(newSystemString);
 		i += 1;
 	}
+}
+private: System::Void btAddNewData_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Hide();
+	AddNewDataForm^ addForm = gcnew AddNewDataForm(user, this);
+	addForm->ShowDialog();
 }
 };
 }
