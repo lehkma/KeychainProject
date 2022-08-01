@@ -6,6 +6,7 @@
 #include <string>
 #include <json/value.h>
 #include <json/json.h>
+#include "CustomCatForm.h"
 
 namespace KeychainProject {
 
@@ -15,6 +16,7 @@ namespace KeychainProject {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace std;
 
 	/// <summary>
 	/// Summary for AddNewDataForm
@@ -145,6 +147,7 @@ namespace KeychainProject {
 			this->btCreateCustomCat->TabIndex = 4;
 			this->btCreateCustomCat->Text = L"+ Create Custom Category";
 			this->btCreateCustomCat->UseVisualStyleBackColor = true;
+			this->btCreateCustomCat->Click += gcnew System::EventHandler(this, &AddNewDataForm::btCreateCustomCat_Click);
 			// 
 			// tableLayoutPanel1
 			// 
@@ -156,7 +159,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				85.94891F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				159)));
+				162)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelAdd, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxAdd, 1, 0);
@@ -173,9 +176,9 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(560, 3);
+			this->btOK->Location = System::Drawing::Point(557, 3);
 			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(154, 45);
+			this->btOK->Size = System::Drawing::Size(157, 45);
 			this->btOK->TabIndex = 5;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
@@ -203,9 +206,9 @@ namespace KeychainProject {
 			this->comboBoxAdd->FormattingEnabled = true;
 			this->comboBoxAdd->IntegralHeight = false;
 			this->comboBoxAdd->ItemHeight = 26;
-			this->comboBoxAdd->Location = System::Drawing::Point(81, 8);
+			this->comboBoxAdd->Location = System::Drawing::Point(80, 8);
 			this->comboBoxAdd->Name = L"comboBoxAdd";
-			this->comboBoxAdd->Size = System::Drawing::Size(473, 34);
+			this->comboBoxAdd->Size = System::Drawing::Size(471, 34);
 			this->comboBoxAdd->TabIndex = 2;
 			// 
 			// labelUsername
@@ -247,6 +250,7 @@ namespace KeychainProject {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->MinimumSize = System::Drawing::Size(800, 39);
 			this->Name = L"AddNewDataForm";
+			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &AddNewDataForm::AddNewDataForm_FormClosed);
 			this->Load += gcnew System::EventHandler(this, &AddNewDataForm::AddNewDataForm_Load);
 			this->tableLayoutPanel2->ResumeLayout(false);
 			this->tableLayoutPanel3->ResumeLayout(false);
@@ -258,10 +262,38 @@ namespace KeychainProject {
 
 private: System::Void AddNewDataForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	labelUsername->Text = user->username;
+
+	//get the username in std string format
+	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
+
+	//all saved categories will be loaded into the combobox
+	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
+	Json::Value actualJson;
+	Json::Reader reader;
+	reader.parse(ifile, actualJson);
+
+	int i = 0; //loading the data into combobox
+	while (actualJson["content"][i][0]) {
+		string stdDataString = actualJson["content"][i][0].asString();
+		String^ newSystemString = gcnew String(stdDataString.c_str());
+		comboBoxAdd->Items->Add(newSystemString);
+		i += 1;
+	}
 }
 private: System::Void btBack_Click(System::Object^ sender, System::EventArgs^ e) {
+	//redirecting user to the previous main form 
 	this->Close();
 	mainForm->Show();
+}
+private: System::Void AddNewDataForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
+	//if user closes this form, he is returned to the previous one
+	mainForm->Show();
+}
+private: System::Void btCreateCustomCat_Click(System::Object^ sender, System::EventArgs^ e) {
+	//displaying the form for creating a custom category
+	this->Hide();
+	CustomCatForm^ ccForm = gcnew CustomCatForm(user, this);
+	ccForm->ShowDialog();
 }
 };
 }

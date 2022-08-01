@@ -125,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AddNewDataForm.cpp" />
+    <ClCompile Include="CustomCatForm.cpp" />
     <ClCompile Include="Json_lib\dist\jsoncpp.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MainForm.cpp" />
@@ -132,6 +133,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddNewDataForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CustomCatForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Json_lib\dist\json\json-forwards.h" />
@@ -148,6 +152,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AddNewDataForm.resx">
       <DependentUpon>AddNewDataForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomCatForm.resx">
+      <DependentUpon>CustomCatForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.h</DependentUpon>

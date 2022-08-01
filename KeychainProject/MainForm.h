@@ -266,6 +266,7 @@ private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e
 	}
 }
 private: System::Void btAddNewData_Click(System::Object^ sender, System::EventArgs^ e) {
+	//displaying the form for adding new data
 	this->Hide();
 	AddNewDataForm^ addForm = gcnew AddNewDataForm(user, this);
 	addForm->ShowDialog();
