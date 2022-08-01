@@ -31,6 +31,8 @@ namespace KeychainProject {
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
 	private: System::Windows::Forms::PictureBox^ toolTipBox;
 	private: System::Windows::Forms::ToolTip^ toolTip1;
+	private: System::Windows::Forms::TextBox^ tbParameters;
+	private: System::Windows::Forms::Button^ btCreate;
 
 	public:
 		Form^ addNewDataForm;
@@ -81,10 +83,12 @@ namespace KeychainProject {
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->tbCatName = (gcnew System::Windows::Forms::TextBox());
-			this->labelParameters = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->labelParameters = (gcnew System::Windows::Forms::Label());
 			this->toolTipBox = (gcnew System::Windows::Forms::PictureBox());
+			this->tbParameters = (gcnew System::Windows::Forms::TextBox());
 			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
+			this->btCreate = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->tableLayoutPanel2->SuspendLayout();
 			this->tableLayoutPanel3->SuspendLayout();
@@ -132,7 +136,8 @@ namespace KeychainProject {
 			// 
 			// labelCatName
 			// 
-			this->labelCatName->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom));
+			this->labelCatName->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left));
 			this->labelCatName->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->labelCatName->ForeColor = System::Drawing::SystemColors::Control;
@@ -152,14 +157,19 @@ namespace KeychainProject {
 				25.72614F)));
 			this->tableLayoutPanel1->Controls->Add(this->tableLayoutPanel2, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->tableLayoutPanel3, 0, 2);
+			this->tableLayoutPanel1->Controls->Add(this->tbParameters, 0, 3);
 			this->tableLayoutPanel1->Location = System::Drawing::Point(30, 155);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 4;
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 62.5F)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 37.5F)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 42)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 177)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(723, 285);
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 70.49181F)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 29.5082F)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 43)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 231)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
+			this->tableLayoutPanel1->Size = System::Drawing::Size(723, 336);
 			this->tableLayoutPanel1->TabIndex = 10;
 			// 
 			// tableLayoutPanel2
@@ -197,6 +207,24 @@ namespace KeychainProject {
 			this->tbCatName->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->tbCatName->WordWrap = false;
 			// 
+			// tableLayoutPanel3
+			// 
+			this->tableLayoutPanel3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->tableLayoutPanel3->ColumnCount = 2;
+			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				94.83961F)));
+			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				5.16039F)));
+			this->tableLayoutPanel3->Controls->Add(this->labelParameters, 0, 0);
+			this->tableLayoutPanel3->Controls->Add(this->toolTipBox, 1, 0);
+			this->tableLayoutPanel3->Location = System::Drawing::Point(3, 64);
+			this->tableLayoutPanel3->Name = L"tableLayoutPanel3";
+			this->tableLayoutPanel3->RowCount = 1;
+			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel3->Size = System::Drawing::Size(717, 37);
+			this->tableLayoutPanel3->TabIndex = 12;
+			// 
 			// labelParameters
 			// 
 			this->labelParameters->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
@@ -206,39 +234,51 @@ namespace KeychainProject {
 			this->labelParameters->ForeColor = System::Drawing::SystemColors::Control;
 			this->labelParameters->Location = System::Drawing::Point(3, 0);
 			this->labelParameters->Name = L"labelParameters";
-			this->labelParameters->Size = System::Drawing::Size(288, 36);
+			this->labelParameters->Size = System::Drawing::Size(300, 37);
 			this->labelParameters->TabIndex = 11;
 			this->labelParameters->Text = L"Write Your Parameters Here:";
 			this->labelParameters->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			// 
-			// tableLayoutPanel3
-			// 
-			this->tableLayoutPanel3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->tableLayoutPanel3->ColumnCount = 2;
-			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				41.00418F)));
-			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				58.99582F)));
-			this->tableLayoutPanel3->Controls->Add(this->labelParameters, 0, 0);
-			this->tableLayoutPanel3->Controls->Add(this->toolTipBox, 1, 0);
-			this->tableLayoutPanel3->Location = System::Drawing::Point(3, 68);
-			this->tableLayoutPanel3->Name = L"tableLayoutPanel3";
-			this->tableLayoutPanel3->RowCount = 1;
-			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel3->Size = System::Drawing::Size(717, 36);
-			this->tableLayoutPanel3->TabIndex = 12;
-			// 
 			// toolTipBox
 			// 
+			this->toolTipBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left));
 			this->toolTipBox->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"toolTipBox.Image")));
-			this->toolTipBox->Location = System::Drawing::Point(297, 3);
+			this->toolTipBox->Location = System::Drawing::Point(683, 3);
 			this->toolTipBox->Name = L"toolTipBox";
-			this->toolTipBox->Size = System::Drawing::Size(30, 30);
+			this->toolTipBox->Size = System::Drawing::Size(30, 31);
 			this->toolTipBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->toolTipBox->TabIndex = 12;
 			this->toolTipBox->TabStop = false;
 			this->toolTip1->SetToolTip(this->toolTipBox, resources->GetString(L"toolTipBox.ToolTip"));
+			// 
+			// tbParameters
+			// 
+			this->tbParameters->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->tbParameters->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(26)));
+			this->tbParameters->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->tbParameters->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->tbParameters->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->tbParameters->Location = System::Drawing::Point(3, 107);
+			this->tbParameters->Multiline = true;
+			this->tbParameters->Name = L"tbParameters";
+			this->tbParameters->Size = System::Drawing::Size(717, 226);
+			this->tbParameters->TabIndex = 11;
+			// 
+			// btCreate
+			// 
+			this->btCreate->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btCreate->Location = System::Drawing::Point(600, 512);
+			this->btCreate->Name = L"btCreate";
+			this->btCreate->Size = System::Drawing::Size(153, 45);
+			this->btCreate->TabIndex = 11;
+			this->btCreate->Text = L"Create";
+			this->btCreate->UseVisualStyleBackColor = true;
+			this->btCreate->Click += gcnew System::EventHandler(this, &CustomCatForm::btCreate_Click);
 			// 
 			// CustomCatForm
 			// 
@@ -246,17 +286,20 @@ namespace KeychainProject {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
-			this->ClientSize = System::Drawing::Size(784, 629);
+			this->ClientSize = System::Drawing::Size(784, 585);
+			this->Controls->Add(this->btCreate);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->btBack);
 			this->Controls->Add(this->labelCreateCustomCat);
 			this->Controls->Add(this->labelUsername);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
-			this->MinimumSize = System::Drawing::Size(800, 39);
+			this->MaximumSize = System::Drawing::Size(800, 624);
+			this->MinimumSize = System::Drawing::Size(800, 624);
 			this->Name = L"CustomCatForm";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &CustomCatForm::CustomCatForm_FormClosed);
 			this->Load += gcnew System::EventHandler(this, &CustomCatForm::CustomCatForm_Load);
 			this->tableLayoutPanel1->ResumeLayout(false);
+			this->tableLayoutPanel1->PerformLayout();
 			this->tableLayoutPanel2->ResumeLayout(false);
 			this->tableLayoutPanel2->PerformLayout();
 			this->tableLayoutPanel3->ResumeLayout(false);
@@ -277,7 +320,37 @@ private: System::Void CustomCatForm_FormClosed(System::Object^ sender, System::W
 	//if user closes this form, he is returned to the previous one
 	//addNewDataForm->Show();
 }
+private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ e) {
+	//get the data from the textboxes to std strings
+	string catName = msclr::interop::marshal_as<std::string>(this->tbCatName->Text);
+	string parameters = msclr::interop::marshal_as<std::string>(this->tbParameters->Text);
 
+	//empty check
+	if (catName.length() == 0 || parameters.length() == 0) {
+		MessageBox::Show("Please enter the name of your category and specify the parameters below", "Name or parameters are empty", MessageBoxButtons::OK);
+		return;
+	}
 
+	//name length check
+	if (catName.length() > 16) {
+		MessageBox::Show("Please make sure the name of your category is shorter than 16 characters", "Category name is too long", MessageBoxButtons::OK);
+		return;
+	}
+
+	//duplicity check
+	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
+	ifstream ifile("Data/" + stringUser + ".json"); //reading data from the user file
+	Json::Value actualJson;
+	Json::Reader reader;
+	reader.parse(ifile, actualJson);
+
+	int i = 0;
+	while (actualJson["content"][i][0]) {
+		if (actualJson["content"][i][0].asString() == catName) {
+			MessageBox::Show("Category with this name alredy exists. Please change the name.", "Existing category", MessageBoxButtons::OK);
+			return;
+		}
+	}
+}
 };
 }
