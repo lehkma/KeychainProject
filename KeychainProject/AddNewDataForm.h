@@ -159,7 +159,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				85.94891F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				162)));
+				163)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelAdd, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxAdd, 1, 0);
@@ -176,9 +176,9 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(557, 3);
+			this->btOK->Location = System::Drawing::Point(556, 3);
 			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(157, 45);
+			this->btOK->Size = System::Drawing::Size(158, 45);
 			this->btOK->TabIndex = 5;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
@@ -208,7 +208,7 @@ namespace KeychainProject {
 			this->comboBoxAdd->ItemHeight = 26;
 			this->comboBoxAdd->Location = System::Drawing::Point(80, 8);
 			this->comboBoxAdd->Name = L"comboBoxAdd";
-			this->comboBoxAdd->Size = System::Drawing::Size(471, 34);
+			this->comboBoxAdd->Size = System::Drawing::Size(470, 34);
 			this->comboBoxAdd->TabIndex = 2;
 			// 
 			// labelUsername
@@ -283,15 +283,15 @@ private: System::Void AddNewDataForm_Load(System::Object^ sender, System::EventA
 private: System::Void btBack_Click(System::Object^ sender, System::EventArgs^ e) {
 	//redirecting user to the previous main form 
 	this->Close();
-	mainForm->Show();
+	//mainForm->Show();
 }
 private: System::Void AddNewDataForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
 	//if user closes this form, he is returned to the previous one
-	mainForm->Show();
+	//mainForm->Show();
 }
 private: System::Void btCreateCustomCat_Click(System::Object^ sender, System::EventArgs^ e) {
 	//displaying the form for creating a custom category
-	this->Hide();
+	//this->Hide();
 	CustomCatForm^ ccForm = gcnew CustomCatForm(user, this);
 	ccForm->ShowDialog();
 }

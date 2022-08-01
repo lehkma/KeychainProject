@@ -131,11 +131,11 @@ namespace KeychainProject {
 private: System::Void btBack_Click(System::Object^ sender, System::EventArgs^ e) {
 	//redirecting user to the previous form: the add new data form
 	this->Close();
-	addNewDataForm->Show();
+	//addNewDataForm->Show();
 }
 private: System::Void CustomCatForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
 	//if user closes this form, he is returned to the previous one
-	addNewDataForm->Show();
+	//addNewDataForm->Show();
 }
 };
 }
