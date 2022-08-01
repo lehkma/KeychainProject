@@ -31,7 +31,6 @@ namespace KeychainProject {
 			user = usr;
 			InitializeComponent();
 		}
-
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -47,19 +46,13 @@ namespace KeychainProject {
 	private: System::Windows::Forms::Label^ labelView;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::ComboBox^ comboBoxView;
-
-
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
 	private: System::Windows::Forms::Button^ btAddNewData;
 	private: System::Windows::Forms::Button^ btOK;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
 	private: System::Windows::Forms::Label^ labelUsername;
-
 	protected:
-
-
 	protected:
-
 	private:
 		/// <summary>
 		/// Required designer variable.

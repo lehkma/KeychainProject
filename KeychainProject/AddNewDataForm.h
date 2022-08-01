@@ -46,21 +46,16 @@ namespace KeychainProject {
 		}
 	private: System::Windows::Forms::Label^ labelAddNewData;
 	protected:
-
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
 	private: System::Windows::Forms::Button^ btCreateCustomCat;
-
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::Button^ btOK;
 	private: System::Windows::Forms::Label^ labelAdd;
 	private: System::Windows::Forms::ComboBox^ comboBoxAdd;
-
-
 	private: System::Windows::Forms::Label^ labelUsername;
 	private: System::Windows::Forms::Button^ btBack;
 	protected:
-
 	private:
 		/// <summary>
 		/// Required designer variable.

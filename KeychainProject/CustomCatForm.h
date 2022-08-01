@@ -56,16 +56,13 @@ namespace KeychainProject {
 		}
 	private: System::Windows::Forms::Label^ labelUsername;
 	private: System::Windows::Forms::Label^ labelCreateCustomCat;
-
 	private: System::Windows::Forms::Button^ btBack;
 	private: System::ComponentModel::IContainer^ components;
 	protected:
-
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -382,7 +379,6 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 	
 	this->Close();
 	return;
-
 }
 };
 }
