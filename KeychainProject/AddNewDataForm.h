@@ -251,6 +251,7 @@ namespace KeychainProject {
 			this->MaximumSize = System::Drawing::Size(800, 345);
 			this->MinimumSize = System::Drawing::Size(800, 345);
 			this->Name = L"AddNewDataForm";
+			this->Activated += gcnew System::EventHandler(this, &AddNewDataForm::AddNewDataForm_Activated);
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &AddNewDataForm::AddNewDataForm_FormClosed);
 			this->Load += gcnew System::EventHandler(this, &AddNewDataForm::AddNewDataForm_Load);
 			this->tableLayoutPanel2->ResumeLayout(false);
@@ -263,23 +264,6 @@ namespace KeychainProject {
 
 private: System::Void AddNewDataForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	labelUsername->Text = user->username;
-
-	//get the username in std string format
-	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
-
-	//all saved categories will be loaded into the combobox
-	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
-	Json::Value actualJson;
-	Json::Reader reader;
-	reader.parse(ifile, actualJson);
-
-	int i = 0; //loading the data into combobox
-	while (actualJson["content"][i][0]) {
-		string stdDataString = actualJson["content"][i][0].asString();
-		String^ newSystemString = gcnew String(stdDataString.c_str());
-		comboBoxAdd->Items->Add(newSystemString);
-		i += 1;
-	}
 }
 private: System::Void btBack_Click(System::Object^ sender, System::EventArgs^ e) {
 	//redirecting user to the previous main form 
@@ -295,6 +279,25 @@ private: System::Void btCreateCustomCat_Click(System::Object^ sender, System::Ev
 	//this->Hide();
 	CustomCatForm^ ccForm = gcnew CustomCatForm(user, this);
 	ccForm->ShowDialog();
+}
+private: System::Void AddNewDataForm_Activated(System::Object^ sender, System::EventArgs^ e) {
+	//get the username in std string format
+	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
+
+	//all saved categories will be loaded into the combobox
+	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
+	Json::Value actualJson;
+	Json::Reader reader;
+	reader.parse(ifile, actualJson);
+
+	comboBoxAdd->Items->Clear();
+	int i = 0; //loading the data into combobox
+	while (actualJson["content"][i][0]) {
+		string stdDataString = actualJson["content"][i][0].asString();
+		String^ newSystemString = gcnew String(stdDataString.c_str());
+		comboBoxAdd->Items->Add(newSystemString);
+		i += 1;
+	}
 }
 };
 }

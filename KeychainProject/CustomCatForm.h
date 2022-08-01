@@ -343,14 +343,46 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 	Json::Value actualJson;
 	Json::Reader reader;
 	reader.parse(ifile, actualJson);
+	ifile.close();
 
 	int i = 0;
 	while (actualJson["content"][i][0]) {
 		if (actualJson["content"][i][0].asString() == catName) {
-			MessageBox::Show("Category with this name alredy exists. Please change the name.", "Existing category", MessageBoxButtons::OK);
+			MessageBox::Show("Category with this name already exists. Please change the name.", "Existing category", MessageBoxButtons::OK);
 			return;
 		}
+		i += 1;
 	}
+
+	//load the name of the category to json
+	actualJson["content"][i][0] = catName;
+
+	//getting the parameters names from the textbox
+	parameters.erase(remove(parameters.begin(), parameters.end(), ' '), parameters.end());
+	size_t pos = 0;
+	int j = 1;
+	string name;
+	while ((pos = parameters.find(";")) != string::npos) {
+		name = parameters.substr(0, pos);
+		if (name != "") {
+			actualJson["content"][i][j] = name;
+			j += 1;
+		}
+		parameters.erase(0, pos + 1);
+	}
+	if (parameters != "") {
+		actualJson["content"][i][j] = parameters;
+	}
+	
+	//writing json data into the file
+	ofstream ofile("Data/" + stringUser + ".json"); 
+	Json::StyledWriter styledWriter;
+	ofile << styledWriter.write(actualJson);
+	ofile.close();
+	
+	this->Close();
+	return;
+
 }
 };
 }

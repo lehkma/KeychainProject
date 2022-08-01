@@ -235,6 +235,7 @@ namespace KeychainProject {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->MinimumSize = System::Drawing::Size(800, 39);
 			this->Name = L"MainForm";
+			this->Activated += gcnew System::EventHandler(this, &MainForm::MainForm_Activated);
 			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel2->ResumeLayout(false);
@@ -247,7 +248,14 @@ namespace KeychainProject {
 private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	//label on top is set to be the username of the logged in user
 	labelUsername->Text = user->username;
-
+}
+private: System::Void btAddNewData_Click(System::Object^ sender, System::EventArgs^ e) {
+	//displaying the form for adding new data
+	//this->Hide();
+	AddNewDataForm^ addForm = gcnew AddNewDataForm(user, this);
+	addForm->ShowDialog();
+}
+private: System::Void MainForm_Activated(System::Object^ sender, System::EventArgs^ e) {
 	//get the username in std string format
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
 
@@ -257,6 +265,7 @@ private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e
 	Json::Reader reader;
 	reader.parse(ifile, actualJson);
 
+	comboBoxView->Items->Clear();
 	int i = 0; //loading the data into combobox
 	while (actualJson["content"][i][0]) {
 		string stdDataString = actualJson["content"][i][0].asString();
@@ -264,12 +273,6 @@ private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e
 		comboBoxView->Items->Add(newSystemString);
 		i += 1;
 	}
-}
-private: System::Void btAddNewData_Click(System::Object^ sender, System::EventArgs^ e) {
-	//displaying the form for adding new data
-	//this->Hide();
-	AddNewDataForm^ addForm = gcnew AddNewDataForm(user, this);
-	addForm->ShowDialog();
 }
 };
 }
