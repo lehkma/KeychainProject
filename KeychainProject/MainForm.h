@@ -1,5 +1,11 @@
 #pragma once
+#include <msclr\marshal_cppstd.h>
 #include "User.h"
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <json/value.h>
+#include <json/json.h>
 
 namespace KeychainProject {
 
@@ -9,6 +15,7 @@ namespace KeychainProject {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace std;
 
 	/// <summary>
 	/// Summary for MainForm
@@ -68,11 +75,11 @@ namespace KeychainProject {
 			this->labelYourData = (gcnew System::Windows::Forms::Label());
 			this->labelView = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->btOK = (gcnew System::Windows::Forms::Button());
 			this->comboBoxView = (gcnew System::Windows::Forms::ComboBox());
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->btAddNewData = (gcnew System::Windows::Forms::Button());
-			this->btOK = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->btAddNewData = (gcnew System::Windows::Forms::Button());
 			this->labelUsername = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->tableLayoutPanel2->SuspendLayout();
@@ -101,7 +108,7 @@ namespace KeychainProject {
 			this->labelView->ForeColor = System::Drawing::SystemColors::Control;
 			this->labelView->Location = System::Drawing::Point(3, 14);
 			this->labelView->Name = L"labelView";
-			this->labelView->Size = System::Drawing::Size(71, 23);
+			this->labelView->Size = System::Drawing::Size(70, 23);
 			this->labelView->TabIndex = 1;
 			this->labelView->Text = L"View:";
 			this->labelView->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -116,7 +123,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				88.52201F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				154)));
+				156)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelView, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxView, 1, 0);
@@ -127,19 +134,32 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->Size = System::Drawing::Size(826, 51);
 			this->tableLayoutPanel1->TabIndex = 2;
 			// 
+			// btOK
+			// 
+			this->btOK->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btOK->Location = System::Drawing::Point(672, 3);
+			this->btOK->Name = L"btOK";
+			this->btOK->Size = System::Drawing::Size(151, 45);
+			this->btOK->TabIndex = 5;
+			this->btOK->Text = L"OK";
+			this->btOK->UseVisualStyleBackColor = true;
+			// 
 			// comboBoxView
 			// 
 			this->comboBoxView->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
 			this->comboBoxView->BackColor = System::Drawing::SystemColors::Control;
-			this->comboBoxView->DropDownHeight = 26;
+			this->comboBoxView->DropDownHeight = 400;
 			this->comboBoxView->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->comboBoxView->FormattingEnabled = true;
 			this->comboBoxView->IntegralHeight = false;
 			this->comboBoxView->ItemHeight = 26;
-			this->comboBoxView->Location = System::Drawing::Point(80, 15);
+			this->comboBoxView->Location = System::Drawing::Point(79, 8);
 			this->comboBoxView->Name = L"comboBoxView";
-			this->comboBoxView->Size = System::Drawing::Size(588, 34);
+			this->comboBoxView->Size = System::Drawing::Size(587, 34);
 			this->comboBoxView->TabIndex = 2;
 			// 
 			// tableLayoutPanel2
@@ -159,32 +179,6 @@ namespace KeychainProject {
 			this->tableLayoutPanel2->Size = System::Drawing::Size(832, 115);
 			this->tableLayoutPanel2->TabIndex = 3;
 			// 
-			// btAddNewData
-			// 
-			this->btAddNewData->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->btAddNewData->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btAddNewData->Location = System::Drawing::Point(3, 3);
-			this->btAddNewData->Name = L"btAddNewData";
-			this->btAddNewData->Size = System::Drawing::Size(820, 46);
-			this->btAddNewData->TabIndex = 4;
-			this->btAddNewData->Text = L"+ Add New Data";
-			this->btAddNewData->UseVisualStyleBackColor = true;
-			// 
-			// btOK
-			// 
-			this->btOK->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(674, 3);
-			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(149, 45);
-			this->btOK->TabIndex = 5;
-			this->btOK->Text = L"OK";
-			this->btOK->UseVisualStyleBackColor = true;
-			// 
 			// tableLayoutPanel3
 			// 
 			this->tableLayoutPanel3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
@@ -199,6 +193,19 @@ namespace KeychainProject {
 			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel3->Size = System::Drawing::Size(826, 52);
 			this->tableLayoutPanel3->TabIndex = 5;
+			// 
+			// btAddNewData
+			// 
+			this->btAddNewData->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->btAddNewData->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btAddNewData->Location = System::Drawing::Point(3, 3);
+			this->btAddNewData->Name = L"btAddNewData";
+			this->btAddNewData->Size = System::Drawing::Size(820, 46);
+			this->btAddNewData->TabIndex = 4;
+			this->btAddNewData->Text = L"+ Add New Data";
+			this->btAddNewData->UseVisualStyleBackColor = true;
 			// 
 			// labelUsername
 			// 
@@ -235,8 +242,25 @@ namespace KeychainProject {
 #pragma endregion
 
 private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	//after loading the page, label on top is set to be the username of the logged in user
+	//label on top is set to be the username of the logged in user
 	labelUsername->Text = user->username;
+
+	//get the username in std string format
+	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
+
+	//all saved categories will be loaded into the combobox
+	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
+	Json::Value actualJson;
+	Json::Reader reader;
+	reader.parse(ifile, actualJson);
+
+	int i = 0; //loading the data into combobox
+	while (actualJson["content"][i][0]) {
+		string stdDataString = actualJson["content"][i][0].asString();
+		String^ newSystemString = gcnew String(stdDataString.c_str());
+		comboBoxView->Items->Add(newSystemString);
+		i += 1;
+	}
 }
 };
 }

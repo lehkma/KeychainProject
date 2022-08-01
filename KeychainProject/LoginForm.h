@@ -4,7 +4,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <fstream>
 #include "MyFunctions.h"
 #include <json/value.h>
 #include <json/json.h>
@@ -32,7 +31,6 @@ namespace KeychainProject {
 			//TODO: Add the constructor code here
 			//
 		}
-
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -49,24 +47,16 @@ namespace KeychainProject {
 
 	protected:
 
-
-
-
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
 	private: System::Windows::Forms::Button^ btCreate;
 	private: System::Windows::Forms::Button^ btLogin;
 	private: System::Windows::Forms::TextBox^ tbNewUsername;
 
-
-
 	private: System::Windows::Forms::TextBox^ tbPassword;
 	private: System::Windows::Forms::Label^ labelCreate;
 	private: System::Windows::Forms::Label^ labelWelcome;
 
-
-
 	private: System::Windows::Forms::TextBox^ tbUsername;
-
 
 	private: System::Windows::Forms::Label^ labelUsername;
 
@@ -456,13 +446,10 @@ namespace KeychainProject {
 			this->tableLayoutPanel4->ResumeLayout(false);
 			this->tableLayoutPanel4->PerformLayout();
 			this->ResumeLayout(false);
-
 		}
 #pragma endregion
 	private: System::Void LoginForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
-
-
 
 public: User^ usr = nullptr;
 
