@@ -338,29 +338,31 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 
 
 	//set all its properties
-	addingForm->ClientSize = System::Drawing::Size(800, 310 + 43 * cat_size);
+	addingForm->ClientSize = System::Drawing::Size(800, 270 + 43 * cat_size);
 	addingForm->tableLayoutPanel1->RowCount = cat_size;
 	addingForm->tableLayoutPanel1->Size = System::Drawing::Size(724, 43 * cat_size);
-	int piece = 100 / cat_size;
-	for (int i = piece; i < 100; i += piece) {
-		addingForm->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, i)));
+	
+	for (int i = 0; i < cat_size; i++) {
+		addingForm->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 43)));
 	}
 
-	Label^ label1 = (gcnew Label());
-	addingForm->Controls->Add(label1);
+	for (int i = 1; i <= cat_size; i++) {
+		Label^ label1 = (gcnew Label());
+		addingForm->Controls->Add(label1);
 
-	label1->Size = System::Drawing::Size(221, 33);
-	label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
-	label1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-		static_cast<System::Byte>(0)));
-	label1->ForeColor = System::Drawing::SystemColors::Control;
-	label1->Name = L"label2";
-	label1->Text = L"ahoj";
-	label1->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+		label1->Size = System::Drawing::Size(221, 33);
+		label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
+		label1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(0)));
+		label1->ForeColor = System::Drawing::SystemColors::Control;
+		label1->Name = L"label1";
+		string textStr = actualJson["content"][cat_index][i].asString();
+		String^ text = gcnew String(textStr.c_str());
+		label1->Text = text;
+		label1->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 
-	addingForm->tableLayoutPanel1->Controls->Add(label1, 0, 0);
-	
-
+		addingForm->tableLayoutPanel1->Controls->Add(label1, 0, i - 1);
+	}
 
 	//display the form
 	addingForm->ShowDialog();
