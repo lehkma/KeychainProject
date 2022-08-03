@@ -7,7 +7,6 @@
 #include <json/value.h>
 #include <json/json.h>
 #include "AddNewDataForm.h"
-#include "MyFunctions.h"
 
 namespace KeychainProject {
 
@@ -258,8 +257,6 @@ private: System::Void MainForm_Activated(System::Object^ sender, System::EventAr
 	Json::Value actualJson;
 	Json::Reader reader;
 	reader.parse(ifile, actualJson);
-	ifile.close();
-
 
 	comboBoxView->Items->Clear();
 	int i = 0; //loading the data into combobox
