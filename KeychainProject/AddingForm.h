@@ -49,7 +49,7 @@ namespace KeychainProject {
 	private: System::Windows::Forms::Button^ btCancel;
 	//followo
 	public: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
-	public: System::Windows::Forms::TextBox^ textBox1;
+
 
 	private: System::Windows::Forms::Label^ labelAddNewData;
 
@@ -72,7 +72,6 @@ namespace KeychainProject {
 			this->btOK = (gcnew System::Windows::Forms::Button());
 			this->btCancel = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->labelAddNewData = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
@@ -117,22 +116,6 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->Size = System::Drawing::Size(724, 43);
 			this->tableLayoutPanel1->TabIndex = 8;
 			// 
-			// textBox1
-			// 
-			this->textBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
-			this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
-				static_cast<System::Int32>(static_cast<System::Byte>(26)));
-			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox1->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->textBox1->Location = System::Drawing::Point(264, 23);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(491, 32);
-			this->textBox1->TabIndex = 11;
-			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			this->textBox1->WordWrap = false;
-			// 
 			// labelAddNewData
 			// 
 			this->labelAddNewData->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
@@ -154,7 +137,6 @@ namespace KeychainProject {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
 			this->ClientSize = System::Drawing::Size(784, 457);
-			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->labelAddNewData);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->btCancel);
@@ -163,7 +145,6 @@ namespace KeychainProject {
 			this->MinimumSize = System::Drawing::Size(800, 39);
 			this->Name = L"AddingForm";
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
