@@ -278,10 +278,6 @@ private: System::Void btCreateCustomCat_Click(System::Object^ sender, System::Ev
 	CustomCatForm^ ccForm = gcnew CustomCatForm(user, this);
 	ccForm->ShowDialog();
 }
-private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
-	AddingForm^ addingForm = gcnew AddingForm(user, this);
-	addingForm->ShowDialog();
-}
 private: System::Void AddNewDataForm_Activated(System::Object^ sender, System::EventArgs^ e) {
 	//get the username in std string format
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
@@ -291,7 +287,6 @@ private: System::Void AddNewDataForm_Activated(System::Object^ sender, System::E
 	Json::Value actualJson;
 	Json::Reader reader;
 	reader.parse(ifile, actualJson);
-
 	comboBoxAdd->Items->Clear();
 	int i = 0; //loading the data into combobox
 	while (actualJson["content"][i][0]) {
@@ -300,6 +295,30 @@ private: System::Void AddNewDataForm_Activated(System::Object^ sender, System::E
 		comboBoxAdd->Items->Add(newSystemString);
 		i += 1;
 	}
+}
+private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
+	//get the name of selected category from the textbox
+	string cat = msclr::interop::marshal_as<std::string>(this->comboBoxAdd->Text);
+	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
+	//empty check
+	if (cat == "") {
+		MessageBox::Show("To add new data the category must be selected first", "Category not selected", MessageBoxButtons::OK);
+		return;
+	}
+
+	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
+	Json::Value actualJson;
+	Json::Reader reader;
+	reader.parse(ifile, actualJson);
+	ifile.close();
+
+
+	//create the following form
+	AddingForm^ addingForm = gcnew AddingForm(user, this);
+	//set all its properties
+	addingForm->ClientSize = System::Drawing::Size(800, 700);
+	//display the form
+	addingForm->ShowDialog();
 }
 };
 }
