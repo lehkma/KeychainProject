@@ -2,8 +2,8 @@
    "content" : [
       [ "card", "description", "number", "CVV", "type" ],
       [ "web_login", "website", "username", "password" ],
-      [ "phone", "description", "number", "PIN", "operator" ],
-      [ "telefon", "cislo", "jmeno", "pin" ]
+      [ "telefon", "cislo", "jmeno", "pin", "vec", "dalsi", "jeste_jedna" ],
+      [ "phone", "description", "number", "PIN", "operator" ]
    ],
    "login" : {
       "password" : "pes",

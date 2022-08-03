@@ -47,10 +47,10 @@ namespace KeychainProject {
 		}
 	private: System::Windows::Forms::Button^ btOK;
 	private: System::Windows::Forms::Button^ btCancel;
-	//following three lines were changed to public
+	//followo
 	public: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	public: System::Windows::Forms::TextBox^ textBox1;
-	public: System::Windows::Forms::Label^ label1;
+
 	private: System::Windows::Forms::Label^ labelAddNewData;
 
 	protected:
@@ -72,10 +72,8 @@ namespace KeychainProject {
 			this->btOK = (gcnew System::Windows::Forms::Button());
 			this->btCancel = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->labelAddNewData = (gcnew System::Windows::Forms::Label());
-			this->tableLayoutPanel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// btOK
@@ -83,7 +81,7 @@ namespace KeychainProject {
 			this->btOK->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(599, 416);
+			this->btOK->Location = System::Drawing::Point(599, 366);
 			this->btOK->Name = L"btOK";
 			this->btOK->Size = System::Drawing::Size(155, 45);
 			this->btOK->TabIndex = 6;
@@ -95,7 +93,7 @@ namespace KeychainProject {
 			this->btCancel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->btCancel->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btCancel->Location = System::Drawing::Point(30, 416);
+			this->btCancel->Location = System::Drawing::Point(30, 366);
 			this->btCancel->Name = L"btCancel";
 			this->btCancel->Size = System::Drawing::Size(155, 45);
 			this->btCancel->TabIndex = 7;
@@ -112,27 +110,12 @@ namespace KeychainProject {
 				31.44928F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				68.55073F)));
-			this->tableLayoutPanel1->Controls->Add(this->label1, 0, 0);
-			this->tableLayoutPanel1->Controls->Add(this->textBox1, 1, 0);
 			this->tableLayoutPanel1->Location = System::Drawing::Point(30, 158);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 1;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel1->Size = System::Drawing::Size(724, 43);
 			this->tableLayoutPanel1->TabIndex = 8;
-			// 
-			// label1
-			// 
-			this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
-			this->label1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::SystemColors::Control;
-			this->label1->Location = System::Drawing::Point(3, 10);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(221, 23);
-			this->label1->TabIndex = 12;
-			this->label1->Text = L"label";
-			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			// 
 			// textBox1
 			// 
@@ -143,7 +126,7 @@ namespace KeychainProject {
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox1->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->textBox1->Location = System::Drawing::Point(230, 5);
+			this->textBox1->Location = System::Drawing::Point(264, 23);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(491, 32);
 			this->textBox1->TabIndex = 11;
@@ -170,7 +153,8 @@ namespace KeychainProject {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
-			this->ClientSize = System::Drawing::Size(784, 507);
+			this->ClientSize = System::Drawing::Size(784, 457);
+			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->labelAddNewData);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->btCancel);
@@ -178,9 +162,8 @@ namespace KeychainProject {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->MinimumSize = System::Drawing::Size(800, 39);
 			this->Name = L"AddingForm";
-			this->tableLayoutPanel1->ResumeLayout(false);
-			this->tableLayoutPanel1->PerformLayout();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion

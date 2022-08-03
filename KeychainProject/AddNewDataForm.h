@@ -109,6 +109,7 @@ namespace KeychainProject {
 				50)));
 			this->tableLayoutPanel2->Controls->Add(this->tableLayoutPanel3, 0, 0);
 			this->tableLayoutPanel2->Controls->Add(this->tableLayoutPanel1, 0, 1);
+			this->tableLayoutPanel2->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->tableLayoutPanel2->Location = System::Drawing::Point(30, 158);
 			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
 			this->tableLayoutPanel2->RowCount = 2;
@@ -156,7 +157,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				85.94891F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				169)));
+				170)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelAdd, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxAdd, 1, 0);
@@ -173,9 +174,9 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(550, 3);
+			this->btOK->Location = System::Drawing::Point(549, 3);
 			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(164, 45);
+			this->btOK->Size = System::Drawing::Size(165, 45);
 			this->btOK->TabIndex = 5;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
@@ -204,7 +205,7 @@ namespace KeychainProject {
 			this->comboBoxAdd->FormattingEnabled = true;
 			this->comboBoxAdd->IntegralHeight = false;
 			this->comboBoxAdd->ItemHeight = 26;
-			this->comboBoxAdd->Location = System::Drawing::Point(80, 8);
+			this->comboBoxAdd->Location = System::Drawing::Point(79, 8);
 			this->comboBoxAdd->Name = L"comboBoxAdd";
 			this->comboBoxAdd->Size = System::Drawing::Size(464, 34);
 			this->comboBoxAdd->TabIndex = 2;
@@ -317,10 +318,12 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	int cat_index = 0;
 	bool notFound = true;
 	while (actualJson["content"][cat_index][0] && notFound) {
-		if (actualJson["content"][cat_index][0].asString() == cat) {
+		if (actualJson["content"][cat_index][0] == cat) {
 			notFound = false;
 		}
-		cat_index += 1;
+		else {
+			cat_index += 1;
+		}
 	}
 	
 	//finding the number of parameters of selected category
@@ -331,9 +334,34 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	//create the following form
 	AddingForm^ addingForm = gcnew AddingForm(user, this);
+
+
+
 	//set all its properties
-	addingForm->ClientSize = System::Drawing::Size(800, 700);
+	addingForm->ClientSize = System::Drawing::Size(800, 310 + 43 * cat_size);
 	addingForm->tableLayoutPanel1->RowCount = cat_size;
+	addingForm->tableLayoutPanel1->Size = System::Drawing::Size(724, 43 * cat_size);
+	int piece = 100 / cat_size;
+	for (int i = piece; i < 100; i += piece) {
+		addingForm->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, i)));
+	}
+
+	Label^ label1 = (gcnew Label());
+	addingForm->Controls->Add(label1);
+
+	label1->Size = System::Drawing::Size(221, 33);
+	label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
+	label1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+		static_cast<System::Byte>(0)));
+	label1->ForeColor = System::Drawing::SystemColors::Control;
+	label1->Name = L"label2";
+	label1->Text = L"ahoj";
+	label1->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+
+	addingForm->tableLayoutPanel1->Controls->Add(label1, 0, 0);
+	
+
+
 	//display the form
 	addingForm->ShowDialog();
 }
