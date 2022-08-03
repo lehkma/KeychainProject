@@ -47,10 +47,10 @@ namespace KeychainProject {
 		}
 	private: System::Windows::Forms::Button^ btOK;
 	private: System::Windows::Forms::Button^ btCancel;
-	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
-	private: System::Windows::Forms::TextBox^ textBox1;
-
-	private: System::Windows::Forms::Label^ label1;
+	//following three lines were changed to public
+	public: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
+	public: System::Windows::Forms::TextBox^ textBox1;
+	public: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ labelAddNewData;
 
 	protected:
@@ -123,13 +123,13 @@ namespace KeychainProject {
 			// 
 			// label1
 			// 
-			this->label1->Anchor = System::Windows::Forms::AnchorStyles::Left;
+			this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
 			this->label1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::Control;
 			this->label1->Location = System::Drawing::Point(3, 10);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(70, 23);
+			this->label1->Size = System::Drawing::Size(221, 23);
 			this->label1->TabIndex = 12;
 			this->label1->Text = L"label";
 			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;

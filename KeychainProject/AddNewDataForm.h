@@ -300,6 +300,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	//get the name of selected category from the textbox
 	string cat = msclr::interop::marshal_as<std::string>(this->comboBoxAdd->Text);
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
+
 	//empty check
 	if (cat == "") {
 		MessageBox::Show("To add new data the category must be selected first", "Category not selected", MessageBoxButtons::OK);
@@ -312,11 +313,27 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	reader.parse(ifile, actualJson);
 	ifile.close();
 
+	//finding the index of selected category in the content array
+	int cat_index = 0;
+	bool notFound = true;
+	while (actualJson["content"][cat_index][0] && notFound) {
+		if (actualJson["content"][cat_index][0].asString() == cat) {
+			notFound = false;
+		}
+		cat_index += 1;
+	}
+	
+	//finding the number of parameters of selected category
+	int cat_size = 0;
+	while (actualJson["content"][cat_index][cat_size]) {
+		cat_size += 1; 
+	}
 
 	//create the following form
 	AddingForm^ addingForm = gcnew AddingForm(user, this);
 	//set all its properties
 	addingForm->ClientSize = System::Drawing::Size(800, 700);
+	addingForm->tableLayoutPanel1->RowCount = cat_size;
 	//display the form
 	addingForm->ShowDialog();
 }
