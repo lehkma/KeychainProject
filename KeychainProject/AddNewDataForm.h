@@ -335,8 +335,6 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	//create the following form
 	AddingForm^ addingForm = gcnew AddingForm(user, this);
 
-
-
 	//set all its properties
 	addingForm->ClientSize = System::Drawing::Size(800, 270 + 43 * cat_size);
 	addingForm->tableLayoutPanel1->RowCount = cat_size;
@@ -354,10 +352,10 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 		label1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
 		label1->ForeColor = System::Drawing::SystemColors::Control;
-		label1->Name = L"label1";
 		string textStr = actualJson["content"][cat_index][i].asString();
 		String^ text = gcnew String(textStr.c_str());
 		label1->Text = text;
+		label1->Name = L"label1" + text;
 		label1->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 		addingForm->tableLayoutPanel1->Controls->Add(label1, 0, i - 1);
 	}
@@ -373,13 +371,15 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 		textBox1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
 		textBox1->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-		textBox1->Name = L"textBox1";
+		string textStr = actualJson["content"][cat_index][i].asString();
+		String^ text = gcnew String(textStr.c_str());
+		textBox1->Name = text;
 		textBox1->Size = System::Drawing::Size(491, 32);
 		textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 		textBox1->WordWrap = false;
 		addingForm->tableLayoutPanel1->Controls->Add(textBox1, 1, i - 1);
 	}
-
+	
 	//display the form
 	addingForm->ShowDialog();
 }

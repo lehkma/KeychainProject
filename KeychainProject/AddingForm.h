@@ -47,12 +47,8 @@ namespace KeychainProject {
 		}
 	private: System::Windows::Forms::Button^ btOK;
 	private: System::Windows::Forms::Button^ btCancel;
-	//followo
 	public: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
-
-
 	private: System::Windows::Forms::Label^ labelAddNewData;
-
 	protected:
 
 
