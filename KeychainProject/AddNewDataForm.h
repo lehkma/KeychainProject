@@ -7,6 +7,7 @@
 #include <json/value.h>
 #include <json/json.h>
 #include "CustomCatForm.h"
+#include "AddingForm.h"
 
 namespace KeychainProject {
 
@@ -24,6 +25,7 @@ namespace KeychainProject {
 	public ref class AddNewDataForm : public System::Windows::Forms::Form
 	{
 	private: User^ user;
+
 	public:
 		Form^ mainForm;
 		AddNewDataForm(User^ usr, Form^ frm)
@@ -154,7 +156,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				85.94891F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				164)));
+				169)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelAdd, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxAdd, 1, 0);
@@ -171,12 +173,13 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(555, 3);
+			this->btOK->Location = System::Drawing::Point(550, 3);
 			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(159, 45);
+			this->btOK->Size = System::Drawing::Size(164, 45);
 			this->btOK->TabIndex = 5;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
+			this->btOK->Click += gcnew System::EventHandler(this, &AddNewDataForm::btOK_Click);
 			// 
 			// labelAdd
 			// 
@@ -203,7 +206,7 @@ namespace KeychainProject {
 			this->comboBoxAdd->ItemHeight = 26;
 			this->comboBoxAdd->Location = System::Drawing::Point(80, 8);
 			this->comboBoxAdd->Name = L"comboBoxAdd";
-			this->comboBoxAdd->Size = System::Drawing::Size(469, 34);
+			this->comboBoxAdd->Size = System::Drawing::Size(464, 34);
 			this->comboBoxAdd->TabIndex = 2;
 			// 
 			// labelUsername
@@ -274,6 +277,10 @@ private: System::Void btCreateCustomCat_Click(System::Object^ sender, System::Ev
 	//this->Hide();
 	CustomCatForm^ ccForm = gcnew CustomCatForm(user, this);
 	ccForm->ShowDialog();
+}
+private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
+	AddingForm^ addingForm = gcnew AddingForm(user, this);
+	addingForm->ShowDialog();
 }
 private: System::Void AddNewDataForm_Activated(System::Object^ sender, System::EventArgs^ e) {
 	//get the username in std string format

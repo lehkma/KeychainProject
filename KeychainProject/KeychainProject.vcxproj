@@ -124,6 +124,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AddingForm.cpp" />
     <ClCompile Include="AddNewDataForm.cpp" />
     <ClCompile Include="CustomCatForm.cpp" />
     <ClCompile Include="Json_lib\dist\jsoncpp.cpp" />
@@ -132,6 +133,9 @@
     <ClCompile Include="Program.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddingForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AddNewDataForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -150,6 +154,9 @@
     <ClInclude Include="User.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddingForm.resx">
+      <DependentUpon>AddingForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddNewDataForm.resx">
       <DependentUpon>AddNewDataForm.h</DependentUpon>
     </EmbeddedResource>
