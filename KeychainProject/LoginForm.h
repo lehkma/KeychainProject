@@ -168,7 +168,7 @@ namespace KeychainProject {
 			this->btLogin->BackColor = System::Drawing::SystemColors::Control;
 			this->btLogin->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btLogin->Location = System::Drawing::Point(143, 218);
+			this->btLogin->Location = System::Drawing::Point(142, 218);
 			this->btLogin->Name = L"btLogin";
 			this->btLogin->Size = System::Drawing::Size(234, 48);
 			this->btLogin->TabIndex = 8;
@@ -186,7 +186,7 @@ namespace KeychainProject {
 			this->tbNewUsername->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tbNewUsername->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->tbNewUsername->Location = System::Drawing::Point(238, 3);
+			this->tbNewUsername->Location = System::Drawing::Point(239, 3);
 			this->tbNewUsername->Name = L"tbNewUsername";
 			this->tbNewUsername->Size = System::Drawing::Size(235, 32);
 			this->tbNewUsername->TabIndex = 4;
@@ -206,8 +206,9 @@ namespace KeychainProject {
 			this->tbPassword->Location = System::Drawing::Point(148, 43);
 			this->tbPassword->Name = L"tbPassword";
 			this->tbPassword->PasswordChar = '*';
-			this->tbPassword->Size = System::Drawing::Size(223, 32);
+			this->tbPassword->Size = System::Drawing::Size(222, 32);
 			this->tbPassword->TabIndex = 3;
+			this->tbPassword->Text = L"pes";
 			this->tbPassword->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->tbPassword->WordWrap = false;
 			// 
@@ -217,7 +218,7 @@ namespace KeychainProject {
 			this->labelCreate->Font = (gcnew System::Drawing::Font(L"Rubik", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->labelCreate->ForeColor = System::Drawing::SystemColors::Control;
-			this->labelCreate->Location = System::Drawing::Point(438, 0);
+			this->labelCreate->Location = System::Drawing::Point(437, 0);
 			this->labelCreate->Name = L"labelCreate";
 			this->labelCreate->Size = System::Drawing::Size(209, 34);
 			this->labelCreate->TabIndex = 2;
@@ -247,8 +248,9 @@ namespace KeychainProject {
 			this->tbUsername->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->tbUsername->Location = System::Drawing::Point(148, 3);
 			this->tbUsername->Name = L"tbUsername";
-			this->tbUsername->Size = System::Drawing::Size(223, 32);
+			this->tbUsername->Size = System::Drawing::Size(222, 32);
 			this->tbUsername->TabIndex = 5;
+			this->tbUsername->Text = L"koc";
 			this->tbUsername->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->tbUsername->WordWrap = false;
 			// 
@@ -283,7 +285,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel3->RowCount = 2;
 			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 38)));
-			this->tableLayoutPanel3->Size = System::Drawing::Size(374, 78);
+			this->tableLayoutPanel3->Size = System::Drawing::Size(373, 78);
 			this->tableLayoutPanel3->TabIndex = 11;
 			// 
 			// labelPassword
@@ -314,13 +316,13 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->Controls->Add(this->labelNewUsername, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelNewPassword, 0, 1);
 			this->tableLayoutPanel1->Controls->Add(this->tbNewUsername, 1, 0);
-			this->tableLayoutPanel1->Location = System::Drawing::Point(438, 56);
+			this->tableLayoutPanel1->Location = System::Drawing::Point(437, 56);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 3;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 43)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(476, 123);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(477, 123);
 			this->tableLayoutPanel1->TabIndex = 12;
 			// 
 			// tbConfirmPassword
@@ -333,7 +335,7 @@ namespace KeychainProject {
 			this->tbConfirmPassword->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tbConfirmPassword->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->tbConfirmPassword->Location = System::Drawing::Point(238, 83);
+			this->tbConfirmPassword->Location = System::Drawing::Point(239, 83);
 			this->tbConfirmPassword->Name = L"tbConfirmPassword";
 			this->tbConfirmPassword->PasswordChar = '*';
 			this->tbConfirmPassword->Size = System::Drawing::Size(235, 32);
@@ -351,7 +353,7 @@ namespace KeychainProject {
 			this->tbNewPassword->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tbNewPassword->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->tbNewPassword->Location = System::Drawing::Point(238, 43);
+			this->tbNewPassword->Location = System::Drawing::Point(239, 43);
 			this->tbNewPassword->Name = L"tbNewPassword";
 			this->tbNewPassword->PasswordChar = '*';
 			this->tbNewPassword->Size = System::Drawing::Size(235, 32);
@@ -407,7 +409,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel4->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				12.67943F)));
 			this->tableLayoutPanel4->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				481)));
+				482)));
 			this->tableLayoutPanel4->Controls->Add(this->labelWelcome, 0, 0);
 			this->tableLayoutPanel4->Controls->Add(this->btLogin, 0, 2);
 			this->tableLayoutPanel4->Controls->Add(this->labelCreate, 2, 0);
@@ -469,15 +471,15 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 	//if the user exists, check his password
 	if (exists_test("Data/" + user + ".json")) {
 		//open a json file and create the json object
-		ifstream infile("Data/" + user + ".json");
+		ifstream ifile("Data/" + user + ".json"); //reading data from a file
 		Json::Value actualJson;
 		Json::Reader reader;
-		reader.parse(infile, actualJson);
+		reader.parse(ifile, actualJson);
+		ifile.close();
 
 		//get the saved details from the json file, close the file
 		savedUser = actualJson["login"]["username"].asString();
 		savedPass = actualJson["login"]["password"].asString();
-		infile.close();
 
 		//compare the saved details with the ones provided by the user
 		if (user == savedUser && pass == savedPass) {
@@ -538,10 +540,10 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 			actualJson["content"] = def_cat;
 
 			//writing json data into a file
-			ofstream outfile("Data/" + newUser + ".json"); 
+			ofstream ofile("Data/" + newUser + ".json");
 			Json::StyledWriter styledWriter;
-			outfile << styledWriter.write(actualJson);
-			outfile.close();
+			ofile << styledWriter.write(actualJson);
+			ofile.close();
 
 			//emptying the textboxes after successful sign up
 			this->tbNewUsername->Text = "";

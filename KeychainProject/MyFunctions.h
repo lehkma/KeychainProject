@@ -3,6 +3,8 @@
 #include <string>
 #include <fstream>
 
+using namespace std;
+
 inline bool exists_test(const std::string& name) {
     if (FILE* file = fopen(name.c_str(), "r")) {
         fclose(file);
