@@ -25,7 +25,6 @@ namespace KeychainProject {
 	{
 	private: User^ user;
 
-
 	public:
 		Form^ addNewDataForm;
 		List <TextBox^>^ textBoxesList;
@@ -153,7 +152,7 @@ private: System::Void btCancel_Click(System::Object^ sender, System::EventArgs^ 
 	this->Close();
 }
 private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
-	textBoxesList[0]->Text = "hello";
+	textBoxesList[0]->Text = "Hello";
 }
 };
 }

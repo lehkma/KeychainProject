@@ -1,14 +1,17 @@
 #pragma once
 #include <sys/stat.h>
+#include <errno.h>
 #include <string>
 #include <fstream>
 
 inline bool exists_test(const std::string& name) {
-    if (FILE* file = fopen(name.c_str(), "r")) {
-        fclose(file);
-        return true;
+    FILE* file;
+    errno_t err;
+    if (err = fopen_s(&file ,name.c_str(), "r") != 0){
+        return false;
     }
     else {
-        return false;
+        fclose(file);
+        return true;
     }
 }

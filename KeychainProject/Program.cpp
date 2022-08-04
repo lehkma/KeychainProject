@@ -4,7 +4,7 @@
 using namespace System;
 using namespace System::Windows::Forms;
 
-void main(array<String^>^ args)
+int main(array<String^>^ args)
 {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
@@ -18,4 +18,5 @@ void main(array<String^>^ args)
 		KeychainProject::MainForm mainForm(usr);
 		Application::Run(% mainForm);
 	}
+	return 0;
 }

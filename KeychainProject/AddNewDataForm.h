@@ -3,7 +3,6 @@
 #include "User.h"
 #include <fstream>
 #include <iostream>
-#include <vector>
 #include <string>
 #include <json/value.h>
 #include <json/json.h>
@@ -388,32 +387,6 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 		addingForm->Controls->Add(myTB[i - 1]);
 		addingForm->tableLayoutPanel1->Controls->Add(myTB[i-1], 1, i - 1);
 	}
-
-	/*
-	for each (TextBox^ tb in myTB) {
-		addingForm->Controls->Add(tb);
-	}
-
-	/*
-	for (int i = 1; i < cat_size; i++) {
-		TextBox^ textBox1 = (gcnew TextBox());
-		addingForm->Controls->Add(textBox1);
-		textBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
-		textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
-			static_cast<System::Int32>(static_cast<System::Byte>(26)));
-		textBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-		textBox1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-			static_cast<System::Byte>(0)));
-		textBox1->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-		string textStr = actualJson["content"][cat_index][i].asString();
-		String^ text = gcnew String(textStr.c_str());
-		textBox1->Name = text;
-		textBox1->Size = System::Drawing::Size(491, 32);
-		textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-		textBox1->WordWrap = false;
-		addingForm->tableLayoutPanel1->Controls->Add(textBox1, 1, i - 1);
-	}
-	*/
 
 	//display the form
 	addingForm->ShowDialog();
