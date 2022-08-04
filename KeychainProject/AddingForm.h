@@ -12,6 +12,7 @@ namespace KeychainProject {
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
+	using namespace System::Collections::Generic;
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
@@ -27,10 +28,12 @@ namespace KeychainProject {
 
 	public:
 		Form^ addNewDataForm;
-		AddingForm(User^ usr, Form^ frm)
+		List <TextBox^>^ textBoxesList;
+		AddingForm(User^ usr, Form^ frm, List <TextBox^>^ tb)
 		{
 			user = usr;
 			addNewDataForm = frm;
+			textBoxesList = tb;
 			InitializeComponent();
 		}
 
@@ -82,6 +85,7 @@ namespace KeychainProject {
 			this->btOK->TabIndex = 6;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
+			this->btOK->Click += gcnew System::EventHandler(this, &AddingForm::btOK_Click);
 			// 
 			// btCancel
 			// 
@@ -147,6 +151,9 @@ namespace KeychainProject {
 
 private: System::Void btCancel_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
+}
+private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
+	textBoxesList[0]->Text = "hello";
 }
 };
 }

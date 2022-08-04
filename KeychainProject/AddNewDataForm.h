@@ -334,8 +334,11 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 		cat_size += 1; 
 	}
 
+	//we will now create a list of pointers to tb objects, so that we can access them later
+	List <TextBox^>^ myTB = gcnew List<TextBox^>();
+
 	//create the following form
-	AddingForm^ addingForm = gcnew AddingForm(user, this);
+	AddingForm^ addingForm = gcnew AddingForm(user, this, myTB);
 
 	//set all its properties
 	addingForm->ClientSize = System::Drawing::Size(800, 270 + 43 * cat_size);
@@ -361,9 +364,6 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 		label1->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 		addingForm->tableLayoutPanel1->Controls->Add(label1, 0, i - 1);
 	}
-
-	//we will now create an array of tb objects so that we can access them later
-	List <TextBox^>^ myTB = gcnew List<TextBox^>();
 
 	//adding the second column
 	for (int i = 1; i < cat_size; i++) {
