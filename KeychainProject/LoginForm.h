@@ -535,7 +535,7 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 			//adding default categories to the json file
 			Json::Value def_cat;
 			Json::Reader reader;
-			string content = "[[\"card\", \"description\", \"number\", \"CVV\", \"type\"], [\"web_login\", \"website\", \"username\",\"password\"], [\"phone\", \"description\", \"number\", \"PIN\", \"operator\"]]";
+			string content = "[[\"Card\", \"Description\", \"Number\", \"CVV\", \"Type\"], [\"Web_login\", \"Website\", \"Username\",\"Password\"], [\"Phone\", \"Description\", \"Number\", \"PIN\", \"Operator\"]]";
 			reader.parse(content.c_str(), def_cat);
 			actualJson["content"] = def_cat;
 

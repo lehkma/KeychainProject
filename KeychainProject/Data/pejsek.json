@@ -1,0 +1,19 @@
+{
+   "content" : [
+      [ "Card", "Description", "Number", "CVV", "Type" ],
+      [ "Web_login", "Website", "Username", "Password" ],
+      [ "Phone", "Description", "Number", "PIN", "Operator" ],
+      [
+         "E-mail",
+         "Adress",
+         "Server",
+         "Date_of_creation",
+         "Password",
+         "Connected_addresses"
+      ]
+   ],
+   "login" : {
+      "password" : "ahoj",
+      "username" : "pejsek"
+   }
+}
