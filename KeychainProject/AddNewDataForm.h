@@ -302,6 +302,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	//get the name of selected category from the textbox
 	string cat = msclr::interop::marshal_as<std::string>(this->comboBoxAdd->Text);
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
+	user->selected_cat = this->comboBoxAdd->Text;
 
 	//empty check
 	if (cat == "") {
@@ -337,7 +338,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	List <TextBox^>^ myTB = gcnew List<TextBox^>();
 
 	//create the following form
-	AddingForm^ addingForm = gcnew AddingForm(user, this, myTB);
+	AddingForm^ addingForm = gcnew AddingForm(user, myTB);
 
 	//set all its properties
 	addingForm->ClientSize = System::Drawing::Size(800, 270 + 43 * cat_size);

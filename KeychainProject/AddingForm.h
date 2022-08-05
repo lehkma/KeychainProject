@@ -26,12 +26,10 @@ namespace KeychainProject {
 	private: User^ user;
 
 	public:
-		Form^ addNewDataForm;
 		List <TextBox^>^ textBoxesList;
-		AddingForm(User^ usr, Form^ frm, List <TextBox^>^ tb)
+		AddingForm(User^ usr, List <TextBox^>^ tb)
 		{
 			user = usr;
-			addNewDataForm = frm;
 			textBoxesList = tb;
 			InitializeComponent();
 		}
@@ -152,7 +150,8 @@ private: System::Void btCancel_Click(System::Object^ sender, System::EventArgs^ 
 	this->Close();
 }
 private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
-	textBoxesList[0]->Text = "Hello";
+	textBoxesList[0]->Text = user->selected_cat;
+	
 }
 };
 }
