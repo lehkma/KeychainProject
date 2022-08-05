@@ -82,7 +82,7 @@ namespace KeychainProject {
 			this->btAdd->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->btAdd->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btAdd->Location = System::Drawing::Point(599, 366);
+			this->btAdd->Location = System::Drawing::Point(599, 395);
 			this->btAdd->Name = L"btAdd";
 			this->btAdd->Size = System::Drawing::Size(155, 45);
 			this->btAdd->TabIndex = 6;
@@ -95,7 +95,7 @@ namespace KeychainProject {
 			this->btCancel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->btCancel->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btCancel->Location = System::Drawing::Point(30, 366);
+			this->btCancel->Location = System::Drawing::Point(30, 395);
 			this->btCancel->Name = L"btCancel";
 			this->btCancel->Size = System::Drawing::Size(155, 45);
 			this->btCancel->TabIndex = 7;
@@ -150,9 +150,10 @@ namespace KeychainProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->AutoScroll = true;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
-			this->ClientSize = System::Drawing::Size(784, 457);
+			this->ClientSize = System::Drawing::Size(784, 486);
 			this->Controls->Add(this->labelUsername);
 			this->Controls->Add(this->labelCategory);
 			this->Controls->Add(this->tableLayoutPanel1);

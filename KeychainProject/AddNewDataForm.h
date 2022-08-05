@@ -338,8 +338,8 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	AddingForm^ addingForm = gcnew AddingForm(user, myTB);
 
 	//set all its properties
-	addingForm->ClientSize = System::Drawing::Size(800, 270 + 43 * cat_size);
-	addingForm->tableLayoutPanel1->RowCount = cat_size;
+	addingForm->ClientSize = System::Drawing::Size(800, 290 + 43 * cat_size);
+	addingForm->tableLayoutPanel1->RowCount = cat_size - 1;
 	addingForm->tableLayoutPanel1->Size = System::Drawing::Size(724, 43 * cat_size);
 	for (int i = 0; i < cat_size; i++) {
 		addingForm->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 43)));
