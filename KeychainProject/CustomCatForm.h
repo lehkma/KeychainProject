@@ -292,6 +292,7 @@ namespace KeychainProject {
 			this->MaximumSize = System::Drawing::Size(800, 624);
 			this->MinimumSize = System::Drawing::Size(800, 624);
 			this->Name = L"CustomCatForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &CustomCatForm::CustomCatForm_FormClosed);
 			this->Load += gcnew System::EventHandler(this, &CustomCatForm::CustomCatForm_Load);
 			this->tableLayoutPanel1->ResumeLayout(false);

@@ -162,6 +162,7 @@ namespace KeychainProject {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->MinimumSize = System::Drawing::Size(800, 39);
 			this->Name = L"AddingForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Load += gcnew System::EventHandler(this, &AddingForm::AddingForm_Load);
 			this->ResumeLayout(false);
 
