@@ -1,10 +1,4 @@
 {
-   "card" : {
-      "CVV" : "c",
-      "description" : "d",
-      "number" : "n",
-      "type" : "t"
-   },
    "content" : [
       [ "card", "description", "number", "CVV", "type" ],
       [ "web_login", "website", "username", "password" ],
@@ -13,20 +7,25 @@
       [ "kocka", "hi", "kockas", "hello" ],
       [ "hellot", "hello", "heh", "see", "haha", "seed" ]
    ],
-   "hellot" : {
-      "haha" : "ha",
-      "heh" : "heh",
-      "hello" : "h",
-      "see" : "s",
-      "seed" : "sd"
-   },
    "login" : {
       "password" : "pes",
       "username" : "koc"
    },
-   "web_login" : {
-      "password" : "p",
-      "username" : "u",
-      "website" : "w"
-   }
+   "web_login" : [
+      {
+         "password" : "p",
+         "username" : "u",
+         "website" : "w"
+      },
+      {
+         "password" : "pas",
+         "username" : "use",
+         "website" : "web"
+      },
+      {
+         "password" : "passwords",
+         "username" : "usernames",
+         "website" : "websites"
+      }
+   ]
 }

@@ -206,10 +206,13 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	//finding the number of parameters of selected category
 	int cat_size = actualJson["content"][cat_index].size();
 	
+	//finding the index where to put the new data
+	int pos = actualJson[category].size();
+
 	//entering provided data to json
 	for (int i = 1; i < cat_size; i++) {
 		string parameter = msclr::interop::marshal_as<std::string>(this->textBoxesList[i - 1]->Text);
-		actualJson[category][actualJson["content"][cat_index][i].asString()] = parameter;
+		actualJson[category][pos][actualJson["content"][cat_index][i].asString()] = parameter;
 	}
 
 	//writing json data into a file
