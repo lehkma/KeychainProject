@@ -178,11 +178,18 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
 	string category = msclr::interop::marshal_as<std::string>(labelCategory->Text);
 	
-
 	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
 	Json::Value actualJson;
 	Json::Reader reader;
 	reader.parse(ifile, actualJson);
+
+	//empty check
+	for each (TextBox^ tb in textBoxesList) {
+		if (tb->Text == "") {
+			MessageBox::Show("Please enter all the required parameters", "Parameters are empty", MessageBoxButtons::OK);
+			return;
+		}
+	}
 }
 };
 }
