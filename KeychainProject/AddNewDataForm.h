@@ -329,10 +329,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	
 	//finding the number of parameters of selected category
-	int cat_size = 0;
-	while (actualJson["content"][cat_index][cat_size]) {
-		cat_size += 1; 
-	}
+	int cat_size = actualJson["content"][cat_index].size();
 
 	//we will now create a list of pointers to tb objects, so that we can access them later
 	List <TextBox^>^ myTB = gcnew List<TextBox^>();

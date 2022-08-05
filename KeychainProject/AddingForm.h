@@ -178,11 +178,6 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
 	string category = msclr::interop::marshal_as<std::string>(labelCategory->Text);
 	
-	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
-	Json::Value actualJson;
-	Json::Reader reader;
-	reader.parse(ifile, actualJson);
-
 	//empty check
 	for each (TextBox^ tb in textBoxesList) {
 		if (tb->Text == "") {
@@ -190,6 +185,40 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 			return;
 		}
 	}
+
+	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
+	Json::Value actualJson;
+	Json::Reader reader;
+	reader.parse(ifile, actualJson);
+
+	//finding the index of selected category in the content array
+	int cat_index = 0;
+	bool notFound = true;
+	while (actualJson["content"][cat_index][0] && notFound) {
+		if (actualJson["content"][cat_index][0] == category) {
+			notFound = false;
+		}
+		else {
+			cat_index += 1;
+		}
+	}
+
+	//finding the number of parameters of selected category
+	int cat_size = actualJson["content"][cat_index].size();
+	
+	//entering provided data to json
+	for (int i = 1; i < cat_size; i++) {
+		string parameter = msclr::interop::marshal_as<std::string>(this->textBoxesList[i - 1]->Text);
+		actualJson[category][actualJson["content"][cat_index][i].asString()] = parameter;
+	}
+
+	//writing json data into a file
+	ofstream outfile("Data/" + stringUser + ".json");
+	Json::StyledWriter styledWriter;
+	outfile << styledWriter.write(actualJson);
+	outfile.close();
+
+	this->Close();
 }
 };
 }
