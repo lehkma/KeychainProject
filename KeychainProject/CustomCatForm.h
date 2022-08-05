@@ -385,8 +385,8 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 	}
 
 	//limit of parameters check
-	if (actualJson["content"][i].size() > 15) {
-		MessageBox::Show("The maximal allowed number of parameters is 15", "Too many parameters", MessageBoxButtons::OK);
+	if (actualJson["content"][i].size() > 13) {
+		MessageBox::Show("The maximal allowed number of parameters is 12", "Too many parameters", MessageBoxButtons::OK);
 		return;
 	}
 

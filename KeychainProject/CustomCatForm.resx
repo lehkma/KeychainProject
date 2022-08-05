@@ -195,7 +195,9 @@
 should not include spaces.
 Use semicolon ";" as a separator 
 between the names.
-Maximum number of parameters is 15.
+Maximal allowed number of parameters is 12.
+Maximal allowed length of a parameter is 16 
+characters.
 
 Example:
 Username; Password; Website_name</value>
