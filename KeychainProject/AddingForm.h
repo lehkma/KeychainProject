@@ -24,6 +24,7 @@ namespace KeychainProject {
 	public ref class AddingForm : public System::Windows::Forms::Form
 	{
 	private: User^ user;
+	private: System::Windows::Forms::Label^ labelUsername;
 
 	public:
 		List <TextBox^>^ textBoxesList;
@@ -45,10 +46,14 @@ namespace KeychainProject {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Button^ btOK;
+	private: System::Windows::Forms::Button^ btAdd;
+	protected:
+
 	private: System::Windows::Forms::Button^ btCancel;
 	public: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
-	private: System::Windows::Forms::Label^ labelAddNewData;
+	private: System::Windows::Forms::Label^ labelCategory;
+	public:
+
 	protected:
 
 
@@ -65,24 +70,25 @@ namespace KeychainProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->btOK = (gcnew System::Windows::Forms::Button());
+			this->btAdd = (gcnew System::Windows::Forms::Button());
 			this->btCancel = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->labelAddNewData = (gcnew System::Windows::Forms::Label());
+			this->labelCategory = (gcnew System::Windows::Forms::Label());
+			this->labelUsername = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
-			// btOK
+			// btAdd
 			// 
-			this->btOK->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btAdd->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+			this->btAdd->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(599, 366);
-			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(155, 45);
-			this->btOK->TabIndex = 6;
-			this->btOK->Text = L"OK";
-			this->btOK->UseVisualStyleBackColor = true;
-			this->btOK->Click += gcnew System::EventHandler(this, &AddingForm::btOK_Click);
+			this->btAdd->Location = System::Drawing::Point(599, 366);
+			this->btAdd->Name = L"btAdd";
+			this->btAdd->Size = System::Drawing::Size(155, 45);
+			this->btAdd->TabIndex = 6;
+			this->btAdd->Text = L"Add";
+			this->btAdd->UseVisualStyleBackColor = true;
+			this->btAdd->Click += gcnew System::EventHandler(this, &AddingForm::btOK_Click);
 			// 
 			// btCancel
 			// 
@@ -113,19 +119,32 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->Size = System::Drawing::Size(724, 43);
 			this->tableLayoutPanel1->TabIndex = 8;
 			// 
-			// labelAddNewData
+			// labelCategory
 			// 
-			this->labelAddNewData->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->labelCategory->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->labelAddNewData->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 32.25F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->labelAddNewData->ForeColor = System::Drawing::SystemColors::Control;
-			this->labelAddNewData->Location = System::Drawing::Point(12, 74);
-			this->labelAddNewData->Name = L"labelAddNewData";
-			this->labelAddNewData->Size = System::Drawing::Size(760, 62);
-			this->labelAddNewData->TabIndex = 9;
-			this->labelAddNewData->Text = L"Add New Data";
-			this->labelAddNewData->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->labelCategory->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 32.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->labelCategory->ForeColor = System::Drawing::SystemColors::Control;
+			this->labelCategory->Location = System::Drawing::Point(12, 74);
+			this->labelCategory->Name = L"labelCategory";
+			this->labelCategory->Size = System::Drawing::Size(760, 62);
+			this->labelCategory->TabIndex = 9;
+			this->labelCategory->Text = L"category";
+			this->labelCategory->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// labelUsername
+			// 
+			this->labelUsername->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->labelUsername->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->labelUsername->ForeColor = System::Drawing::SystemColors::Control;
+			this->labelUsername->Location = System::Drawing::Point(361, 26);
+			this->labelUsername->Name = L"labelUsername";
+			this->labelUsername->Size = System::Drawing::Size(319, 44);
+			this->labelUsername->TabIndex = 10;
+			this->labelUsername->Text = L"username";
+			this->labelUsername->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 
 			// AddingForm
 			// 
@@ -134,24 +153,36 @@ namespace KeychainProject {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
 			this->ClientSize = System::Drawing::Size(784, 457);
-			this->Controls->Add(this->labelAddNewData);
+			this->Controls->Add(this->labelUsername);
+			this->Controls->Add(this->labelCategory);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->btCancel);
-			this->Controls->Add(this->btOK);
+			this->Controls->Add(this->btAdd);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->MinimumSize = System::Drawing::Size(800, 39);
 			this->Name = L"AddingForm";
+			this->Load += gcnew System::EventHandler(this, &AddingForm::AddingForm_Load);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-
+private: System::Void AddingForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	labelCategory->Text = user->selected_cat;
+	labelUsername->Text = user->username;
+}
 private: System::Void btCancel_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }
 private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
-	textBoxesList[0]->Text = user->selected_cat;
+	//getting the username and selected category
+	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
+	string category = msclr::interop::marshal_as<std::string>(labelCategory->Text);
 	
+
+	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
+	Json::Value actualJson;
+	Json::Reader reader;
+	reader.parse(ifile, actualJson);
 }
 };
 }
