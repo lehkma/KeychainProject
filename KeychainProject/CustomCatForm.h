@@ -333,7 +333,7 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 		return;
 	}
 
-	//duplicity check
+	//name duplicity check
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
 	ifstream ifile("Data/" + stringUser + ".json"); //reading data from the user file
 	Json::Value actualJson;
@@ -370,6 +370,16 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 		actualJson["content"][i][j] = parameters;
 	}
 	
+	//parameters duplicity check
+	for (int m = 0; m <= j; m++) {
+		for (int n = m + 1; n <= j; n++) {
+			if (actualJson["content"][i][m] == actualJson["content"][i][n]) {
+				MessageBox::Show("The name of the category and its parameters must be all unique", "Duplicate parameters", MessageBoxButtons::OK);
+				return;
+			}
+		}
+	}
+
 	//writing json data into the file
 	ofstream ofile("Data/" + stringUser + ".json"); 
 	Json::StyledWriter styledWriter;

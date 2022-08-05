@@ -3,7 +3,11 @@
       [ "card", "description", "number", "CVV", "type" ],
       [ "web_login", "website", "username", "password" ],
       [ "telefon", "cislo", "jmeno", "pin", "vec", "dalsi", "jeste_jedna" ],
-      [ "phone", "description", "number", "PIN", "operator" ]
+      [ "phone", "description", "number", "PIN", "operator" ],
+      [ "meow", "hi", "u", "there", "sup", "koc", "haha", "of" ],
+      [ "bad", "hi", "hi", "hello" ],
+      [ "kocka", "hi", "kockas", "hello" ],
+      [ "hellot", "hello", "heh", "see", "haha", "seed", null ]
    ],
    "login" : {
       "password" : "pes",
