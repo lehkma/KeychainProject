@@ -15,6 +15,18 @@
          "Type" : "Debit"
       }
    ],
+   "Meme" : [
+      {
+         "Author" : "Rick Astley",
+         "Name" : "RickRoll",
+         "URL" : "sth"
+      },
+      {
+         "Author" : "sdf",
+         "Name" : "fasdfsdf",
+         "URL" : "sdfsd"
+      }
+   ],
    "Web_login" : [
       {
          "Password" : "ahojkyy13PeR?",
@@ -26,7 +38,8 @@
       [ "Card", "Description", "Expiry_date", "Number", "CVV", "Type" ],
       [ "Web_login", "Website", "Username", "Password" ],
       [ "Phone", "Description", "Number", "PIN", "Operator" ],
-      [ "Adress", "Person", "House_number", "Street", "City" ]
+      [ "Adress", "Person", "House_number", "Street", "City" ],
+      [ "Meme", "Name", "Author", "URL" ]
    ],
    "login" : {
       "password" : "pes",

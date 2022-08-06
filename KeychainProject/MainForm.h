@@ -123,7 +123,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				85.94891F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				163)));
+				164)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelView, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxView, 1, 0);
@@ -140,9 +140,9 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(546, 3);
+			this->btOK->Location = System::Drawing::Point(545, 3);
 			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(158, 45);
+			this->btOK->Size = System::Drawing::Size(159, 45);
 			this->btOK->TabIndex = 5;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
@@ -160,7 +160,7 @@ namespace KeychainProject {
 			this->comboBoxView->ItemHeight = 26;
 			this->comboBoxView->Location = System::Drawing::Point(79, 8);
 			this->comboBoxView->Name = L"comboBoxView";
-			this->comboBoxView->Size = System::Drawing::Size(461, 34);
+			this->comboBoxView->Size = System::Drawing::Size(460, 34);
 			this->comboBoxView->TabIndex = 2;
 			// 
 			// tableLayoutPanel2
@@ -246,6 +246,7 @@ namespace KeychainProject {
 			this->label->TabIndex = 8;
 			this->label->Text = L"Select the data you want to view above.";
 			this->label->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			//this->label->Click += gcnew System::EventHandler(this, &MainForm::label_Click);
 			// 
 			// MainForm
 			// 
@@ -303,9 +304,6 @@ private: System::Void MainForm_Activated(System::Object^ sender, System::EventAr
 	}
 }
 private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
-	//emptying the panel from other labels
-	this->flowLayoutPanel1->Controls->Clear();
-
 	//get the name of selected category from the textbox
 	string cat = msclr::interop::marshal_as<std::string>(this->comboBoxView->Text);
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
@@ -316,6 +314,9 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 		MessageBox::Show("To view data the category must be selected first", "Category not selected", MessageBoxButtons::OK);
 		return;
 	}
+
+	//emptying the panel from other labels
+	this->flowLayoutPanel1->Controls->Clear();
 
 	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
 	Json::Value actualJson;
@@ -371,7 +372,13 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	for (int i = 0; i < noOfInputs; i++) {
 		this->Controls->Add(myLabels[i]);
 		this->flowLayoutPanel1->Controls->Add(myLabels[i]);
+		myLabels[i]->Click += gcnew System::EventHandler(this, &MainForm::label_Click);
 	}
+}
+private: System::Void label_Click(System::Object^ sender, System::EventArgs^ e) {
+	string cat = msclr::interop::marshal_as<std::string>(this->comboBoxView->Text);
+	MessageBox::Show("To view data the category must be selected first", "Category not selected", MessageBoxButtons::OK);
+	return;
 }
 };
 }
