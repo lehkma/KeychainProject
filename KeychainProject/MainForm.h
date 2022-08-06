@@ -127,7 +127,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				85.94891F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				164)));
+				165)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelView, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxView, 1, 0);
@@ -144,9 +144,9 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(545, 3);
+			this->btOK->Location = System::Drawing::Point(544, 3);
 			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(159, 45);
+			this->btOK->Size = System::Drawing::Size(160, 45);
 			this->btOK->TabIndex = 5;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
@@ -164,7 +164,7 @@ namespace KeychainProject {
 			this->comboBoxView->ItemHeight = 26;
 			this->comboBoxView->Location = System::Drawing::Point(79, 8);
 			this->comboBoxView->Name = L"comboBoxView";
-			this->comboBoxView->Size = System::Drawing::Size(460, 34);
+			this->comboBoxView->Size = System::Drawing::Size(459, 34);
 			this->comboBoxView->TabIndex = 2;
 			// 
 			// tableLayoutPanel2
@@ -250,7 +250,6 @@ namespace KeychainProject {
 			this->label->TabIndex = 8;
 			this->label->Text = L"Select the data you want to view above.";
 			this->label->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			//this->label->Click += gcnew System::EventHandler(this, &MainForm::label_Click);
 			// 
 			// MainForm
 			// 
@@ -291,6 +290,7 @@ private: System::Void btAddNewData_Click(System::Object^ sender, System::EventAr
 private: System::Void MainForm_Activated(System::Object^ sender, System::EventArgs^ e) {
 	//get the username in std string format
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
+	string cat = msclr::interop::marshal_as<std::string>(this->comboBoxView->Text);
 
 	//all saved categories will be loaded into the combobox
 	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
@@ -305,6 +305,11 @@ private: System::Void MainForm_Activated(System::Object^ sender, System::EventAr
 		String^ newSystemString = gcnew String(stdDataString.c_str());
 		comboBoxView->Items->Add(newSystemString);
 		i += 1;
+	}
+
+	//when form gets activated, the flowPanel gets refreshed
+	if (cat != "") {
+		btOK_Click(sender, e);
 	}
 }
 private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
