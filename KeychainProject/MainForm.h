@@ -303,6 +303,9 @@ private: System::Void MainForm_Activated(System::Object^ sender, System::EventAr
 	}
 }
 private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
+	//emptying the panel from other labels
+	this->flowLayoutPanel1->Controls->Clear();
+
 	//get the name of selected category from the textbox
 	string cat = msclr::interop::marshal_as<std::string>(this->comboBoxView->Text);
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
@@ -312,6 +315,62 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (cat == "") {
 		MessageBox::Show("To view data the category must be selected first", "Category not selected", MessageBoxButtons::OK);
 		return;
+	}
+
+	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
+	Json::Value actualJson;
+	Json::Reader reader;
+	reader.parse(ifile, actualJson);
+	ifile.close();
+
+	//finding the index of selected category in the content array
+	int cat_index = 0;
+	bool notFound = true;
+	while (actualJson["content"][cat_index][0] && notFound) {
+		if (actualJson["content"][cat_index][0] == cat) {
+			notFound = false;
+		}
+		else {
+			cat_index += 1;
+		}
+	}
+
+	//we will now create a list of pointers to label objects, so that we can access them later
+	List <Label^>^ myLabels = gcnew List<Label^>();
+
+	//find the number of inputs from selected category
+	int noOfInputs = actualJson[cat].size();
+	if (noOfInputs == 0) {
+		Label^ lbl = gcnew Label();
+		lbl->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
+		lbl->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(0)));
+		lbl->ForeColor = System::Drawing::SystemColors::Control;
+		lbl->Size = System::Drawing::Size(680, 36);
+		lbl->Text = "No data to view in selected category.";
+		lbl->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+		this->Controls->Add(lbl);
+		this->flowLayoutPanel1->Controls->Add(lbl);
+		return;
+	}
+
+	//for each saved input adding a label
+	for (int i = 0; i < noOfInputs; i++) {
+		Label^ lbl = gcnew Label();
+		lbl->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
+		lbl->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(0)));
+		lbl->ForeColor = System::Drawing::SystemColors::Control;
+		lbl->Size = System::Drawing::Size(680, 36);
+		string textStr = actualJson[cat][i][actualJson["content"][cat_index][1].asString()].asString();
+		String^ text = gcnew String(textStr.c_str());
+		lbl->Text = text;
+		lbl->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+		myLabels->Add(lbl);
+	}
+	for (int i = 0; i < noOfInputs; i++) {
+		this->Controls->Add(myLabels[i]);
+		this->flowLayoutPanel1->Controls->Add(myLabels[i]);
 	}
 }
 };
