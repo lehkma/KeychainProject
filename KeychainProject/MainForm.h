@@ -24,7 +24,10 @@ namespace KeychainProject {
 	/// </summary>
 	public ref class MainForm : public System::Windows::Forms::Form
 	{
-	private: User^ user;
+	private: 
+		User^ user;
+		List <Label^>^ myLabels = gcnew List<Label^>();
+		int noOfInputs = 0;
 	public:
 		MainForm(User^ usr)
 		{
@@ -318,6 +321,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	//emptying the panel from other labels
 	this->flowLayoutPanel1->Controls->Clear();
+	myLabels->Clear();
 
 	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
 	Json::Value actualJson;
@@ -337,11 +341,10 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 		}
 	}
 
-	//we will now create a list of pointers to label objects, so that we can access them later
-	List <Label^>^ myLabels = gcnew List<Label^>();
-
 	//find the number of inputs from selected category
-	int noOfInputs = actualJson[cat].size();
+	noOfInputs = actualJson[cat].size();
+
+	//displaying a label if no data is available
 	if (noOfInputs == 0) {
 		Label^ lbl = gcnew Label();
 		lbl->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
@@ -356,7 +359,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 		return;
 	}
 
-	//for each saved input adding a label
+	//for each saved input adding a label into the flowpanel
 	for (int i = 0; i < noOfInputs; i++) {
 		Label^ lbl = gcnew Label();
 		lbl->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
@@ -373,12 +376,16 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	for (int i = 0; i < noOfInputs; i++) {
 		this->Controls->Add(myLabels[i]);
 		this->flowLayoutPanel1->Controls->Add(myLabels[i]);
-		user->cat_index = i;
 		myLabels[i]->Click += gcnew System::EventHandler(this, &MainForm::label_Click);
 	}
 }
 private: System::Void label_Click(System::Object^ sender, System::EventArgs^ e) {
-	string cat = msclr::interop::marshal_as<std::string>(this->comboBoxView->Text);
+	//finding out which label has triggered the event, getting its index
+	for (int i = 0; i < noOfInputs; i++) {
+		if (sender == myLabels[i]) {
+			user->cat_index = i;
+		}
+	}
 
 	//create a form
 	ViewingForm^ viewingForm = gcnew ViewingForm(user);
