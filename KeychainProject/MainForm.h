@@ -51,6 +51,9 @@ namespace KeychainProject {
 	private: System::Windows::Forms::Button^ btOK;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
 	private: System::Windows::Forms::Label^ labelUsername;
+	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
+	private: System::Windows::Forms::Label^ label;
+
 	protected:
 	protected:
 	private:
@@ -75,9 +78,12 @@ namespace KeychainProject {
 			this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->btAddNewData = (gcnew System::Windows::Forms::Button());
 			this->labelUsername = (gcnew System::Windows::Forms::Label());
+			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->label = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->tableLayoutPanel2->SuspendLayout();
 			this->tableLayoutPanel3->SuspendLayout();
+			this->flowLayoutPanel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// labelYourData
@@ -117,7 +123,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				85.94891F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				161)));
+				163)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelView, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxView, 1, 0);
@@ -125,7 +131,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 1;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(717, 51);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(707, 51);
 			this->tableLayoutPanel1->TabIndex = 2;
 			// 
 			// btOK
@@ -134,12 +140,13 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(558, 3);
+			this->btOK->Location = System::Drawing::Point(546, 3);
 			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(156, 45);
+			this->btOK->Size = System::Drawing::Size(158, 45);
 			this->btOK->TabIndex = 5;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
+			this->btOK->Click += gcnew System::EventHandler(this, &MainForm::btOK_Click);
 			// 
 			// comboBoxView
 			// 
@@ -151,9 +158,9 @@ namespace KeychainProject {
 			this->comboBoxView->FormattingEnabled = true;
 			this->comboBoxView->IntegralHeight = false;
 			this->comboBoxView->ItemHeight = 26;
-			this->comboBoxView->Location = System::Drawing::Point(81, 8);
+			this->comboBoxView->Location = System::Drawing::Point(79, 8);
 			this->comboBoxView->Name = L"comboBoxView";
-			this->comboBoxView->Size = System::Drawing::Size(471, 34);
+			this->comboBoxView->Size = System::Drawing::Size(461, 34);
 			this->comboBoxView->TabIndex = 2;
 			// 
 			// tableLayoutPanel2
@@ -170,7 +177,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel2->RowCount = 2;
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50.49505F)));
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 49.50495F)));
-			this->tableLayoutPanel2->Size = System::Drawing::Size(723, 115);
+			this->tableLayoutPanel2->Size = System::Drawing::Size(713, 115);
 			this->tableLayoutPanel2->TabIndex = 3;
 			// 
 			// tableLayoutPanel3
@@ -185,7 +192,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel3->Name = L"tableLayoutPanel3";
 			this->tableLayoutPanel3->RowCount = 1;
 			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel3->Size = System::Drawing::Size(717, 52);
+			this->tableLayoutPanel3->Size = System::Drawing::Size(707, 52);
 			this->tableLayoutPanel3->TabIndex = 5;
 			// 
 			// btAddNewData
@@ -196,7 +203,7 @@ namespace KeychainProject {
 				static_cast<System::Byte>(0)));
 			this->btAddNewData->Location = System::Drawing::Point(3, 3);
 			this->btAddNewData->Name = L"btAddNewData";
-			this->btAddNewData->Size = System::Drawing::Size(711, 46);
+			this->btAddNewData->Size = System::Drawing::Size(701, 46);
 			this->btAddNewData->TabIndex = 4;
 			this->btAddNewData->Text = L"+ Add New Data";
 			this->btAddNewData->UseVisualStyleBackColor = true;
@@ -215,6 +222,31 @@ namespace KeychainProject {
 			this->labelUsername->Text = L"username";
 			this->labelUsername->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 
+			// flowLayoutPanel1
+			// 
+			this->flowLayoutPanel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->flowLayoutPanel1->AutoScroll = true;
+			this->flowLayoutPanel1->Controls->Add(this->label);
+			this->flowLayoutPanel1->Location = System::Drawing::Point(36, 314);
+			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
+			this->flowLayoutPanel1->Size = System::Drawing::Size(713, 320);
+			this->flowLayoutPanel1->TabIndex = 5;
+			// 
+			// label
+			// 
+			this->label->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
+			this->label->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label->ForeColor = System::Drawing::SystemColors::Control;
+			this->label->Location = System::Drawing::Point(3, 0);
+			this->label->Name = L"label";
+			this->label->Size = System::Drawing::Size(680, 36);
+			this->label->TabIndex = 8;
+			this->label->Text = L"Select the data you want to view above.";
+			this->label->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -222,6 +254,7 @@ namespace KeychainProject {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
 			this->ClientSize = System::Drawing::Size(784, 670);
+			this->Controls->Add(this->flowLayoutPanel1);
 			this->Controls->Add(this->labelUsername);
 			this->Controls->Add(this->tableLayoutPanel2);
 			this->Controls->Add(this->labelYourData);
@@ -234,6 +267,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel2->ResumeLayout(false);
 			this->tableLayoutPanel3->ResumeLayout(false);
+			this->flowLayoutPanel1->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
@@ -266,6 +300,18 @@ private: System::Void MainForm_Activated(System::Object^ sender, System::EventAr
 		String^ newSystemString = gcnew String(stdDataString.c_str());
 		comboBoxView->Items->Add(newSystemString);
 		i += 1;
+	}
+}
+private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
+	//get the name of selected category from the textbox
+	string cat = msclr::interop::marshal_as<std::string>(this->comboBoxView->Text);
+	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
+	user->selected_cat = this->comboBoxView->Text;
+
+	//empty check
+	if (cat == "") {
+		MessageBox::Show("To view data the category must be selected first", "Category not selected", MessageBoxButtons::OK);
+		return;
 	}
 }
 };
