@@ -7,4 +7,5 @@ public:
 	String^ username;
 	String^ password;
 	String^ selected_cat = "nothing_yet";
+	int cat_index = 42;
 };

@@ -1,26 +1,35 @@
 #pragma once
+#include <msclr\marshal_cppstd.h>
+#include "User.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include "MyFunctions.h"
+#include <json/value.h>
+#include <json/json.h>
 
 namespace KeychainProject {
 
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
+	using namespace System::Collections::Generic;
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace std;
 
 	/// <summary>
 	/// Summary for ViewingForm
 	/// </summary>
 	public ref class ViewingForm : public System::Windows::Forms::Form
 	{
+	private: User^ user;
 	public:
-		ViewingForm(void)
+		ViewingForm(User^ usr)
 		{
+			user = usr;
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 
 	protected:
@@ -39,7 +48,8 @@ namespace KeychainProject {
 	public: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::Button^ btDelete;
 	private: System::Windows::Forms::Button^ btEdit;
-	private: System::Windows::Forms::Button^ btClose;
+
+
 	public:
 	private:
 
@@ -65,7 +75,6 @@ namespace KeychainProject {
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->btDelete = (gcnew System::Windows::Forms::Button());
 			this->btEdit = (gcnew System::Windows::Forms::Button());
-			this->btClose = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// labelUsername
@@ -128,24 +137,12 @@ namespace KeychainProject {
 			this->btEdit->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->btEdit->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btEdit->Location = System::Drawing::Point(317, 395);
+			this->btEdit->Location = System::Drawing::Point(599, 395);
 			this->btEdit->Name = L"btEdit";
 			this->btEdit->Size = System::Drawing::Size(155, 45);
 			this->btEdit->TabIndex = 13;
 			this->btEdit->Text = L"Edit";
 			this->btEdit->UseVisualStyleBackColor = true;
-			// 
-			// btClose
-			// 
-			this->btClose->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->btClose->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btClose->Location = System::Drawing::Point(599, 395);
-			this->btClose->Name = L"btClose";
-			this->btClose->Size = System::Drawing::Size(155, 45);
-			this->btClose->TabIndex = 16;
-			this->btClose->Text = L"Close";
-			this->btClose->UseVisualStyleBackColor = true;
 			// 
 			// ViewingForm
 			// 
@@ -154,7 +151,6 @@ namespace KeychainProject {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
 			this->ClientSize = System::Drawing::Size(784, 486);
-			this->Controls->Add(this->btClose);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->btDelete);
 			this->Controls->Add(this->btEdit);
@@ -163,9 +159,88 @@ namespace KeychainProject {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->MinimumSize = System::Drawing::Size(800, 39);
 			this->Name = L"ViewingForm";
+			this->Load += gcnew System::EventHandler(this, &ViewingForm::ViewingForm_Load);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	};
+private: System::Void ViewingForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	//setting the labels
+	labelCategory->Text = user->selected_cat;
+	labelUsername->Text = user->username;
+	
+	//getting necessary data
+	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
+	string cat = msclr::interop::marshal_as<std::string>(labelCategory->Text);
+	int category_index = user->cat_index;
+
+	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
+	Json::Value actualJson;
+	Json::Reader reader;
+	reader.parse(ifile, actualJson);
+	ifile.close();
+
+	//finding the index of selected category in the content array
+	int cat_i = 0;
+	bool notFound = true;
+	while (actualJson["content"][cat_i][0] && notFound) {
+		if (actualJson["content"][cat_i][0] == cat) {
+			notFound = false;
+		}
+		else {
+			cat_i += 1;
+		}
+	}
+
+	//finding the number of parameters of selected category
+	int cat_size = actualJson["content"][cat_i].size();
+
+	//set all its properties
+	this->ClientSize = System::Drawing::Size(800, 290 + 43 * cat_size);
+	this->tableLayoutPanel1->RowCount = cat_size - 1;
+	this->tableLayoutPanel1->Size = System::Drawing::Size(724, 43 * cat_size);
+	for (int i = 0; i < cat_size; i++) {
+		this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 43)));
+	}
+
+	//adding the first column
+	for (int i = 1; i < cat_size; i++) {
+		Label^ label1 = (gcnew Label());
+		this->Controls->Add(label1);
+		label1->Size = System::Drawing::Size(221, 33);
+		label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
+		label1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(0)));
+		label1->ForeColor = System::Drawing::SystemColors::Control;
+		string textStr = actualJson["content"][cat_i][i].asString();
+		String^ text = gcnew String(textStr.c_str());
+		label1->Text = text;
+		label1->Name = L"label1" + text;
+		label1->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+		this->tableLayoutPanel1->Controls->Add(label1, 0, i - 1);
+	}
+
+	//adding the second column
+	List <Label^>^ myLabels = gcnew List<Label^>();
+	for (int i = 1; i < cat_size; i++) {
+		Label^ label1 = (gcnew Label());
+		this->Controls->Add(label1);
+		label1->Size = System::Drawing::Size(221, 33);
+		label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
+		label1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(0)));
+		label1->ForeColor = System::Drawing::SystemColors::Control;
+		string textStr = actualJson[cat][category_index][actualJson["content"][cat_i][i].asString()].asString();
+		String^ text = gcnew String(textStr.c_str());
+		label1->Text = text;
+		label1->Name = L"label1" + text;
+		label1->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+		myLabels->Add(label1);
+	}
+	for (int i = 1; i < cat_size; i++) {
+		this->Controls->Add(myLabels[i - 1]);
+		this->tableLayoutPanel1->Controls->Add(myLabels[i - 1], 1, i - 1);
+	}
+}
+};
 }

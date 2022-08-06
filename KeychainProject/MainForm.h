@@ -7,6 +7,7 @@
 #include <json/value.h>
 #include <json/json.h>
 #include "AddNewDataForm.h"
+#include "ViewingForm.h"
 
 namespace KeychainProject {
 
@@ -372,13 +373,16 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	for (int i = 0; i < noOfInputs; i++) {
 		this->Controls->Add(myLabels[i]);
 		this->flowLayoutPanel1->Controls->Add(myLabels[i]);
+		user->cat_index = i;
 		myLabels[i]->Click += gcnew System::EventHandler(this, &MainForm::label_Click);
 	}
 }
 private: System::Void label_Click(System::Object^ sender, System::EventArgs^ e) {
 	string cat = msclr::interop::marshal_as<std::string>(this->comboBoxView->Text);
-	MessageBox::Show("To view data the category must be selected first", "Category not selected", MessageBoxButtons::OK);
-	return;
+
+	//create a form
+	ViewingForm^ viewingForm = gcnew ViewingForm(user);
+	viewingForm->ShowDialog();
 }
 };
 }
