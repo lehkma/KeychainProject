@@ -117,7 +117,7 @@ namespace KeychainProject {
 			this->labelView->ForeColor = System::Drawing::SystemColors::Control;
 			this->labelView->Location = System::Drawing::Point(3, 14);
 			this->labelView->Name = L"labelView";
-			this->labelView->Size = System::Drawing::Size(69, 23);
+			this->labelView->Size = System::Drawing::Size(68, 23);
 			this->labelView->TabIndex = 1;
 			this->labelView->Text = L"View:";
 			this->labelView->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -132,7 +132,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				85.94891F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				168)));
+				174)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelView, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxView, 1, 0);
@@ -149,9 +149,9 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(541, 3);
+			this->btOK->Location = System::Drawing::Point(535, 3);
 			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(163, 45);
+			this->btOK->Size = System::Drawing::Size(169, 45);
 			this->btOK->TabIndex = 5;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
@@ -167,9 +167,9 @@ namespace KeychainProject {
 			this->comboBoxView->FormattingEnabled = true;
 			this->comboBoxView->IntegralHeight = false;
 			this->comboBoxView->ItemHeight = 26;
-			this->comboBoxView->Location = System::Drawing::Point(78, 8);
+			this->comboBoxView->Location = System::Drawing::Point(77, 8);
 			this->comboBoxView->Name = L"comboBoxView";
-			this->comboBoxView->Size = System::Drawing::Size(457, 34);
+			this->comboBoxView->Size = System::Drawing::Size(452, 34);
 			this->comboBoxView->TabIndex = 2;
 			// 
 			// tableLayoutPanel2
@@ -402,6 +402,8 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Controls->Add(myLabels[i]);
 		this->flowLayoutPanel1->Controls->Add(myLabels[i]);
 		myLabels[i]->Click += gcnew System::EventHandler(this, &MainForm::label_Click);
+		myLabels[i]->MouseEnter += gcnew System::EventHandler(this, &MainForm::label_MouseEnter);
+		myLabels[i]->MouseLeave += gcnew System::EventHandler(this, &MainForm::label_MouseLeave);
 	}
 }
 private: System::Void label_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -419,6 +421,14 @@ private: System::Void label_Click(System::Object^ sender, System::EventArgs^ e) 
 private: System::Void picProfile_Click(System::Object^ sender, System::EventArgs^ e) {
 	ProfileForm^ profileForm = gcnew ProfileForm(user);
 	profileForm->ShowDialog();
+}
+private: System::Void label_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+	Label^ label = (Label^)sender;
+	label->ForeColor = System::Drawing::SystemColors::ControlDark;
+}
+private: System::Void label_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+	Label^ label = (Label^)sender;
+	label->ForeColor = System::Drawing::SystemColors::Control;
 }
 };
 }
