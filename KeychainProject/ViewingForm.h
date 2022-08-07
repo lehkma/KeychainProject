@@ -131,6 +131,7 @@ namespace KeychainProject {
 			this->btDelete->TabIndex = 14;
 			this->btDelete->Text = L"Delete";
 			this->btDelete->UseVisualStyleBackColor = true;
+			this->btDelete->Click += gcnew System::EventHandler(this, &ViewingForm::btDelete_Click);
 			// 
 			// btEdit
 			// 
@@ -241,6 +242,36 @@ private: System::Void ViewingForm_Load(System::Object^ sender, System::EventArgs
 	for (int i = 1; i < cat_size; i++) {
 		this->Controls->Add(myLabels[i - 1]);
 		this->tableLayoutPanel1->Controls->Add(myLabels[i - 1], 1, i - 1);
+	}
+}
+private: System::Void btDelete_Click(System::Object^ sender, System::EventArgs^ e) {
+	//ask for confirmation
+	if ((MessageBox::Show("Are you sure you want to delete this item?", "Confirm delete", MessageBoxButtons::YesNo)) == ::System::Windows::Forms::DialogResult::Yes) {
+		//get the data
+		string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
+		string cat = msclr::interop::marshal_as<std::string>(labelCategory->Text);
+		int category_index = user->cat_index;
+
+		ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
+		Json::Value actualJson;
+		Json::Reader reader;
+		reader.parse(ifile, actualJson);
+		ifile.close();
+
+		//delete the current index
+		actualJson[cat].removeIndex(category_index, &actualJson[cat][category_index]);
+
+		//writing json data into a file
+		ofstream outfile("Data/" + stringUser + ".json");
+		Json::StyledWriter styledWriter;
+		outfile << styledWriter.write(actualJson);
+		outfile.close();
+
+		this->Close();
+		return;
+	}
+	else {
+		return;
 	}
 }
 };

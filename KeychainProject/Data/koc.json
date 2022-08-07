@@ -76,23 +76,18 @@
          "Author" : "Rick Astley",
          "Name" : "RickRoll",
          "URL" : "sth"
-      },
-      {
-         "Author" : "sdf",
-         "Name" : "fasdfsdf",
-         "URL" : "sdfsd"
       }
    ],
    "Web_login" : [
       {
-         "Password" : "ahojkyy13PeR?",
-         "Username" : "lasenkalenka",
-         "Website" : "gmail.com"
-      },
-      {
          "Password" : "sdfd",
          "Username" : "dfasdsdf",
          "Website" : "seznam.cz"
+      },
+      {
+         "Password" : "sdfgsd",
+         "Username" : "fgsd",
+         "Website" : "fghdf"
       }
    ],
    "content" : [
