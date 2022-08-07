@@ -130,7 +130,6 @@
     <ClCompile Include="Json_lib\dist\jsoncpp.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MainForm.cpp" />
-    <ClCompile Include="ProfileForm.cpp" />
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="ViewingForm.cpp" />
   </ItemGroup>
@@ -153,9 +152,6 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MyFunctions.h" />
-    <ClInclude Include="ProfileForm.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="User.h" />
     <ClInclude Include="ViewingForm.h">
       <FileType>CppForm</FileType>
@@ -176,9 +172,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProfileForm.resx">
-      <DependentUpon>ProfileForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewingForm.resx">
       <DependentUpon>ViewingForm.h</DependentUpon>

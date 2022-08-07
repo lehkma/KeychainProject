@@ -8,6 +8,7 @@
 #include <json/json.h>
 #include "AddNewDataForm.h"
 #include "ViewingForm.h"
+//#include "ProfileForm.h"
 
 namespace KeychainProject {
 
@@ -417,6 +418,8 @@ private: System::Void label_Click(System::Object^ sender, System::EventArgs^ e) 
 	viewingForm->ShowDialog();
 }
 private: System::Void picProfile_Click(System::Object^ sender, System::EventArgs^ e) {
+	//ProfileForm^ profileForm = gcnew ProfileForm(user);
+	//profileForm->ShowDialog();
 }
 };
 }

@@ -39,9 +39,6 @@
     <ClCompile Include="ViewingForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ProfileForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoginForm.h">
@@ -72,9 +69,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ViewingForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProfileForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
