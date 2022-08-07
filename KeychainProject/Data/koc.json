@@ -2,7 +2,7 @@
    "Card" : [
       {
          "CVV" : "135",
-         "Description" : "My cards",
+         "Description" : "My cardsdafsd",
          "Expiry_date" : "2025",
          "Number" : "46532212178",
          "Type" : "credit card"
@@ -76,6 +76,14 @@
          "Author" : "Rick Astley",
          "Name" : "RickRoll",
          "URL" : "sth"
+      }
+   ],
+   "Phone" : [
+      {
+         "Description" : "My phone",
+         "Number" : "dfsg",
+         "Operator" : "fgsdfg",
+         "PIN" : "sdfgs"
       }
    ],
    "Web_login" : [

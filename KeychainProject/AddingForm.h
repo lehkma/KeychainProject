@@ -175,6 +175,7 @@ namespace KeychainProject {
 			this->Controls->Add(this->btCancel);
 			this->Controls->Add(this->btAdd);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+			this->MaximizeBox = false;
 			this->MinimumSize = System::Drawing::Size(800, 39);
 			this->Name = L"AddingForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;

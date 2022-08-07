@@ -399,6 +399,7 @@ namespace KeychainProject {
 			this->Controls->Add(this->labelCreateCustomCat);
 			this->Controls->Add(this->labelUsername);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+			this->MaximizeBox = false;
 			this->MaximumSize = System::Drawing::Size(800, 624);
 			this->MinimumSize = System::Drawing::Size(800, 624);
 			this->Name = L"CustomCatForm";

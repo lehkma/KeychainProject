@@ -152,12 +152,17 @@ namespace KeychainProject {
 			this->Controls->Add(this->labelUsername);
 			this->Controls->Add(this->labelManageProfile);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+			this->MaximizeBox = false;
 			this->Name = L"ProfileForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Load += gcnew System::EventHandler(this, &ProfileForm::ProfileForm_Load);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 
-	};
+	private: System::Void ProfileForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		labelUsername->Text = user->username;
+	}
+};
 }
