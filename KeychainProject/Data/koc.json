@@ -78,7 +78,13 @@
          "URL" : "sth"
       }
    ],
-   "Web_login" : [],
+   "Web_login" : [
+      {
+         "Password" : "fghgfh",
+         "Username" : "hfgh",
+         "Website" : "fasdf"
+      }
+   ],
    "content" : [
       [ "Card", "Description", "Expiry_date", "Number", "CVV", "Type" ],
       [ "Web_login", "Website", "Username", "Password" ],
