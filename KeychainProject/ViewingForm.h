@@ -48,6 +48,8 @@ namespace KeychainProject {
 	public: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::Button^ btDelete;
 	private: System::Windows::Forms::Button^ btEdit;
+	private: System::Windows::Forms::Button^ btCancel;
+	private: System::Windows::Forms::Button^ btSave;
 
 
 	public:
@@ -75,6 +77,8 @@ namespace KeychainProject {
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->btDelete = (gcnew System::Windows::Forms::Button());
 			this->btEdit = (gcnew System::Windows::Forms::Button());
+			this->btCancel = (gcnew System::Windows::Forms::Button());
+			this->btSave = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// labelUsername
@@ -144,6 +148,33 @@ namespace KeychainProject {
 			this->btEdit->TabIndex = 13;
 			this->btEdit->Text = L"Edit";
 			this->btEdit->UseVisualStyleBackColor = true;
+			this->btEdit->Click += gcnew System::EventHandler(this, &ViewingForm::btEdit_Click);
+			// 
+			// btCancel
+			// 
+			this->btCancel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
+			this->btCancel->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btCancel->Location = System::Drawing::Point(30, 395);
+			this->btCancel->Name = L"btCancel";
+			this->btCancel->Size = System::Drawing::Size(155, 45);
+			this->btCancel->TabIndex = 16;
+			this->btCancel->Text = L"Cancel";
+			this->btCancel->UseVisualStyleBackColor = true;
+			this->btCancel->Click += gcnew System::EventHandler(this, &ViewingForm::btCancel_Click);
+			// 
+			// btSave
+			// 
+			this->btSave->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+			this->btSave->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btSave->Location = System::Drawing::Point(599, 395);
+			this->btSave->Name = L"btSave";
+			this->btSave->Size = System::Drawing::Size(155, 45);
+			this->btSave->TabIndex = 17;
+			this->btSave->Text = L"Save";
+			this->btSave->UseVisualStyleBackColor = true;
+			this->btSave->Click += gcnew System::EventHandler(this, &ViewingForm::btSave_Click);
 			// 
 			// ViewingForm
 			// 
@@ -157,6 +188,8 @@ namespace KeychainProject {
 			this->Controls->Add(this->btEdit);
 			this->Controls->Add(this->labelCategory);
 			this->Controls->Add(this->labelUsername);
+			this->Controls->Add(this->btSave);
+			this->Controls->Add(this->btCancel);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->MinimumSize = System::Drawing::Size(800, 39);
 			this->Name = L"ViewingForm";
@@ -171,6 +204,13 @@ private: System::Void ViewingForm_Load(System::Object^ sender, System::EventArgs
 	labelCategory->Text = user->selected_cat;
 	labelUsername->Text = user->username;
 	
+	//making buttons delete and edit visible
+	this->btDelete->Visible = true;
+	this->btEdit->Visible = true;
+
+	//emptying the panel
+	this->tableLayoutPanel1->Controls->Clear();
+
 	//getting necessary data
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
 	string cat = msclr::interop::marshal_as<std::string>(labelCategory->Text);
@@ -273,6 +313,75 @@ private: System::Void btDelete_Click(System::Object^ sender, System::EventArgs^ 
 	else {
 		return;
 	}
+}
+private: System::Void btEdit_Click(System::Object^ sender, System::EventArgs^ e) {
+	//make the top buttons invisible
+	this->btDelete->Visible = false;
+	this->btEdit->Visible = false;
+
+	//getting necessary data
+	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
+	string cat = msclr::interop::marshal_as<std::string>(labelCategory->Text);
+	int category_index = user->cat_index;
+
+	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
+	Json::Value actualJson;
+	Json::Reader reader;
+	reader.parse(ifile, actualJson);
+	ifile.close();
+
+	//finding the index of selected category in the content array
+	int cat_i = 0;
+	bool notFound = true;
+	while (actualJson["content"][cat_i][0] && notFound) {
+		if (actualJson["content"][cat_i][0] == cat) {
+			notFound = false;
+		}
+		else {
+			cat_i += 1;
+		}
+	}
+
+	//finding the number of parameters of selected category
+	int cat_size = actualJson["content"][cat_i].size();
+
+
+	//removing the controls from the second column
+	for (int i = 0; i < cat_size - 1; i++) {
+		this->tableLayoutPanel1->Controls->Remove(tableLayoutPanel1->GetControlFromPosition(1, i));
+	}
+
+	//replacing the second column with textboxes
+	List <TextBox^>^ textBoxesList = gcnew List<TextBox^>();
+	for (int i = 1; i < cat_size; i++) {
+		TextBox^ textBox1 = (gcnew TextBox());
+		textBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
+		textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+			static_cast<System::Int32>(static_cast<System::Byte>(26)));
+		textBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+		textBox1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(0)));
+		textBox1->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+		string textStr = actualJson[cat][category_index][actualJson["content"][cat_i][i].asString()].asString();
+		String^ text = gcnew String(textStr.c_str());
+		textBox1->Text = text;
+		textBox1->Size = System::Drawing::Size(491, 32);
+		textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Left;
+		textBox1->WordWrap = false;
+		textBoxesList->Add(textBox1);
+	}
+
+	for (int i = 1; i < cat_size; i++) {
+		this->Controls->Add(textBoxesList[i - 1]);
+		this->tableLayoutPanel1->Controls->Add(textBoxesList[i - 1], 1, i - 1);
+	}
+
+}
+private: System::Void btCancel_Click(System::Object^ sender, System::EventArgs^ e) {
+	//loading the initial form again
+	ViewingForm_Load(sender, e);
+}
+private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

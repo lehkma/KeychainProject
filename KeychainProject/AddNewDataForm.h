@@ -377,7 +377,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ text = gcnew String(textStr.c_str());
 		textBox1->Name = text;
 		textBox1->Size = System::Drawing::Size(491, 32);
-		textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+		textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Left;
 		textBox1->WordWrap = false;
 		myTB->Add(textBox1);
 	}
