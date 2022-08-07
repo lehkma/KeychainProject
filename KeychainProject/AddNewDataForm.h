@@ -26,9 +26,6 @@ namespace KeychainProject {
 	public ref class AddNewDataForm : public System::Windows::Forms::Form
 	{
 	private: User^ user;
-	private: System::Windows::Forms::PictureBox^ picProfile;
-
-
 	public:
 		Form^ mainForm;
 		AddNewDataForm(User^ usr, Form^ frm)
@@ -37,7 +34,6 @@ namespace KeychainProject {
 			mainForm = frm;
 			InitializeComponent();
 		}
-
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -49,6 +45,7 @@ namespace KeychainProject {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::PictureBox^ picProfile;
 	private: System::Windows::Forms::Label^ labelAddNewData;
 	protected:
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;

@@ -27,9 +27,6 @@ namespace KeychainProject {
 		LoginForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 	protected:
 		/// <summary>

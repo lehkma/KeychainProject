@@ -26,8 +26,7 @@ namespace KeychainProject {
 	{
 	private: 
 		User^ user;
-	private: System::Windows::Forms::PictureBox^ picProfile;
-		   List <TextBox^>^ textBoxesList;
+		List <TextBox^>^ textBoxesList;
 	public:
 		ViewingForm(User^ usr)
 		{
@@ -46,6 +45,7 @@ namespace KeychainProject {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::PictureBox^ picProfile;
 	private: System::Windows::Forms::Label^ labelUsername;
 	private: System::Windows::Forms::Label^ labelCategory;
 	public: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;

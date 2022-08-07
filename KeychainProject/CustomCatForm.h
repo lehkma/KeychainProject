@@ -23,6 +23,25 @@ namespace KeychainProject {
 	public ref class CustomCatForm : public System::Windows::Forms::Form
 	{
 	private: User^ user;
+	public:
+		Form^ addNewDataForm;
+		CustomCatForm(User^ usr, Form^ frm)
+		{
+			user = usr;
+			addNewDataForm = frm;
+			InitializeComponent();
+		}
+	protected:
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		~CustomCatForm()
+		{
+			if (components)
+			{
+				delete components;
+			}
+		}
 	private: System::Windows::Forms::Label^ labelCatName;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
@@ -39,31 +58,9 @@ namespace KeychainProject {
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::PictureBox^ picProfile;
-
-	public:
-		Form^ addNewDataForm;
-		CustomCatForm(User^ usr, Form^ frm)
-		{
-			user = usr;
-			addNewDataForm = frm;
-			InitializeComponent();
-		}
-
-	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		~CustomCatForm()
-		{
-			if (components)
-			{
-				delete components;
-			}
-		}
 	private: System::Windows::Forms::Label^ labelUsername;
 	private: System::Windows::Forms::Label^ labelCreateCustomCat;
 	private: System::Windows::Forms::Button^ btCancel;
-
 	private: System::ComponentModel::IContainer^ components;
 	protected:
 	private:

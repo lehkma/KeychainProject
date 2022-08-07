@@ -24,9 +24,6 @@ namespace KeychainProject {
 	public ref class AddingForm : public System::Windows::Forms::Form
 	{
 	private: User^ user;
-	private: System::Windows::Forms::Label^ labelUsername;
-	private: System::Windows::Forms::PictureBox^ picProfile;
-
 	public:
 		List <TextBox^>^ textBoxesList;
 		AddingForm(User^ usr, List <TextBox^>^ tb)
@@ -35,7 +32,6 @@ namespace KeychainProject {
 			textBoxesList = tb;
 			InitializeComponent();
 		}
-
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -47,9 +43,10 @@ namespace KeychainProject {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Label^ labelUsername;
+	private: System::Windows::Forms::PictureBox^ picProfile;
 	private: System::Windows::Forms::Button^ btAdd;
 	protected:
-
 	private: System::Windows::Forms::Button^ btCancel;
 	public: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::Label^ labelCategory;

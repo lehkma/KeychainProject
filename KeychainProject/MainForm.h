@@ -28,9 +28,7 @@ namespace KeychainProject {
 	private: 
 		User^ user;
 		List <Label^>^ myLabels = gcnew List<Label^>();
-	private: System::Windows::Forms::PictureBox^ picProfile;
-
-		   int noOfInputs = 0;
+		int noOfInputs = 0;
 	public:
 		MainForm(User^ usr)
 		{
@@ -49,6 +47,7 @@ namespace KeychainProject {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::PictureBox^ picProfile;
 	private: System::Windows::Forms::Label^ labelYourData;
 	private: System::Windows::Forms::Label^ labelView;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
