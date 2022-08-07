@@ -7,6 +7,7 @@
 #include "MyFunctions.h"
 #include <json/value.h>
 #include <json/json.h>
+#include "ProfileForm.h"
 
 namespace KeychainProject {
 
@@ -192,6 +193,7 @@ namespace KeychainProject {
 			this->picProfile->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->picProfile->TabIndex = 18;
 			this->picProfile->TabStop = false;
+			this->picProfile->Click += gcnew System::EventHandler(this, &ViewingForm::picProfile_Click);
 			// 
 			// ViewingForm
 			// 
@@ -441,6 +443,10 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 
 	//loading the initial form again
 	ViewingForm_Load(sender, e);
+}
+private: System::Void picProfile_Click(System::Object^ sender, System::EventArgs^ e) {
+	ProfileForm^ profileForm = gcnew ProfileForm(user);
+	profileForm->ShowDialog();
 }
 };
 }

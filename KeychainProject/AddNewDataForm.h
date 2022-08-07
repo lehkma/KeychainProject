@@ -8,6 +8,7 @@
 #include <json/json.h>
 #include "CustomCatForm.h"
 #include "AddingForm.h"
+#include "ProfileForm.h"
 
 namespace KeychainProject {
 
@@ -160,7 +161,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				85.94891F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				173)));
+				174)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelAdd, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxAdd, 1, 0);
@@ -177,9 +178,9 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(546, 3);
+			this->btOK->Location = System::Drawing::Point(545, 3);
 			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(168, 45);
+			this->btOK->Size = System::Drawing::Size(169, 45);
 			this->btOK->TabIndex = 5;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
@@ -210,7 +211,7 @@ namespace KeychainProject {
 			this->comboBoxAdd->ItemHeight = 26;
 			this->comboBoxAdd->Location = System::Drawing::Point(79, 8);
 			this->comboBoxAdd->Name = L"comboBoxAdd";
-			this->comboBoxAdd->Size = System::Drawing::Size(461, 34);
+			this->comboBoxAdd->Size = System::Drawing::Size(460, 34);
 			this->comboBoxAdd->TabIndex = 2;
 			// 
 			// labelUsername
@@ -248,6 +249,7 @@ namespace KeychainProject {
 			this->picProfile->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->picProfile->TabIndex = 7;
 			this->picProfile->TabStop = false;
+			this->picProfile->Click += gcnew System::EventHandler(this, &AddNewDataForm::picProfile_Click);
 			// 
 			// AddNewDataForm
 			// 
@@ -404,6 +406,10 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	//display the form
 	addingForm->ShowDialog();
+}
+private: System::Void picProfile_Click(System::Object^ sender, System::EventArgs^ e) {
+	ProfileForm^ profileForm = gcnew ProfileForm(user);
+	profileForm->ShowDialog();
 }
 };
 }
