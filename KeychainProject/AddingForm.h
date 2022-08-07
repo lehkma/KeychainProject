@@ -25,6 +25,7 @@ namespace KeychainProject {
 	{
 	private: User^ user;
 	private: System::Windows::Forms::Label^ labelUsername;
+	private: System::Windows::Forms::PictureBox^ picProfile;
 
 	public:
 		List <TextBox^>^ textBoxesList;
@@ -70,11 +71,14 @@ namespace KeychainProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AddingForm::typeid));
 			this->btAdd = (gcnew System::Windows::Forms::Button());
 			this->btCancel = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->labelCategory = (gcnew System::Windows::Forms::Label());
 			this->labelUsername = (gcnew System::Windows::Forms::Label());
+			this->picProfile = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picProfile))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// btAdd
@@ -139,12 +143,23 @@ namespace KeychainProject {
 			this->labelUsername->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->labelUsername->ForeColor = System::Drawing::SystemColors::Control;
-			this->labelUsername->Location = System::Drawing::Point(361, 26);
+			this->labelUsername->Location = System::Drawing::Point(378, 26);
 			this->labelUsername->Name = L"labelUsername";
 			this->labelUsername->Size = System::Drawing::Size(319, 44);
 			this->labelUsername->TabIndex = 10;
 			this->labelUsername->Text = L"username";
 			this->labelUsername->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			// 
+			// picProfile
+			// 
+			this->picProfile->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->picProfile->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"picProfile.Image")));
+			this->picProfile->Location = System::Drawing::Point(699, 26);
+			this->picProfile->Name = L"picProfile";
+			this->picProfile->Size = System::Drawing::Size(44, 44);
+			this->picProfile->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picProfile->TabIndex = 11;
+			this->picProfile->TabStop = false;
 			// 
 			// AddingForm
 			// 
@@ -154,6 +169,7 @@ namespace KeychainProject {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
 			this->ClientSize = System::Drawing::Size(784, 486);
+			this->Controls->Add(this->picProfile);
 			this->Controls->Add(this->labelUsername);
 			this->Controls->Add(this->labelCategory);
 			this->Controls->Add(this->tableLayoutPanel1);
@@ -164,6 +180,7 @@ namespace KeychainProject {
 			this->Name = L"AddingForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Load += gcnew System::EventHandler(this, &AddingForm::AddingForm_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picProfile))->EndInit();
 			this->ResumeLayout(false);
 
 		}

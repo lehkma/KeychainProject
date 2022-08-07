@@ -78,18 +78,7 @@
          "URL" : "sth"
       }
    ],
-   "Web_login" : [
-      {
-         "Password" : "sdfd",
-         "Username" : "dfasdsdf",
-         "Website" : "seznam.cz"
-      },
-      {
-         "Password" : "sdfgsd",
-         "Username" : "fgsd",
-         "Website" : "fghdf"
-      }
-   ],
+   "Web_login" : [],
    "content" : [
       [ "Card", "Description", "Expiry_date", "Number", "CVV", "Type" ],
       [ "Web_login", "Website", "Username", "Password" ],

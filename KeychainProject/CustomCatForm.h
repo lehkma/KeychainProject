@@ -38,6 +38,7 @@ namespace KeychainProject {
 	private: System::Windows::Forms::Label^ labelMainParameter;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::PictureBox^ picProfile;
 
 	public:
 		Form^ addNewDataForm;
@@ -89,6 +90,7 @@ namespace KeychainProject {
 			this->labelMainParameter = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->tbCatName = (gcnew System::Windows::Forms::TextBox());
 			this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->labelParameters = (gcnew System::Windows::Forms::Label());
@@ -96,14 +98,15 @@ namespace KeychainProject {
 			this->tbParameters = (gcnew System::Windows::Forms::TextBox());
 			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
 			this->btCreate = (gcnew System::Windows::Forms::Button());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->picProfile = (gcnew System::Windows::Forms::PictureBox());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->tableLayoutPanel4->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->tableLayoutPanel2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->tableLayoutPanel3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->toolTipBox))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picProfile))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// labelUsername
@@ -112,7 +115,7 @@ namespace KeychainProject {
 			this->labelUsername->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->labelUsername->ForeColor = System::Drawing::SystemColors::Control;
-			this->labelUsername->Location = System::Drawing::Point(361, 26);
+			this->labelUsername->Location = System::Drawing::Point(378, 26);
 			this->labelUsername->Name = L"labelUsername";
 			this->labelUsername->Size = System::Drawing::Size(319, 44);
 			this->labelUsername->TabIndex = 6;
@@ -269,6 +272,20 @@ namespace KeychainProject {
 			this->tableLayoutPanel2->Size = System::Drawing::Size(717, 35);
 			this->tableLayoutPanel2->TabIndex = 10;
 			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left));
+			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
+			this->pictureBox2->Location = System::Drawing::Point(684, 3);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(30, 29);
+			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox2->TabIndex = 14;
+			this->pictureBox2->TabStop = false;
+			this->toolTip1->SetToolTip(this->pictureBox2, L"No spaces should be included in the name.\r\nThe length of the name should not \r\nex"
+				L"ceed 16 characters.\r\n");
+			// 
 			// tbCatName
 			// 
 			this->tbCatName->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
@@ -358,19 +375,16 @@ namespace KeychainProject {
 			this->btCreate->UseVisualStyleBackColor = true;
 			this->btCreate->Click += gcnew System::EventHandler(this, &CustomCatForm::btCreate_Click);
 			// 
-			// pictureBox2
+			// picProfile
 			// 
-			this->pictureBox2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left));
-			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			this->pictureBox2->Location = System::Drawing::Point(684, 3);
-			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(30, 29);
-			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pictureBox2->TabIndex = 14;
-			this->pictureBox2->TabStop = false;
-			this->toolTip1->SetToolTip(this->pictureBox2, L"No spaces should be included in the name.\r\nThe length of the name should not \r\nex"
-				L"ceed 16 characters.\r\n");
+			this->picProfile->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->picProfile->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"picProfile.Image")));
+			this->picProfile->Location = System::Drawing::Point(699, 26);
+			this->picProfile->Name = L"picProfile";
+			this->picProfile->Size = System::Drawing::Size(44, 44);
+			this->picProfile->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picProfile->TabIndex = 12;
+			this->picProfile->TabStop = false;
 			// 
 			// CustomCatForm
 			// 
@@ -379,6 +393,7 @@ namespace KeychainProject {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
 			this->ClientSize = System::Drawing::Size(784, 585);
+			this->Controls->Add(this->picProfile);
 			this->Controls->Add(this->btCreate);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->btCancel);
@@ -398,9 +413,10 @@ namespace KeychainProject {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->tableLayoutPanel2->ResumeLayout(false);
 			this->tableLayoutPanel2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->tableLayoutPanel3->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->toolTipBox))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picProfile))->EndInit();
 			this->ResumeLayout(false);
 
 		}

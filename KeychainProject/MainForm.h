@@ -27,7 +27,9 @@ namespace KeychainProject {
 	private: 
 		User^ user;
 		List <Label^>^ myLabels = gcnew List<Label^>();
-		int noOfInputs = 0;
+	private: System::Windows::Forms::PictureBox^ picProfile;
+
+		   int noOfInputs = 0;
 	public:
 		MainForm(User^ usr)
 		{
@@ -73,6 +75,7 @@ namespace KeychainProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MainForm::typeid));
 			this->labelYourData = (gcnew System::Windows::Forms::Label());
 			this->labelView = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
@@ -84,10 +87,12 @@ namespace KeychainProject {
 			this->labelUsername = (gcnew System::Windows::Forms::Label());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->label = (gcnew System::Windows::Forms::Label());
+			this->picProfile = (gcnew System::Windows::Forms::PictureBox());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->tableLayoutPanel2->SuspendLayout();
 			this->tableLayoutPanel3->SuspendLayout();
 			this->flowLayoutPanel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picProfile))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// labelYourData
@@ -112,7 +117,7 @@ namespace KeychainProject {
 			this->labelView->ForeColor = System::Drawing::SystemColors::Control;
 			this->labelView->Location = System::Drawing::Point(3, 14);
 			this->labelView->Name = L"labelView";
-			this->labelView->Size = System::Drawing::Size(70, 23);
+			this->labelView->Size = System::Drawing::Size(69, 23);
 			this->labelView->TabIndex = 1;
 			this->labelView->Text = L"View:";
 			this->labelView->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -127,7 +132,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				85.94891F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				166)));
+				167)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelView, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxView, 1, 0);
@@ -144,9 +149,9 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(543, 3);
+			this->btOK->Location = System::Drawing::Point(542, 3);
 			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(161, 45);
+			this->btOK->Size = System::Drawing::Size(162, 45);
 			this->btOK->TabIndex = 5;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
@@ -162,7 +167,7 @@ namespace KeychainProject {
 			this->comboBoxView->FormattingEnabled = true;
 			this->comboBoxView->IntegralHeight = false;
 			this->comboBoxView->ItemHeight = 26;
-			this->comboBoxView->Location = System::Drawing::Point(79, 8);
+			this->comboBoxView->Location = System::Drawing::Point(78, 8);
 			this->comboBoxView->Name = L"comboBoxView";
 			this->comboBoxView->Size = System::Drawing::Size(458, 34);
 			this->comboBoxView->TabIndex = 2;
@@ -219,7 +224,7 @@ namespace KeychainProject {
 			this->labelUsername->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->labelUsername->ForeColor = System::Drawing::SystemColors::Control;
-			this->labelUsername->Location = System::Drawing::Point(361, 26);
+			this->labelUsername->Location = System::Drawing::Point(378, 26);
 			this->labelUsername->Name = L"labelUsername";
 			this->labelUsername->Size = System::Drawing::Size(319, 44);
 			this->labelUsername->TabIndex = 4;
@@ -251,6 +256,18 @@ namespace KeychainProject {
 			this->label->Text = L"Select the data you want to view above.";
 			this->label->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			// 
+			// picProfile
+			// 
+			this->picProfile->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->picProfile->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"picProfile.Image")));
+			this->picProfile->Location = System::Drawing::Point(699, 26);
+			this->picProfile->Name = L"picProfile";
+			this->picProfile->Size = System::Drawing::Size(44, 44);
+			this->picProfile->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picProfile->TabIndex = 6;
+			this->picProfile->TabStop = false;
+			this->picProfile->Click += gcnew System::EventHandler(this, &MainForm::pictureBox1_Click);
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -258,6 +275,7 @@ namespace KeychainProject {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
 			this->ClientSize = System::Drawing::Size(784, 632);
+			this->Controls->Add(this->picProfile);
 			this->Controls->Add(this->flowLayoutPanel1);
 			this->Controls->Add(this->labelUsername);
 			this->Controls->Add(this->tableLayoutPanel2);
@@ -273,6 +291,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel2->ResumeLayout(false);
 			this->tableLayoutPanel3->ResumeLayout(false);
 			this->flowLayoutPanel1->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picProfile))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -396,6 +415,8 @@ private: System::Void label_Click(System::Object^ sender, System::EventArgs^ e) 
 	//create a form
 	ViewingForm^ viewingForm = gcnew ViewingForm(user);
 	viewingForm->ShowDialog();
+}
+private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
