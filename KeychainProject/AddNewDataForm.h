@@ -287,11 +287,11 @@ private: System::Void AddNewDataForm_Load(System::Object^ sender, System::EventA
 private: System::Void btBack_Click(System::Object^ sender, System::EventArgs^ e) {
 	//redirecting user to the previous main form 
 	this->Close();
-	//mainForm->Show();
+	mainForm->Show();
 }
 private: System::Void AddNewDataForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
 	//if user closes this form, he is returned to the previous one
-	//mainForm->Show();
+	mainForm->Show();
 }
 private: System::Void btCreateCustomCat_Click(System::Object^ sender, System::EventArgs^ e) {
 	//displaying the form for creating a custom category
