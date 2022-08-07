@@ -24,7 +24,9 @@ namespace KeychainProject {
 	/// </summary>
 	public ref class ViewingForm : public System::Windows::Forms::Form
 	{
-	private: User^ user;
+	private: 
+		User^ user;
+		List <TextBox^>^ textBoxesList;
 	public:
 		ViewingForm(User^ usr)
 		{
@@ -345,14 +347,14 @@ private: System::Void btEdit_Click(System::Object^ sender, System::EventArgs^ e)
 	//finding the number of parameters of selected category
 	int cat_size = actualJson["content"][cat_i].size();
 
-
 	//removing the controls from the second column
 	for (int i = 0; i < cat_size - 1; i++) {
 		this->tableLayoutPanel1->Controls->Remove(tableLayoutPanel1->GetControlFromPosition(1, i));
 	}
 
 	//replacing the second column with textboxes
-	List <TextBox^>^ textBoxesList = gcnew List<TextBox^>();
+	textBoxesList = gcnew List<TextBox^>();
+	textBoxesList->Clear();
 	for (int i = 1; i < cat_size; i++) {
 		TextBox^ textBox1 = (gcnew TextBox());
 		textBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
@@ -382,6 +384,46 @@ private: System::Void btCancel_Click(System::Object^ sender, System::EventArgs^ 
 	ViewingForm_Load(sender, e);
 }
 private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e) {
+	//getting necessary data
+	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
+	string cat = msclr::interop::marshal_as<std::string>(labelCategory->Text);
+	int category_index = user->cat_index;
+
+	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
+	Json::Value actualJson;
+	Json::Reader reader;
+	reader.parse(ifile, actualJson);
+	ifile.close();
+
+	//finding the index of selected category in the content array
+	int cat_i = 0;
+	bool notFound = true;
+	while (actualJson["content"][cat_i][0] && notFound) {
+		if (actualJson["content"][cat_i][0] == cat) {
+			notFound = false;
+		}
+		else {
+			cat_i += 1;
+		}
+	}
+
+	//finding the number of parameters of selected category
+	int cat_size = actualJson["content"][cat_i].size();
+
+	//entering provided data to json
+	for (int i = 1; i < cat_size; i++) {
+		string parameter = msclr::interop::marshal_as<std::string>(this->textBoxesList[i - 1]->Text);
+		actualJson[cat][category_index][actualJson["content"][cat_i][i].asString()] = parameter;
+	}
+
+	//writing json data into a file
+	ofstream outfile("Data/" + stringUser + ".json");
+	Json::StyledWriter styledWriter;
+	outfile << styledWriter.write(actualJson);
+	outfile.close();
+
+	//loading the initial form again
+	ViewingForm_Load(sender, e);
 }
 };
 }

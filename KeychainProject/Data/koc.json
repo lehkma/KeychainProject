@@ -2,10 +2,10 @@
    "Card" : [
       {
          "CVV" : "135",
-         "Description" : "My card",
+         "Description" : "My cards",
          "Expiry_date" : "2025",
          "Number" : "46532212178",
-         "Type" : "credit"
+         "Type" : "credit card"
       },
       {
          "CVV" : "464",
