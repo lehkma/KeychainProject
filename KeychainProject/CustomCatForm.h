@@ -219,7 +219,6 @@ namespace KeychainProject {
 			this->tbMainParameter->Name = L"tbMainParameter";
 			this->tbMainParameter->Size = System::Drawing::Size(493, 32);
 			this->tbMainParameter->TabIndex = 10;
-			this->tbMainParameter->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->tbMainParameter->WordWrap = false;
 			// 
 			// labelMainParameter
@@ -297,7 +296,6 @@ namespace KeychainProject {
 			this->tbCatName->Name = L"tbCatName";
 			this->tbCatName->Size = System::Drawing::Size(493, 32);
 			this->tbCatName->TabIndex = 10;
-			this->tbCatName->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->tbCatName->WordWrap = false;
 			// 
 			// tableLayoutPanel3
