@@ -244,6 +244,7 @@ namespace KeychainProject {
 			this->tbNewPass->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->tbNewPass->Location = System::Drawing::Point(211, 124);
 			this->tbNewPass->Name = L"tbNewPass";
+			this->tbNewPass->PasswordChar = '*';
 			this->tbNewPass->Size = System::Drawing::Size(290, 32);
 			this->tbNewPass->TabIndex = 14;
 			this->tbNewPass->WordWrap = false;
@@ -259,6 +260,7 @@ namespace KeychainProject {
 			this->tbCurrPass->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->tbCurrPass->Location = System::Drawing::Point(211, 68);
 			this->tbCurrPass->Name = L"tbCurrPass";
+			this->tbCurrPass->PasswordChar = '*';
 			this->tbCurrPass->Size = System::Drawing::Size(290, 32);
 			this->tbCurrPass->TabIndex = 13;
 			this->tbCurrPass->WordWrap = false;
@@ -326,6 +328,7 @@ namespace KeychainProject {
 			this->tbConPass->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->tbConPass->Location = System::Drawing::Point(211, 180);
 			this->tbConPass->Name = L"tbConPass";
+			this->tbConPass->PasswordChar = '*';
 			this->tbConPass->Size = System::Drawing::Size(290, 32);
 			this->tbConPass->TabIndex = 11;
 			this->tbConPass->WordWrap = false;
@@ -341,6 +344,7 @@ namespace KeychainProject {
 			this->btSave->TabIndex = 9;
 			this->btSave->Text = L"Save";
 			this->btSave->UseVisualStyleBackColor = true;
+			this->btSave->Click += gcnew System::EventHandler(this, &ProfileForm::btSave_Click);
 			// 
 			// btCancel
 			// 
@@ -395,6 +399,52 @@ private: System::Void btCancel_Click(System::Object^ sender, System::EventArgs^ 
 	tbConPass->Text = "";
 	tbNewPass->Text = "";
 	tbCurrPass->Text = "";
+}
+private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e) {
+	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUser->Text);
+	string currPass = msclr::interop::marshal_as<std::string>(this->tbCurrPass->Text);
+	string newPass = msclr::interop::marshal_as<std::string>(this->tbNewPass->Text);
+	string conPass = msclr::interop::marshal_as<std::string>(this->tbConPass->Text);
+
+	//empty check
+	if (currPass.length() == 0 || newPass.length() == 0 || conPass.length() == 0) {
+		MessageBox::Show("Please enter passwords to all textboxes", "Password is empty", MessageBoxButtons::OK);
+		return;
+	}
+
+	ifstream infile("Data/" + stringUser + ".json");
+	Json::Value actualJson;
+	Json::Reader reader;
+	reader.parse(infile, actualJson);
+	infile.close();
+
+	//get the saved details from the json file, close the file
+	string savedPass = actualJson["login"]["password"].asString();
+	
+	//current password check
+	if (savedPass != currPass) {
+		MessageBox::Show("The current password is incorrect", "Incorrect password", MessageBoxButtons::OK);
+		return;
+	}
+
+	//mismatching passwords check
+	if (newPass != conPass) {
+		MessageBox::Show("Please make sure your new passwords match", "Password mismatch", MessageBoxButtons::OK);
+		return;
+	}
+
+	//saving the new password
+	actualJson["login"]["password"] = newPass;
+
+	//writing json data into a file
+	ofstream outfile("Data/" + stringUser + ".json");
+	Json::StyledWriter styledWriter;
+	outfile << styledWriter.write(actualJson);
+	outfile.close();
+
+	btCancel_Click(sender, e);
+	MessageBox::Show("You have successfully changed your password", "Password change successful", MessageBoxButtons::OK);
+	return;
 }
 };
 }
