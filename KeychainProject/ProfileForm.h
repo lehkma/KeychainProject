@@ -145,6 +145,7 @@ namespace KeychainProject {
 			this->btSignOut->TabIndex = 6;
 			this->btSignOut->Text = L"Sign Out";
 			this->btSignOut->UseVisualStyleBackColor = true;
+			this->btSignOut->Click += gcnew System::EventHandler(this, &ProfileForm::btSignOut_Click);
 			// 
 			// btChangePassword
 			// 
@@ -366,8 +367,8 @@ namespace KeychainProject {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
 			this->ClientSize = System::Drawing::Size(559, 499);
-			this->Controls->Add(this->tlpChangePassword);
 			this->Controls->Add(this->tlpManageProfile);
+			this->Controls->Add(this->tlpChangePassword);
 			this->Controls->Add(this->labelUsername);
 			this->Controls->Add(this->labelManageProfile);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
@@ -445,6 +446,8 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 	btCancel_Click(sender, e);
 	MessageBox::Show("You have successfully changed your password", "Password change successful", MessageBoxButtons::OK);
 	return;
+}
+private: System::Void btSignOut_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
