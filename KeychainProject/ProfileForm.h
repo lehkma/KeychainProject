@@ -2,6 +2,7 @@
 #include <msclr\marshal_cppstd.h>
 #include "User.h"
 #include <iostream>
+#include <stdio.h>
 #include <fstream>
 #include <string>
 #include "MyFunctions.h"
@@ -47,15 +48,12 @@ namespace KeychainProject {
 		}
 	private: System::Windows::Forms::Label^ labelManageProfile;
 	protected:
-
 	private: System::Windows::Forms::Label^ labelUsername;
 	private: System::Windows::Forms::Button^ btSignOut;
 	private: System::Windows::Forms::Button^ btChangePassword;
 	private: System::Windows::Forms::Button^ btDeleteAccount;
 	private: System::Windows::Forms::TableLayoutPanel^ tlpManageProfile;
-
 	private: System::Windows::Forms::TableLayoutPanel^ tlpChangePassword;
-
 	private: System::Windows::Forms::Button^ btCancel;
 	private: System::Windows::Forms::Button^ btSave;
 	private: System::Windows::Forms::Label^ label3;
@@ -63,16 +61,10 @@ namespace KeychainProject {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label;
 	private: System::Windows::Forms::Label^ labelUser;
-
 	private: System::Windows::Forms::TextBox^ tbNewPass;
-
 	private: System::Windows::Forms::TextBox^ tbCurrPass;
 	private: System::Windows::Forms::TextBox^ tbConPass;
-
-
-
 	protected:
-
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -174,6 +166,7 @@ namespace KeychainProject {
 			this->btDeleteAccount->TabIndex = 8;
 			this->btDeleteAccount->Text = L"Delete Account";
 			this->btDeleteAccount->UseVisualStyleBackColor = true;
+			this->btDeleteAccount->Click += gcnew System::EventHandler(this, &ProfileForm::btDeleteAccount_Click);
 			// 
 			// tlpManageProfile
 			// 
@@ -472,6 +465,17 @@ private: System::Void btSignOut_Click(System::Object^ sender, System::EventArgs^
 	//do not forget to reset the user data
 	delete user;
 	lf->Show();
+}
+private: System::Void btDeleteAccount_Click(System::Object^ sender, System::EventArgs^ e) {
+	if ((MessageBox::Show("Are you sure you want to delete your account? All saved data will be lost", "Confirm delete", MessageBoxButtons::YesNo)) == ::System::Windows::Forms::DialogResult::Yes) {
+		string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
+		string name = "Data/" + stringUser + ".json";
+		remove(name.c_str());
+		btSignOut_Click(sender, e);
+	}
+	else {
+		return;
+	}
 }
 };
 }
