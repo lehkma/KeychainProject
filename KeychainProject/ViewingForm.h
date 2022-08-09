@@ -28,12 +28,10 @@ namespace KeychainProject {
 	private: 
 		User^ user;
 		List <TextBox^>^ textBoxesList;
-		bool signedOut;
 	public:
-		ViewingForm(User^ usr, bool so)
+		ViewingForm(User^ usr)
 		{
 			user = usr;
-			signedOut = so;
 			InitializeComponent();
 		}
 
@@ -449,7 +447,7 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 	ViewingForm_Load(sender, e);
 }
 private: System::Void picProfile_Click(System::Object^ sender, System::EventArgs^ e) {
-	ProfileForm^ profileForm = gcnew ProfileForm(user, signedOut);
+	ProfileForm^ profileForm = gcnew ProfileForm(user);
 	profileForm->ShowDialog();
 }
 };

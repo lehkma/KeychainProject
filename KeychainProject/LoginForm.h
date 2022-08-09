@@ -25,7 +25,6 @@ namespace KeychainProject {
 	public ref class LoginForm : public System::Windows::Forms::Form
 	{
 	public:
-		bool signedOut = false;
 		LoginForm(void)
 		{
 			InitializeComponent();
@@ -489,7 +488,7 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 			usr->password = this->tbPassword->Text;
 			
 			//close the login form
-			MainForm^ mainForm = gcnew MainForm(usr, this, signedOut);
+			MainForm^ mainForm = gcnew MainForm(usr);
 			mainForm->Show();
 			this->Hide();
 		}
