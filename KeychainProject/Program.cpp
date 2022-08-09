@@ -11,13 +11,7 @@ int main(array<String^>^ args)
 	Application::SetCompatibleTextRenderingDefault(false);
 
 	KeychainProject::LoginForm loginForm;
-	loginForm.ShowDialog();
-	User^ usr = loginForm.usr;
-
-	if (usr != nullptr) {
-		KeychainProject::MainForm mainForm(usr);
-		Application::Run(% mainForm);
-	}
+	Application::Run(% loginForm);
 
 	return 0;
 }
