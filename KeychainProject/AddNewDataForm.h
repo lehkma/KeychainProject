@@ -26,13 +26,16 @@ namespace KeychainProject {
 	/// </summary>
 	public ref class AddNewDataForm : public System::Windows::Forms::Form
 	{
-	private: User^ user;
+	private: 
+		User^ user;
+		bool  signedOut;
 	public:
 		Form^ mainForm;
-		AddNewDataForm(User^ usr, Form^ frm)
+		AddNewDataForm(User^ usr, Form^ frm, bool so)
 		{
 			user = usr;
 			mainForm = frm;
+			signedOut = so;
 			InitializeComponent();
 		}
 	protected:
@@ -296,7 +299,7 @@ private: System::Void AddNewDataForm_FormClosed(System::Object^ sender, System::
 private: System::Void btCreateCustomCat_Click(System::Object^ sender, System::EventArgs^ e) {
 	//displaying the form for creating a custom category
 	//this->Hide();
-	CustomCatForm^ ccForm = gcnew CustomCatForm(user, this);
+	CustomCatForm^ ccForm = gcnew CustomCatForm(user, this, signedOut);
 	ccForm->ShowDialog();
 }
 private: System::Void AddNewDataForm_Activated(System::Object^ sender, System::EventArgs^ e) {
@@ -354,7 +357,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	List <TextBox^>^ myTB = gcnew List<TextBox^>();
 
 	//create the following form
-	AddingForm^ addingForm = gcnew AddingForm(user, myTB);
+	AddingForm^ addingForm = gcnew AddingForm(user, myTB, signedOut);
 
 	//set all its properties
 	addingForm->ClientSize = System::Drawing::Size(800, 290 + 43 * cat_size);
@@ -409,7 +412,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	addingForm->ShowDialog();
 }
 private: System::Void picProfile_Click(System::Object^ sender, System::EventArgs^ e) {
-	ProfileForm^ profileForm = gcnew ProfileForm(user);
+	ProfileForm^ profileForm = gcnew ProfileForm(user, signedOut);
 	profileForm->ShowDialog();
 }
 };

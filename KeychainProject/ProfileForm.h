@@ -8,6 +8,12 @@
 #include <json/value.h>
 #include <json/json.h>
 
+#include "AddingForm.h"
+#include "AddNewDataForm.h"
+#include "CustomCatForm.h"
+#include "ViewingForm.h"
+#include "MainForm.h"
+
 namespace KeychainProject {
 
 	using namespace System;
@@ -25,11 +31,13 @@ namespace KeychainProject {
 	public ref class ProfileForm : public System::Windows::Forms::Form
 	{
 	private:
+		bool signedOut;
 		User^ user;
 	public:
-		ProfileForm(User^ usr)
+		ProfileForm(User^ usr, bool so)
 		{
 			user = usr;
+			signedOut = so;
 			InitializeComponent();
 		}
 
@@ -448,6 +456,7 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 	return;
 }
 private: System::Void btSignOut_Click(System::Object^ sender, System::EventArgs^ e) {
+
 }
 };
 }

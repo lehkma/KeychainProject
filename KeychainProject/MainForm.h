@@ -26,14 +26,18 @@ namespace KeychainProject {
 	public ref class MainForm : public System::Windows::Forms::Form
 	{
 	private: 
+		bool signedOut;
 		User^ user;
 		List <Label^>^ myLabels = gcnew List<Label^>();
 		int noOfInputs = 0;
+		Form^ loginForm;
 	public:
-		MainForm(User^ usr)
+		MainForm(User^ usr, Form^ frm, bool so)
 		{
 			//constructor code here: passing the object User
+			signedOut = so;
 			user = usr;
+			loginForm = frm;
 			InitializeComponent();
 		}
 	protected:
@@ -307,7 +311,7 @@ private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e
 private: System::Void btAddNewData_Click(System::Object^ sender, System::EventArgs^ e) {
 	//displaying the form for adding new data
 	this->Hide();
-	AddNewDataForm^ addForm = gcnew AddNewDataForm(user, this);
+	AddNewDataForm^ addForm = gcnew AddNewDataForm(user, this, signedOut);
 	addForm->ShowDialog();
 }
 private: System::Void MainForm_Activated(System::Object^ sender, System::EventArgs^ e) {
@@ -418,11 +422,11 @@ private: System::Void label_Click(System::Object^ sender, System::EventArgs^ e) 
 	}
 
 	//create a form
-	ViewingForm^ viewingForm = gcnew ViewingForm(user);
+	ViewingForm^ viewingForm = gcnew ViewingForm(user, signedOut);
 	viewingForm->ShowDialog();
 }
 private: System::Void picProfile_Click(System::Object^ sender, System::EventArgs^ e) {
-	ProfileForm^ profileForm = gcnew ProfileForm(user);
+	ProfileForm^ profileForm = gcnew ProfileForm(user, signedOut);
 	profileForm->ShowDialog();
 }
 private: System::Void label_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
@@ -434,7 +438,7 @@ private: System::Void label_MouseLeave(System::Object^ sender, System::EventArgs
 	label->ForeColor = System::Drawing::SystemColors::Control;
 }
 private: System::Void MainForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
-	Application::Exit();
+	loginForm->Close();
 }
 };
 }

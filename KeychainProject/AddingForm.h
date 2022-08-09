@@ -24,7 +24,8 @@ namespace KeychainProject {
 	/// </summary>
 	public ref class AddingForm : public System::Windows::Forms::Form
 	{
-	private: User^ user;
+	private: 
+		User^ user;
 	public:
 		List <TextBox^>^ textBoxesList;
 		AddingForm(User^ usr, List <TextBox^>^ tb)
