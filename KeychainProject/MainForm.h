@@ -132,7 +132,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				85.94891F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				175)));
+				176)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelView, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxView, 1, 0);
@@ -149,9 +149,9 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(534, 3);
+			this->btOK->Location = System::Drawing::Point(533, 3);
 			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(170, 45);
+			this->btOK->Size = System::Drawing::Size(171, 45);
 			this->btOK->TabIndex = 5;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
@@ -169,7 +169,7 @@ namespace KeychainProject {
 			this->comboBoxView->ItemHeight = 26;
 			this->comboBoxView->Location = System::Drawing::Point(77, 8);
 			this->comboBoxView->Name = L"comboBoxView";
-			this->comboBoxView->Size = System::Drawing::Size(451, 34);
+			this->comboBoxView->Size = System::Drawing::Size(450, 34);
 			this->comboBoxView->TabIndex = 2;
 			// 
 			// tableLayoutPanel2
@@ -288,6 +288,7 @@ namespace KeychainProject {
 			this->Name = L"MainForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Activated += gcnew System::EventHandler(this, &MainForm::MainForm_Activated);
+			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &MainForm::MainForm_FormClosed);
 			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel2->ResumeLayout(false);
@@ -431,6 +432,9 @@ private: System::Void label_MouseEnter(System::Object^ sender, System::EventArgs
 private: System::Void label_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
 	Label^ label = (Label^)sender;
 	label->ForeColor = System::Drawing::SystemColors::Control;
+}
+private: System::Void MainForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
+	Application::Exit();
 }
 };
 }
