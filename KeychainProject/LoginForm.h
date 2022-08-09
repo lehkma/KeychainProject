@@ -25,6 +25,7 @@ namespace KeychainProject {
 	public ref class LoginForm : public System::Windows::Forms::Form
 	{
 	public:
+		User^ usr;
 		LoginForm(void)
 		{
 			InitializeComponent();
@@ -450,11 +451,8 @@ namespace KeychainProject {
 
 		}
 #pragma endregion
-	private: System::Void LoginForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
-
-public: User^ usr = nullptr;
-
+private: System::Void LoginForm_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e) {
 	//getting data from the login textboxes + init
 	string user = msclr::interop::marshal_as<std::string>(this->tbUsername->Text);
@@ -487,9 +485,18 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 			usr->username = this->tbUsername->Text;
 			usr->password = this->tbPassword->Text;
 			
-			//close the login form
+			//open the main form
 			MainForm^ mainForm = gcnew MainForm(usr);
 			mainForm->Show();
+
+			//clear all the textboxes
+			this->tbUsername->Text = "koc";
+			this->tbPassword->Text = "pes";
+			this->tbNewUsername->Text = "";
+			this->tbNewPassword->Text = "";
+			this->tbConfirmPassword->Text = "";
+
+			//hide the login form
 			this->Hide();
 		}
 		else {

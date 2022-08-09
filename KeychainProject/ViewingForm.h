@@ -26,9 +26,9 @@ namespace KeychainProject {
 	public ref class ViewingForm : public System::Windows::Forms::Form
 	{
 	private: 
-		User^ user;
 		List <TextBox^>^ textBoxesList;
 	public:
+		User^ user;
 		ViewingForm(User^ usr)
 		{
 			user = usr;

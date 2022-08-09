@@ -26,8 +26,8 @@ namespace KeychainProject {
 	/// </summary>
 	public ref class AddNewDataForm : public System::Windows::Forms::Form
 	{
-	private: User^ user;
 	public:
+		User^ user;
 		Form^ mainForm;
 		AddNewDataForm(User^ usr, Form^ frm)
 		{
@@ -290,8 +290,13 @@ private: System::Void btBack_Click(System::Object^ sender, System::EventArgs^ e)
 	mainForm->Show();
 }
 private: System::Void AddNewDataForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
-	//if user closes this form, he is returned to the previous one
-	mainForm->Show();
+	if (user->signedOut == false) {
+		//if user closes this form, he is returned to the previous one
+		mainForm->Show();
+	}
+	else {
+		return;
+	}
 }
 private: System::Void btCreateCustomCat_Click(System::Object^ sender, System::EventArgs^ e) {
 	//displaying the form for creating a custom category

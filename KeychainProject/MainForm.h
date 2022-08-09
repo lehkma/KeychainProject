@@ -26,10 +26,10 @@ namespace KeychainProject {
 	public ref class MainForm : public System::Windows::Forms::Form
 	{
 	private: 
-		User^ user;
 		List <Label^>^ myLabels = gcnew List<Label^>();
 		int noOfInputs = 0;
 	public:
+		User^ user;
 		MainForm(User^ usr)
 		{
 			//constructor code here: passing the object User
@@ -434,7 +434,12 @@ private: System::Void label_MouseLeave(System::Object^ sender, System::EventArgs
 	label->ForeColor = System::Drawing::SystemColors::Control;
 }
 private: System::Void MainForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
-	Application::Exit();
+	if (user->signedOut == false){
+		Application::Exit();
+	}
+	else {
+		return;
+	}
 }
 };
 }

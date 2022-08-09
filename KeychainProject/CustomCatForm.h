@@ -23,8 +23,8 @@ namespace KeychainProject {
 	/// </summary>
 	public ref class CustomCatForm : public System::Windows::Forms::Form
 	{
-	private: User^ user;
 	public:
+		User^ user;
 		Form^ addNewDataForm;
 		CustomCatForm(User^ usr, Form^ frm)
 		{

@@ -13,6 +13,7 @@ namespace KeychainProject {
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
+	using namespace System::Collections::Generic;
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
@@ -448,6 +449,29 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 	return;
 }
 private: System::Void btSignOut_Click(System::Object^ sender, System::EventArgs^ e) {
+	//set the flag, so that the FormClosed Events do not get triggered
+	user->signedOut = true;
+	Form^ lf;
+
+	//copy all the open forms to a list
+	List <Form^>^ myForms = gcnew List<Form^>();
+	for each (Form ^ form in Application::OpenForms) {
+		myForms->Add(form);
+	}
+	
+	//close them all, except for the login form
+	for each (Form ^ form in myForms) {
+		if (form->Name != "LoginForm") {
+			form->Close();
+		}
+		else {
+			lf = form;
+		}
+	}
+
+	//do not forget to reset the user data
+	delete user;
+	lf->Show();
 }
 };
 }
