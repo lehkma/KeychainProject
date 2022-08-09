@@ -7,7 +7,6 @@
 #include "MyFunctions.h"
 #include <json/value.h>
 #include <json/json.h>
-#include "MainForm.h"
 
 namespace KeychainProject {
 
@@ -91,7 +90,6 @@ namespace KeychainProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->Name = "LoginForm";
 			this->labelKeychain = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->btCreate = (gcnew System::Windows::Forms::Button());
@@ -489,9 +487,7 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 			usr->password = this->tbPassword->Text;
 			
 			//close the login form
-			MainForm^ mainForm = gcnew MainForm(usr);
-			mainForm->Show();
-			this->Hide();
+			this->Close();
 		}
 		else {
 			//incorrect password check

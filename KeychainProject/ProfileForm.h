@@ -7,14 +7,12 @@
 #include "MyFunctions.h"
 #include <json/value.h>
 #include <json/json.h>
-#include "LoginForm.h"
 
 namespace KeychainProject {
 
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
-	using namespace System::Collections::Generic;
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
@@ -450,9 +448,6 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 	return;
 }
 private: System::Void btSignOut_Click(System::Object^ sender, System::EventArgs^ e) {
-	/*
-	
-	*/
 }
 };
 }
