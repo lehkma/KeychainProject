@@ -472,10 +472,16 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 
 	//load the name of the category and main parameter to json
 	catName.erase(remove(catName.begin(), catName.end(), ' '), catName.end());
-	actualJson["content"][i][0] = catName;
 	mainParameter.erase(remove(mainParameter.begin(), mainParameter.end(), ' '), mainParameter.end());
-	actualJson["content"][i][1] = mainParameter;
-
+	if (catName != "" && mainParameter != "") {
+		actualJson["content"][i][0] = catName;
+		actualJson["content"][i][1] = mainParameter;
+	}
+	else {
+		MessageBox::Show("The name your category and the main parameter cannot consist of spaces only!", "Invalid input", MessageBoxButtons::OK);
+		return;
+	}
+	
 	//getting the parameters names from the textbox
 	parameters.erase(remove(parameters.begin(), parameters.end(), ' '), parameters.end());
 	size_t pos = 0;
@@ -488,6 +494,10 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 			j += 1;
 		}
 		parameters.erase(0, pos + 1);
+	}
+	if (j == 2 && parameters == "") {
+		MessageBox::Show("Enter at least one parameter in the last text box", "Invalid input", MessageBoxButtons::OK);
+		return;
 	}
 	if (parameters != "") {
 		actualJson["content"][i][j] = parameters;

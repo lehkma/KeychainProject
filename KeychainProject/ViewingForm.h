@@ -388,6 +388,7 @@ private: System::Void btEdit_Click(System::Object^ sender, System::EventArgs^ e)
 		string textStr = actualJson[cat][category_index][actualJson["content"][cat_i][i].asString()].asString();
 		String^ text = gcnew String(textStr.c_str());
 		textBox1->Text = text;
+		textBox1->MaxLength = 25;
 		textBox1->Size = System::Drawing::Size(491, 32);
 		textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Left;
 		textBox1->WordWrap = false;
