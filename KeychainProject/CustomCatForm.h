@@ -113,7 +113,7 @@ namespace KeychainProject {
 			this->labelUsername->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->labelUsername->ForeColor = System::Drawing::SystemColors::Control;
-			this->labelUsername->Location = System::Drawing::Point(299, 26);
+			this->labelUsername->Location = System::Drawing::Point(199, 26);
 			this->labelUsername->Name = L"labelUsername";
 			this->labelUsername->Size = System::Drawing::Size(498, 44);
 			this->labelUsername->TabIndex = 6;
@@ -129,14 +129,13 @@ namespace KeychainProject {
 			this->labelCreateCustomCat->ForeColor = System::Drawing::SystemColors::Control;
 			this->labelCreateCustomCat->Location = System::Drawing::Point(12, 74);
 			this->labelCreateCustomCat->Name = L"labelCreateCustomCat";
-			this->labelCreateCustomCat->Size = System::Drawing::Size(860, 58);
+			this->labelCreateCustomCat->Size = System::Drawing::Size(760, 58);
 			this->labelCreateCustomCat->TabIndex = 7;
 			this->labelCreateCustomCat->Text = L"Create Custom Category";
 			this->labelCreateCustomCat->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// btCancel
 			// 
-			this->btCancel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->btCancel->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btCancel->Location = System::Drawing::Point(30, 512);
@@ -183,7 +182,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(823, 336);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(723, 336);
 			this->tableLayoutPanel1->TabIndex = 10;
 			// 
 			// tableLayoutPanel4
@@ -194,7 +193,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel4->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
 			this->tableLayoutPanel4->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				593)));
+				499)));
 			this->tableLayoutPanel4->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
 				37)));
 			this->tableLayoutPanel4->Controls->Add(this->tbMainParameter, 1, 0);
@@ -204,7 +203,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel4->Name = L"tableLayoutPanel4";
 			this->tableLayoutPanel4->RowCount = 1;
 			this->tableLayoutPanel4->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel4->Size = System::Drawing::Size(817, 35);
+			this->tableLayoutPanel4->Size = System::Drawing::Size(717, 35);
 			this->tableLayoutPanel4->TabIndex = 13;
 			// 
 			// tbMainParameter
@@ -216,10 +215,10 @@ namespace KeychainProject {
 			this->tbMainParameter->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tbMainParameter->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->tbMainParameter->Location = System::Drawing::Point(190, 3);
+			this->tbMainParameter->Location = System::Drawing::Point(184, 3);
 			this->tbMainParameter->MaxLength = 16;
 			this->tbMainParameter->Name = L"tbMainParameter";
-			this->tbMainParameter->Size = System::Drawing::Size(587, 32);
+			this->tbMainParameter->Size = System::Drawing::Size(493, 32);
 			this->tbMainParameter->TabIndex = 10;
 			this->tbMainParameter->WordWrap = false;
 			// 
@@ -242,7 +241,7 @@ namespace KeychainProject {
 			this->pictureBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left));
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(783, 3);
+			this->pictureBox1->Location = System::Drawing::Point(683, 3);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(30, 29);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -258,7 +257,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
 			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				594)));
+				499)));
 			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
 				36)));
 			this->tableLayoutPanel2->Controls->Add(this->pictureBox2, 2, 0);
@@ -268,7 +267,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
 			this->tableLayoutPanel2->RowCount = 1;
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel2->Size = System::Drawing::Size(817, 35);
+			this->tableLayoutPanel2->Size = System::Drawing::Size(717, 35);
 			this->tableLayoutPanel2->TabIndex = 10;
 			// 
 			// pictureBox2
@@ -276,7 +275,7 @@ namespace KeychainProject {
 			this->pictureBox2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left));
 			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			this->pictureBox2->Location = System::Drawing::Point(784, 3);
+			this->pictureBox2->Location = System::Drawing::Point(684, 3);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(30, 29);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -294,10 +293,10 @@ namespace KeychainProject {
 			this->tbCatName->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tbCatName->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->tbCatName->Location = System::Drawing::Point(190, 3);
+			this->tbCatName->Location = System::Drawing::Point(185, 3);
 			this->tbCatName->MaxLength = 16;
 			this->tbCatName->Name = L"tbCatName";
-			this->tbCatName->Size = System::Drawing::Size(588, 32);
+			this->tbCatName->Size = System::Drawing::Size(493, 32);
 			this->tbCatName->TabIndex = 10;
 			this->tbCatName->WordWrap = false;
 			// 
@@ -307,16 +306,16 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->tableLayoutPanel3->ColumnCount = 2;
 			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				95.47124F)));
+				94.83961F)));
 			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				4.528764F)));
+				5.16039F)));
 			this->tableLayoutPanel3->Controls->Add(this->labelParameters, 0, 0);
 			this->tableLayoutPanel3->Controls->Add(this->toolTipBox, 1, 0);
 			this->tableLayoutPanel3->Location = System::Drawing::Point(3, 100);
 			this->tableLayoutPanel3->Name = L"tableLayoutPanel3";
 			this->tableLayoutPanel3->RowCount = 1;
 			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel3->Size = System::Drawing::Size(817, 35);
+			this->tableLayoutPanel3->Size = System::Drawing::Size(717, 37);
 			this->tableLayoutPanel3->TabIndex = 12;
 			// 
 			// labelParameters
@@ -328,7 +327,7 @@ namespace KeychainProject {
 			this->labelParameters->ForeColor = System::Drawing::SystemColors::Control;
 			this->labelParameters->Location = System::Drawing::Point(3, 0);
 			this->labelParameters->Name = L"labelParameters";
-			this->labelParameters->Size = System::Drawing::Size(300, 35);
+			this->labelParameters->Size = System::Drawing::Size(300, 37);
 			this->labelParameters->TabIndex = 11;
 			this->labelParameters->Text = L"Write Your Parameters Here:";
 			this->labelParameters->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -338,9 +337,9 @@ namespace KeychainProject {
 			this->toolTipBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left));
 			this->toolTipBox->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"toolTipBox.Image")));
-			this->toolTipBox->Location = System::Drawing::Point(783, 3);
+			this->toolTipBox->Location = System::Drawing::Point(683, 3);
 			this->toolTipBox->Name = L"toolTipBox";
-			this->toolTipBox->Size = System::Drawing::Size(30, 29);
+			this->toolTipBox->Size = System::Drawing::Size(30, 31);
 			this->toolTipBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->toolTipBox->TabIndex = 12;
 			this->toolTipBox->TabStop = false;
@@ -359,15 +358,14 @@ namespace KeychainProject {
 			this->tbParameters->Location = System::Drawing::Point(3, 144);
 			this->tbParameters->Multiline = true;
 			this->tbParameters->Name = L"tbParameters";
-			this->tbParameters->Size = System::Drawing::Size(817, 189);
+			this->tbParameters->Size = System::Drawing::Size(717, 189);
 			this->tbParameters->TabIndex = 11;
 			// 
 			// btCreate
 			// 
-			this->btCreate->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->btCreate->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btCreate->Location = System::Drawing::Point(700, 512);
+			this->btCreate->Location = System::Drawing::Point(600, 512);
 			this->btCreate->Name = L"btCreate";
 			this->btCreate->Size = System::Drawing::Size(153, 45);
 			this->btCreate->TabIndex = 11;
@@ -379,7 +377,7 @@ namespace KeychainProject {
 			// 
 			this->picProfile->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->picProfile->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"picProfile.Image")));
-			this->picProfile->Location = System::Drawing::Point(799, 26);
+			this->picProfile->Location = System::Drawing::Point(699, 26);
 			this->picProfile->Name = L"picProfile";
 			this->picProfile->Size = System::Drawing::Size(44, 44);
 			this->picProfile->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -393,7 +391,7 @@ namespace KeychainProject {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
-			this->ClientSize = System::Drawing::Size(884, 585);
+			this->ClientSize = System::Drawing::Size(784, 585);
 			this->Controls->Add(this->picProfile);
 			this->Controls->Add(this->btCreate);
 			this->Controls->Add(this->tableLayoutPanel1);
@@ -402,8 +400,8 @@ namespace KeychainProject {
 			this->Controls->Add(this->labelUsername);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->MaximizeBox = false;
-			this->MaximumSize = System::Drawing::Size(900, 624);
-			this->MinimumSize = System::Drawing::Size(900, 624);
+			this->MaximumSize = System::Drawing::Size(800, 624);
+			this->MinimumSize = System::Drawing::Size(800, 624);
 			this->Name = L"CustomCatForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &CustomCatForm::CustomCatForm_FormClosed);
