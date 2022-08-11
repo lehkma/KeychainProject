@@ -361,8 +361,8 @@ namespace KeychainProject {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
 			this->ClientSize = System::Drawing::Size(559, 499);
-			this->Controls->Add(this->tlpManageProfile);
 			this->Controls->Add(this->tlpChangePassword);
+			this->Controls->Add(this->tlpManageProfile);
 			this->Controls->Add(this->labelUsername);
 			this->Controls->Add(this->labelManageProfile);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
