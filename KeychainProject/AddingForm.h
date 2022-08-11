@@ -171,7 +171,6 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->flowLayoutPanel1->AutoScroll = true;
-			this->flowLayoutPanel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->flowLayoutPanel1->Controls->Add(this->tableLayoutPanel1);
 			this->flowLayoutPanel1->Location = System::Drawing::Point(44, 158);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
