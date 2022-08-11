@@ -132,7 +132,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				85.94891F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				177)));
+				178)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelView, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxView, 1, 0);
@@ -149,9 +149,9 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(532, 3);
+			this->btOK->Location = System::Drawing::Point(531, 3);
 			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(172, 45);
+			this->btOK->Size = System::Drawing::Size(173, 45);
 			this->btOK->TabIndex = 5;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
@@ -161,7 +161,7 @@ namespace KeychainProject {
 			// 
 			this->comboBoxView->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
 			this->comboBoxView->BackColor = System::Drawing::SystemColors::Control;
-			this->comboBoxView->DropDownHeight = 400;
+			this->comboBoxView->DropDownHeight = 200;
 			this->comboBoxView->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->comboBoxView->FormattingEnabled = true;
@@ -169,7 +169,7 @@ namespace KeychainProject {
 			this->comboBoxView->ItemHeight = 26;
 			this->comboBoxView->Location = System::Drawing::Point(77, 8);
 			this->comboBoxView->Name = L"comboBoxView";
-			this->comboBoxView->Size = System::Drawing::Size(449, 34);
+			this->comboBoxView->Size = System::Drawing::Size(448, 34);
 			this->comboBoxView->TabIndex = 2;
 			// 
 			// tableLayoutPanel2

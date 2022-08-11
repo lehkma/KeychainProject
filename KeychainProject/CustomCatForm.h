@@ -216,6 +216,7 @@ namespace KeychainProject {
 				static_cast<System::Byte>(0)));
 			this->tbMainParameter->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->tbMainParameter->Location = System::Drawing::Point(184, 3);
+			this->tbMainParameter->MaxLength = 16;
 			this->tbMainParameter->Name = L"tbMainParameter";
 			this->tbMainParameter->Size = System::Drawing::Size(493, 32);
 			this->tbMainParameter->TabIndex = 10;
@@ -293,6 +294,7 @@ namespace KeychainProject {
 				static_cast<System::Byte>(0)));
 			this->tbCatName->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->tbCatName->Location = System::Drawing::Point(185, 3);
+			this->tbCatName->MaxLength = 16;
 			this->tbCatName->Name = L"tbCatName";
 			this->tbCatName->Size = System::Drawing::Size(493, 32);
 			this->tbCatName->TabIndex = 10;
@@ -440,16 +442,6 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 	//empty check
 	if (catName.length() == 0 || parameters.length() == 0 || mainParameter.length() == 0) {
 		MessageBox::Show("Please enter the name of your category and specify the parameters below", "Name or parameters are empty", MessageBoxButtons::OK);
-		return;
-	}
-
-	//name length check
-	if (catName.length() > 16) {
-		MessageBox::Show("Please make sure the name of your category is shorter than 16 characters", "Category name is too long", MessageBoxButtons::OK);
-		return;
-	}
-	if (mainParameter.length() > 16) {
-		MessageBox::Show("Please make sure the name of the main parameter is shorter than 16 characters", "Main parameter is too long", MessageBoxButtons::OK);
 		return;
 	}
 
