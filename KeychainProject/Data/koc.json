@@ -97,7 +97,7 @@
       [ "Card", "Description", "Expiry_date", "Number", "CVV", "Type" ],
       [ "Web_login", "Website", "Username", "Password" ],
       [ "Phone", "Description", "Number", "PIN", "Operator" ],
-      [ "Adress", "Person", "House_number", "Street", "City" ],
+      [ "Adress", "Person", "House_No.", "Street", "City" ],
       [ "Meme", "Name", "Author", "URL" ],
       [
          "Cat",

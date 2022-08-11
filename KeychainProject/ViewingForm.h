@@ -212,7 +212,6 @@ namespace KeychainProject {
 			this->Controls->Add(this->btCancel);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->MaximizeBox = false;
-			this->MaximumSize = System::Drawing::Size(800, 1000);
 			this->MinimumSize = System::Drawing::Size(800, 350);
 			this->Name = L"ViewingForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
@@ -261,7 +260,7 @@ private: System::Void ViewingForm_Load(System::Object^ sender, System::EventArgs
 	int cat_size = actualJson["content"][cat_i].size();
 
 	//set all its properties
-	this->ClientSize = System::Drawing::Size(800, 290 + 43 * cat_size);
+	this->ClientSize = System::Drawing::Size(784, 290 + 43 * cat_size);
 	this->tableLayoutPanel1->RowCount = cat_size - 1;
 	this->tableLayoutPanel1->Size = System::Drawing::Size(724, 43 * cat_size);
 	for (int i = 0; i < cat_size; i++) {
@@ -290,7 +289,7 @@ private: System::Void ViewingForm_Load(System::Object^ sender, System::EventArgs
 	for (int i = 1; i < cat_size; i++) {
 		Label^ label1 = (gcnew Label());
 		this->Controls->Add(label1);
-		label1->Size = System::Drawing::Size(221, 33);
+		label1->Size = System::Drawing::Size(491, 32);
 		label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
 		label1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
