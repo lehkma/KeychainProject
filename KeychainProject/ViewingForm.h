@@ -29,8 +29,6 @@ namespace KeychainProject {
 		List <TextBox^>^ textBoxesList;
 
 
-
-
 	public:
 		User^ user;
 		ViewingForm(User^ usr)
@@ -124,10 +122,10 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->tableLayoutPanel1->ColumnCount = 2;
-			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				320)));
-			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				504)));
+			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				38.82064F)));
+			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				61.17936F)));
 			this->tableLayoutPanel1->Location = System::Drawing::Point(30, 158);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 1;
@@ -265,9 +263,9 @@ private: System::Void ViewingForm_Load(System::Object^ sender, System::EventArgs
 	int cat_size = actualJson["content"][cat_i].size();
 
 	//set all its properties
-	this->ClientSize = System::Drawing::Size(900, 290 + 43 * cat_size);
+	this->ClientSize = System::Drawing::Size(800, 290 + 43 * cat_size);
 	this->tableLayoutPanel1->RowCount = cat_size - 1;
-	this->tableLayoutPanel1->Size = System::Drawing::Size(824, 43 * cat_size);
+	this->tableLayoutPanel1->Size = System::Drawing::Size(724, 43 * cat_size);
 	for (int i = 0; i < cat_size; i++) {
 		this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 43)));
 	}
@@ -276,7 +274,7 @@ private: System::Void ViewingForm_Load(System::Object^ sender, System::EventArgs
 	for (int i = 1; i < cat_size; i++) {
 		Label^ label1 = (gcnew Label());
 		this->Controls->Add(label1);
-		label1->Size = System::Drawing::Size(320, 33);
+		label1->Size = System::Drawing::Size(221, 33);
 		label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
 		label1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
@@ -294,8 +292,8 @@ private: System::Void ViewingForm_Load(System::Object^ sender, System::EventArgs
 	for (int i = 1; i < cat_size; i++) {
 		Label^ label1 = (gcnew Label());
 		this->Controls->Add(label1);
-		label1->Size = System::Drawing::Size(491, 33);
-		label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left));
+		label1->Size = System::Drawing::Size(221, 33);
+		label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
 		label1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
 		label1->ForeColor = System::Drawing::SystemColors::Control;
@@ -382,7 +380,7 @@ private: System::Void btEdit_Click(System::Object^ sender, System::EventArgs^ e)
 	textBoxesList->Clear();
 	for (int i = 1; i < cat_size; i++) {
 		TextBox^ textBox1 = (gcnew TextBox());
-		textBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left));
+		textBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
 		textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 			static_cast<System::Int32>(static_cast<System::Byte>(26)));
 		textBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
