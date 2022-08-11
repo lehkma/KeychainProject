@@ -509,11 +509,13 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 		}
 	}
 
+	/*
 	//limit of parameters check
 	if (actualJson["content"][i].size() > 13) {
 		MessageBox::Show("The maximal allowed number of parameters is 12", "Too many parameters", MessageBoxButtons::OK);
 		return;
 	}
+	*/
 
 	//writing json data into the file
 	ofstream ofile("Data/" + stringUser + ".json"); 

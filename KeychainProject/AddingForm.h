@@ -26,6 +26,9 @@ namespace KeychainProject {
 	{ 
 	public:
 		User^ user;
+	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
+
+	public:
 		List <TextBox^>^ textBoxesList;
 		AddingForm(User^ usr, List <TextBox^>^ tb)
 		{
@@ -76,7 +79,9 @@ namespace KeychainProject {
 			this->labelCategory = (gcnew System::Windows::Forms::Label());
 			this->labelUsername = (gcnew System::Windows::Forms::Label());
 			this->picProfile = (gcnew System::Windows::Forms::PictureBox());
+			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picProfile))->BeginInit();
+			this->flowLayoutPanel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// btAdd
@@ -84,7 +89,7 @@ namespace KeychainProject {
 			this->btAdd->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->btAdd->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btAdd->Location = System::Drawing::Point(599, 395);
+			this->btAdd->Location = System::Drawing::Point(748, 570);
 			this->btAdd->Name = L"btAdd";
 			this->btAdd->Size = System::Drawing::Size(155, 45);
 			this->btAdd->TabIndex = 6;
@@ -97,7 +102,7 @@ namespace KeychainProject {
 			this->btCancel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->btCancel->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btCancel->Location = System::Drawing::Point(30, 395);
+			this->btCancel->Location = System::Drawing::Point(44, 570);
 			this->btCancel->Name = L"btCancel";
 			this->btCancel->Size = System::Drawing::Size(155, 45);
 			this->btCancel->TabIndex = 7;
@@ -111,14 +116,14 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->tableLayoutPanel1->ColumnCount = 2;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				31.44928F)));
+				39.09416F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				68.55073F)));
-			this->tableLayoutPanel1->Location = System::Drawing::Point(30, 158);
+				60.90584F)));
+			this->tableLayoutPanel1->Location = System::Drawing::Point(3, 3);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 1;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(724, 43);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(822, 43);
 			this->tableLayoutPanel1->TabIndex = 8;
 			// 
 			// labelCategory
@@ -130,7 +135,7 @@ namespace KeychainProject {
 			this->labelCategory->ForeColor = System::Drawing::SystemColors::Control;
 			this->labelCategory->Location = System::Drawing::Point(12, 74);
 			this->labelCategory->Name = L"labelCategory";
-			this->labelCategory->Size = System::Drawing::Size(760, 62);
+			this->labelCategory->Size = System::Drawing::Size(920, 62);
 			this->labelCategory->TabIndex = 9;
 			this->labelCategory->Text = L"category";
 			this->labelCategory->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -141,7 +146,7 @@ namespace KeychainProject {
 			this->labelUsername->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->labelUsername->ForeColor = System::Drawing::SystemColors::Control;
-			this->labelUsername->Location = System::Drawing::Point(203, 26);
+			this->labelUsername->Location = System::Drawing::Point(363, 26);
 			this->labelUsername->Name = L"labelUsername";
 			this->labelUsername->Size = System::Drawing::Size(494, 44);
 			this->labelUsername->TabIndex = 10;
@@ -152,7 +157,7 @@ namespace KeychainProject {
 			// 
 			this->picProfile->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->picProfile->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"picProfile.Image")));
-			this->picProfile->Location = System::Drawing::Point(699, 26);
+			this->picProfile->Location = System::Drawing::Point(859, 26);
 			this->picProfile->Name = L"picProfile";
 			this->picProfile->Size = System::Drawing::Size(44, 44);
 			this->picProfile->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -160,17 +165,30 @@ namespace KeychainProject {
 			this->picProfile->TabStop = false;
 			this->picProfile->Click += gcnew System::EventHandler(this, &AddingForm::picProfile_Click);
 			// 
+			// flowLayoutPanel1
+			// 
+			this->flowLayoutPanel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->flowLayoutPanel1->AutoScroll = true;
+			this->flowLayoutPanel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->flowLayoutPanel1->Controls->Add(this->tableLayoutPanel1);
+			this->flowLayoutPanel1->Location = System::Drawing::Point(44, 158);
+			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
+			this->flowLayoutPanel1->Size = System::Drawing::Size(859, 374);
+			this->flowLayoutPanel1->TabIndex = 12;
+			// 
 			// AddingForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
-			this->ClientSize = System::Drawing::Size(784, 486);
+			this->ClientSize = System::Drawing::Size(944, 661);
+			this->Controls->Add(this->flowLayoutPanel1);
 			this->Controls->Add(this->picProfile);
 			this->Controls->Add(this->labelUsername);
 			this->Controls->Add(this->labelCategory);
-			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->btCancel);
 			this->Controls->Add(this->btAdd);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
@@ -180,6 +198,7 @@ namespace KeychainProject {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Load += gcnew System::EventHandler(this, &AddingForm::AddingForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picProfile))->EndInit();
+			this->flowLayoutPanel1->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}

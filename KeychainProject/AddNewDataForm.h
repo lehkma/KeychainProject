@@ -168,7 +168,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->Location = System::Drawing::Point(3, 61);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 1;
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 43)));
 			this->tableLayoutPanel1->Size = System::Drawing::Size(717, 51);
 			this->tableLayoutPanel1->TabIndex = 2;
 			// 
@@ -362,9 +362,9 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	AddingForm^ addingForm = gcnew AddingForm(user, myTB);
 
 	//set all its properties
-	addingForm->ClientSize = System::Drawing::Size(784, 290 + 43 * cat_size);
+	addingForm->ClientSize = System::Drawing::Size(944, 661);
 	addingForm->tableLayoutPanel1->RowCount = cat_size - 1;
-	addingForm->tableLayoutPanel1->Size = System::Drawing::Size(724, 43 * cat_size);
+	addingForm->tableLayoutPanel1->Size = System::Drawing::Size(822, 43 * cat_size);
 	for (int i = 0; i < cat_size; i++) {
 		addingForm->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 43)));
 	}
@@ -373,7 +373,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	for (int i = 1; i < cat_size; i++) {
 		Label^ label1 = (gcnew Label());
 		addingForm->Controls->Add(label1);
-		label1->Size = System::Drawing::Size(221, 33);
+		label1->Size = System::Drawing::Size(320, 33);
 		label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
 		label1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));

@@ -344,9 +344,8 @@ Description
 should not include spaces.
 Use semicolon ";" as a separator 
 between the names.
-Maximal allowed number of parameters is 12.
-Maximal allowed length of a parameter is 16 
-characters.
+Maximal allowed length of a parameter name 
+is 16 characters.
 
 Example:
 Username; Password; Website_name</value>
