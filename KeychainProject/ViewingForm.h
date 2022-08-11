@@ -27,9 +27,6 @@ namespace KeychainProject {
 	{
 	private: 
 		List <TextBox^>^ textBoxesList;
-	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
-	private: System::Windows::Forms::Label^ label1;
-
 	public:
 		User^ user;
 		ViewingForm(User^ usr)
@@ -83,16 +80,12 @@ namespace KeychainProject {
 			this->labelUsername = (gcnew System::Windows::Forms::Label());
 			this->labelCategory = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->btDelete = (gcnew System::Windows::Forms::Button());
 			this->btEdit = (gcnew System::Windows::Forms::Button());
 			this->btCancel = (gcnew System::Windows::Forms::Button());
 			this->btSave = (gcnew System::Windows::Forms::Button());
 			this->picProfile = (gcnew System::Windows::Forms::PictureBox());
-			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
-			this->tableLayoutPanel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picProfile))->BeginInit();
-			this->flowLayoutPanel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// labelUsername
@@ -131,33 +124,19 @@ namespace KeychainProject {
 				31.44928F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				68.55073F)));
-			this->tableLayoutPanel1->Controls->Add(this->label1, 1, 0);
-			this->tableLayoutPanel1->Location = System::Drawing::Point(3, 3);
+			this->tableLayoutPanel1->Location = System::Drawing::Point(30, 158);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 1;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(688, 43);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(724, 43);
 			this->tableLayoutPanel1->TabIndex = 15;
-			// 
-			// label1
-			// 
-			this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->label1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::SystemColors::Control;
-			this->label1->Location = System::Drawing::Point(219, 0);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(466, 43);
-			this->label1->TabIndex = 20;
-			this->label1->Text = L"username";
-			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 
 			// btDelete
 			// 
 			this->btDelete->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->btDelete->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btDelete->Location = System::Drawing::Point(30, 570);
+			this->btDelete->Location = System::Drawing::Point(30, 410);
 			this->btDelete->Name = L"btDelete";
 			this->btDelete->Size = System::Drawing::Size(155, 45);
 			this->btDelete->TabIndex = 14;
@@ -170,7 +149,7 @@ namespace KeychainProject {
 			this->btEdit->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->btEdit->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btEdit->Location = System::Drawing::Point(599, 570);
+			this->btEdit->Location = System::Drawing::Point(599, 410);
 			this->btEdit->Name = L"btEdit";
 			this->btEdit->Size = System::Drawing::Size(155, 45);
 			this->btEdit->TabIndex = 13;
@@ -183,7 +162,7 @@ namespace KeychainProject {
 			this->btCancel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->btCancel->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btCancel->Location = System::Drawing::Point(30, 570);
+			this->btCancel->Location = System::Drawing::Point(30, 410);
 			this->btCancel->Name = L"btCancel";
 			this->btCancel->Size = System::Drawing::Size(155, 45);
 			this->btCancel->TabIndex = 16;
@@ -196,7 +175,7 @@ namespace KeychainProject {
 			this->btSave->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->btSave->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btSave->Location = System::Drawing::Point(599, 570);
+			this->btSave->Location = System::Drawing::Point(599, 410);
 			this->btSave->Name = L"btSave";
 			this->btSave->Size = System::Drawing::Size(155, 45);
 			this->btSave->TabIndex = 17;
@@ -216,43 +195,28 @@ namespace KeychainProject {
 			this->picProfile->TabStop = false;
 			this->picProfile->Click += gcnew System::EventHandler(this, &ViewingForm::picProfile_Click);
 			// 
-			// flowLayoutPanel1
-			// 
-			this->flowLayoutPanel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->flowLayoutPanel1->AutoScroll = true;
-			this->flowLayoutPanel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->flowLayoutPanel1->Controls->Add(this->tableLayoutPanel1);
-			this->flowLayoutPanel1->Location = System::Drawing::Point(30, 158);
-			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(721, 374);
-			this->flowLayoutPanel1->TabIndex = 19;
-			// 
 			// ViewingForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
-			this->ClientSize = System::Drawing::Size(784, 661);
+			this->ClientSize = System::Drawing::Size(784, 501);
 			this->Controls->Add(this->picProfile);
+			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->btDelete);
 			this->Controls->Add(this->btEdit);
 			this->Controls->Add(this->labelCategory);
 			this->Controls->Add(this->labelUsername);
 			this->Controls->Add(this->btSave);
 			this->Controls->Add(this->btCancel);
-			this->Controls->Add(this->flowLayoutPanel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->MaximizeBox = false;
 			this->MinimumSize = System::Drawing::Size(800, 350);
 			this->Name = L"ViewingForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Load += gcnew System::EventHandler(this, &ViewingForm::ViewingForm_Load);
-			this->tableLayoutPanel1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picProfile))->EndInit();
-			this->flowLayoutPanel1->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
@@ -296,12 +260,7 @@ private: System::Void ViewingForm_Load(System::Object^ sender, System::EventArgs
 	int cat_size = actualJson["content"][cat_i].size();
 
 	//set all its properties
-	if (290 + 43 * cat_size < 661) {
-		this->ClientSize = System::Drawing::Size(784, 290 + 43 * cat_size);
-	}
-	else {
-		this->ClientSize = System::Drawing::Size(784, 661);
-	}
+	this->ClientSize = System::Drawing::Size(784, 290 + 43 * cat_size);
 	this->tableLayoutPanel1->RowCount = cat_size - 1;
 	this->tableLayoutPanel1->Size = System::Drawing::Size(724, 43 * cat_size);
 	for (int i = 0; i < cat_size; i++) {
@@ -428,10 +387,10 @@ private: System::Void btEdit_Click(System::Object^ sender, System::EventArgs^ e)
 		string textStr = actualJson[cat][category_index][actualJson["content"][cat_i][i].asString()].asString();
 		String^ text = gcnew String(textStr.c_str());
 		textBox1->Text = text;
+		textBox1->MaxLength = 25;
 		textBox1->Size = System::Drawing::Size(491, 32);
 		textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Left;
-		textBox1->WordWrap = true;
-		textBox1->Multiline = true;
+		textBox1->WordWrap = false;
 		textBoxesList->Add(textBox1);
 	}
 
