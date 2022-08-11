@@ -99,7 +99,7 @@ namespace KeychainProject {
 			this->labelAddNewData->ForeColor = System::Drawing::SystemColors::Control;
 			this->labelAddNewData->Location = System::Drawing::Point(12, 74);
 			this->labelAddNewData->Name = L"labelAddNewData";
-			this->labelAddNewData->Size = System::Drawing::Size(760, 58);
+			this->labelAddNewData->Size = System::Drawing::Size(860, 58);
 			this->labelAddNewData->TabIndex = 1;
 			this->labelAddNewData->Text = L"Add New Data";
 			this->labelAddNewData->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -119,7 +119,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel2->RowCount = 2;
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50.49505F)));
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 49.50495F)));
-			this->tableLayoutPanel2->Size = System::Drawing::Size(723, 115);
+			this->tableLayoutPanel2->Size = System::Drawing::Size(823, 115);
 			this->tableLayoutPanel2->TabIndex = 4;
 			// 
 			// tableLayoutPanel3
@@ -134,7 +134,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel3->Name = L"tableLayoutPanel3";
 			this->tableLayoutPanel3->RowCount = 1;
 			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel3->Size = System::Drawing::Size(717, 52);
+			this->tableLayoutPanel3->Size = System::Drawing::Size(817, 52);
 			this->tableLayoutPanel3->TabIndex = 5;
 			// 
 			// btCreateCustomCat
@@ -145,7 +145,7 @@ namespace KeychainProject {
 				static_cast<System::Byte>(0)));
 			this->btCreateCustomCat->Location = System::Drawing::Point(3, 3);
 			this->btCreateCustomCat->Name = L"btCreateCustomCat";
-			this->btCreateCustomCat->Size = System::Drawing::Size(711, 46);
+			this->btCreateCustomCat->Size = System::Drawing::Size(811, 46);
 			this->btCreateCustomCat->TabIndex = 4;
 			this->btCreateCustomCat->Text = L"+ Create Custom Category";
 			this->btCreateCustomCat->UseVisualStyleBackColor = true;
@@ -161,7 +161,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				85.94891F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				177)));
+				178)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelAdd, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxAdd, 1, 0);
@@ -169,7 +169,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 1;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(717, 51);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(817, 51);
 			this->tableLayoutPanel1->TabIndex = 2;
 			// 
 			// btOK
@@ -178,9 +178,9 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(542, 3);
+			this->btOK->Location = System::Drawing::Point(641, 3);
 			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(172, 45);
+			this->btOK->Size = System::Drawing::Size(173, 45);
 			this->btOK->TabIndex = 5;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
@@ -209,9 +209,9 @@ namespace KeychainProject {
 			this->comboBoxAdd->FormattingEnabled = true;
 			this->comboBoxAdd->IntegralHeight = false;
 			this->comboBoxAdd->ItemHeight = 26;
-			this->comboBoxAdd->Location = System::Drawing::Point(78, 8);
+			this->comboBoxAdd->Location = System::Drawing::Point(92, 8);
 			this->comboBoxAdd->Name = L"comboBoxAdd";
-			this->comboBoxAdd->Size = System::Drawing::Size(458, 34);
+			this->comboBoxAdd->Size = System::Drawing::Size(543, 34);
 			this->comboBoxAdd->TabIndex = 2;
 			// 
 			// labelUsername
@@ -220,7 +220,7 @@ namespace KeychainProject {
 			this->labelUsername->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->labelUsername->ForeColor = System::Drawing::SystemColors::Control;
-			this->labelUsername->Location = System::Drawing::Point(205, 26);
+			this->labelUsername->Location = System::Drawing::Point(305, 26);
 			this->labelUsername->Name = L"labelUsername";
 			this->labelUsername->Size = System::Drawing::Size(492, 44);
 			this->labelUsername->TabIndex = 5;
@@ -243,7 +243,7 @@ namespace KeychainProject {
 			// 
 			this->picProfile->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->picProfile->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"picProfile.Image")));
-			this->picProfile->Location = System::Drawing::Point(699, 26);
+			this->picProfile->Location = System::Drawing::Point(799, 26);
 			this->picProfile->Name = L"picProfile";
 			this->picProfile->Size = System::Drawing::Size(44, 44);
 			this->picProfile->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -257,7 +257,7 @@ namespace KeychainProject {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
-			this->ClientSize = System::Drawing::Size(784, 306);
+			this->ClientSize = System::Drawing::Size(884, 306);
 			this->Controls->Add(this->picProfile);
 			this->Controls->Add(this->btBack);
 			this->Controls->Add(this->labelUsername);
@@ -265,8 +265,8 @@ namespace KeychainProject {
 			this->Controls->Add(this->labelAddNewData);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->MaximizeBox = false;
-			this->MaximumSize = System::Drawing::Size(800, 345);
-			this->MinimumSize = System::Drawing::Size(800, 345);
+			this->MaximumSize = System::Drawing::Size(900, 345);
+			this->MinimumSize = System::Drawing::Size(900, 345);
 			this->Name = L"AddNewDataForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Activated += gcnew System::EventHandler(this, &AddNewDataForm::AddNewDataForm_Activated);

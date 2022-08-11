@@ -84,7 +84,7 @@ namespace KeychainProject {
 			this->btAdd->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->btAdd->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btAdd->Location = System::Drawing::Point(599, 395);
+			this->btAdd->Location = System::Drawing::Point(699, 395);
 			this->btAdd->Name = L"btAdd";
 			this->btAdd->Size = System::Drawing::Size(155, 45);
 			this->btAdd->TabIndex = 6;
@@ -111,14 +111,14 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->tableLayoutPanel1->ColumnCount = 2;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				31.44928F)));
+				38.59223F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				68.55073F)));
+				61.40777F)));
 			this->tableLayoutPanel1->Location = System::Drawing::Point(30, 158);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 1;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(724, 43);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(824, 43);
 			this->tableLayoutPanel1->TabIndex = 8;
 			// 
 			// labelCategory
@@ -130,7 +130,7 @@ namespace KeychainProject {
 			this->labelCategory->ForeColor = System::Drawing::SystemColors::Control;
 			this->labelCategory->Location = System::Drawing::Point(12, 74);
 			this->labelCategory->Name = L"labelCategory";
-			this->labelCategory->Size = System::Drawing::Size(760, 62);
+			this->labelCategory->Size = System::Drawing::Size(860, 62);
 			this->labelCategory->TabIndex = 9;
 			this->labelCategory->Text = L"category";
 			this->labelCategory->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -141,7 +141,7 @@ namespace KeychainProject {
 			this->labelUsername->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->labelUsername->ForeColor = System::Drawing::SystemColors::Control;
-			this->labelUsername->Location = System::Drawing::Point(203, 26);
+			this->labelUsername->Location = System::Drawing::Point(303, 26);
 			this->labelUsername->Name = L"labelUsername";
 			this->labelUsername->Size = System::Drawing::Size(494, 44);
 			this->labelUsername->TabIndex = 10;
@@ -152,7 +152,7 @@ namespace KeychainProject {
 			// 
 			this->picProfile->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->picProfile->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"picProfile.Image")));
-			this->picProfile->Location = System::Drawing::Point(699, 26);
+			this->picProfile->Location = System::Drawing::Point(799, 26);
 			this->picProfile->Name = L"picProfile";
 			this->picProfile->Size = System::Drawing::Size(44, 44);
 			this->picProfile->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -167,7 +167,7 @@ namespace KeychainProject {
 			this->AutoScroll = true;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
-			this->ClientSize = System::Drawing::Size(784, 486);
+			this->ClientSize = System::Drawing::Size(884, 486);
 			this->Controls->Add(this->picProfile);
 			this->Controls->Add(this->labelUsername);
 			this->Controls->Add(this->labelCategory);
@@ -176,7 +176,7 @@ namespace KeychainProject {
 			this->Controls->Add(this->btAdd);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->MaximizeBox = false;
-			this->MinimumSize = System::Drawing::Size(800, 39);
+			this->MinimumSize = System::Drawing::Size(900, 39);
 			this->Name = L"AddingForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Load += gcnew System::EventHandler(this, &AddingForm::AddingForm_Load);
