@@ -161,7 +161,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				85.94891F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				175)));
+				176)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelAdd, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxAdd, 1, 0);
@@ -178,9 +178,9 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(544, 3);
+			this->btOK->Location = System::Drawing::Point(543, 3);
 			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(170, 45);
+			this->btOK->Size = System::Drawing::Size(171, 45);
 			this->btOK->TabIndex = 5;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
@@ -211,7 +211,7 @@ namespace KeychainProject {
 			this->comboBoxAdd->ItemHeight = 26;
 			this->comboBoxAdd->Location = System::Drawing::Point(79, 8);
 			this->comboBoxAdd->Name = L"comboBoxAdd";
-			this->comboBoxAdd->Size = System::Drawing::Size(459, 34);
+			this->comboBoxAdd->Size = System::Drawing::Size(458, 34);
 			this->comboBoxAdd->TabIndex = 2;
 			// 
 			// labelUsername
@@ -220,9 +220,9 @@ namespace KeychainProject {
 			this->labelUsername->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->labelUsername->ForeColor = System::Drawing::SystemColors::Control;
-			this->labelUsername->Location = System::Drawing::Point(378, 26);
+			this->labelUsername->Location = System::Drawing::Point(205, 26);
 			this->labelUsername->Name = L"labelUsername";
-			this->labelUsername->Size = System::Drawing::Size(319, 44);
+			this->labelUsername->Size = System::Drawing::Size(492, 44);
 			this->labelUsername->TabIndex = 5;
 			this->labelUsername->Text = L"username";
 			this->labelUsername->TextAlign = System::Drawing::ContentAlignment::MiddleRight;

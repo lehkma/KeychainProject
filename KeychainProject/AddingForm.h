@@ -141,9 +141,9 @@ namespace KeychainProject {
 			this->labelUsername->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->labelUsername->ForeColor = System::Drawing::SystemColors::Control;
-			this->labelUsername->Location = System::Drawing::Point(378, 26);
+			this->labelUsername->Location = System::Drawing::Point(203, 26);
 			this->labelUsername->Name = L"labelUsername";
-			this->labelUsername->Size = System::Drawing::Size(319, 44);
+			this->labelUsername->Size = System::Drawing::Size(494, 44);
 			this->labelUsername->TabIndex = 10;
 			this->labelUsername->Text = L"username";
 			this->labelUsername->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
