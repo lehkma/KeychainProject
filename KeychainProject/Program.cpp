@@ -1,10 +1,9 @@
 #include "LoginForm.h"
-#include "MainForm.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
 
-int main(array<String^>^ args)
+int main(cli::array<System::String^>^ args)
 {
 
 	Application::EnableVisualStyles();

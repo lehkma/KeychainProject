@@ -422,6 +422,12 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 		return;
 	}
 
+	//validate the password
+	if (password_not_valid(newPass)) {
+		MessageBox::Show("Your new password has to be at least 8 characters long, include upper case letters, lower case letters and numbers. You can include special characters. White characters are not allowed.", "Invalid password", MessageBoxButtons::OK);
+		return;
+	}
+
 	//mismatching passwords check
 	if (newPass != conPass) {
 		MessageBox::Show("Please make sure your new passwords match", "Password mismatch", MessageBoxButtons::OK);
