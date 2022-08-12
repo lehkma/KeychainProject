@@ -64,12 +64,14 @@ namespace KeychainProject {
 	private: System::Windows::Forms::TextBox^ tbNewPass;
 	private: System::Windows::Forms::TextBox^ tbCurrPass;
 	private: System::Windows::Forms::TextBox^ tbConPass;
+	private: System::Windows::Forms::ToolTip^ toolTip1;
+	private: System::ComponentModel::IContainer^ components;
 	protected:
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -78,6 +80,7 @@ namespace KeychainProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->labelManageProfile = (gcnew System::Windows::Forms::Label());
 			this->labelUsername = (gcnew System::Windows::Forms::Label());
 			this->btSignOut = (gcnew System::Windows::Forms::Button());
@@ -95,6 +98,7 @@ namespace KeychainProject {
 			this->tbConPass = (gcnew System::Windows::Forms::TextBox());
 			this->btSave = (gcnew System::Windows::Forms::Button());
 			this->btCancel = (gcnew System::Windows::Forms::Button());
+			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
 			this->tlpManageProfile->SuspendLayout();
 			this->tlpChangePassword->SuspendLayout();
 			this->SuspendLayout();
@@ -242,6 +246,9 @@ namespace KeychainProject {
 			this->tbNewPass->PasswordChar = '*';
 			this->tbNewPass->Size = System::Drawing::Size(290, 32);
 			this->tbNewPass->TabIndex = 14;
+			this->toolTip1->SetToolTip(this->tbNewPass, L"Your password has to be at least 8 characters \r\nlong, include upper case letters,"
+				L" \r\nlower case letters and numbers. \r\nYou can include special characters. \r\nWhite"
+				L" characters are not allowed.");
 			this->tbNewPass->WordWrap = false;
 			// 
 			// tbCurrPass

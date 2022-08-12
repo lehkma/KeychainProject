@@ -298,7 +298,7 @@ private: System::Void ViewingForm_Load(System::Object^ sender, System::EventArgs
 		label1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
 		label1->ForeColor = System::Drawing::SystemColors::Control;
-		string textStr = actualJson["content"][cat_i][i].asString();
+		string textStr = actualJson["content"][cat_i][i].asString() + ":";
 		String^ text = gcnew String(textStr.c_str());
 		label1->Text = text;
 		label1->Name = L"label1" + text;
