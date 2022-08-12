@@ -52,3 +52,18 @@ inline void json_write(std::string stringUser, Json::Value actualJson) {
     outfile.close();
     return;
 }
+
+inline int find_index_in_content(Json::Value actualJson, std::string cat) {
+    //finding the index of selected category in the content array
+    int cat_index = 0;
+    bool notFound = true;
+    while (actualJson["content"][cat_index][0] && notFound) {
+        if (actualJson["content"][cat_index][0] == cat) {
+            notFound = false;
+        }
+        else {
+            cat_index += 1;
+        }
+    }
+    return cat_index;
+}

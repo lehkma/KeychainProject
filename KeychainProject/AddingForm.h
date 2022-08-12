@@ -225,16 +225,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	Json::Value actualJson = json_parse(stringUser);
 
 	//finding the index of selected category in the content array
-	int cat_index = 0;
-	bool notFound = true;
-	while (actualJson["content"][cat_index][0] && notFound) {
-		if (actualJson["content"][cat_index][0] == category) {
-			notFound = false;
-		}
-		else {
-			cat_index += 1;
-		}
-	}
+	int cat_index = find_index_in_content(actualJson, category);
 
 	//finding the number of parameters of selected category
 	int cat_size = actualJson["content"][cat_index].size();

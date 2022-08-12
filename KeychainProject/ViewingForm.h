@@ -263,16 +263,7 @@ private: System::Void ViewingForm_Load(System::Object^ sender, System::EventArgs
 	Json::Value actualJson = json_parse(stringUser);
 
 	//finding the index of selected category in the content array
-	int cat_i = 0;
-	bool notFound = true;
-	while (actualJson["content"][cat_i][0] && notFound) {
-		if (actualJson["content"][cat_i][0] == cat) {
-			notFound = false;
-		}
-		else {
-			cat_i += 1;
-		}
-	}
+	int cat_i = find_index_in_content(actualJson, cat);
 
 	//finding the number of parameters of selected category
 	int cat_size = actualJson["content"][cat_i].size();
@@ -360,16 +351,7 @@ private: System::Void btEdit_Click(System::Object^ sender, System::EventArgs^ e)
 	Json::Value actualJson = json_parse(stringUser);
 
 	//finding the index of selected category in the content array
-	int cat_i = 0;
-	bool notFound = true;
-	while (actualJson["content"][cat_i][0] && notFound) {
-		if (actualJson["content"][cat_i][0] == cat) {
-			notFound = false;
-		}
-		else {
-			cat_i += 1;
-		}
-	}
+	int cat_i = find_index_in_content(actualJson, cat);
 
 	//finding the number of parameters of selected category
 	int cat_size = actualJson["content"][cat_i].size();
@@ -420,16 +402,7 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 	Json::Value actualJson = json_parse(stringUser);
 
 	//finding the index of selected category in the content array
-	int cat_i = 0;
-	bool notFound = true;
-	while (actualJson["content"][cat_i][0] && notFound) {
-		if (actualJson["content"][cat_i][0] == cat) {
-			notFound = false;
-		}
-		else {
-			cat_i += 1;
-		}
-	}
+	int cat_i = find_index_in_content(actualJson, cat);
 
 	//finding the number of parameters of selected category
 	int cat_size = actualJson["content"][cat_i].size();

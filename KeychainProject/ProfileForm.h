@@ -473,9 +473,13 @@ private: System::Void btSignOut_Click(System::Object^ sender, System::EventArgs^
 	lf->Show();
 }
 private: System::Void btDeleteAccount_Click(System::Object^ sender, System::EventArgs^ e) {
+	//confirm request
 	if ((MessageBox::Show("Are you sure you want to delete your account? All saved data will be lost", "Confirm delete", MessageBoxButtons::YesNo)) == ::System::Windows::Forms::DialogResult::Yes) {
+		//get data
 		string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
 		string name = "Data/" + stringUser + ".json";
+
+		//remove and sign out
 		remove(name.c_str());
 		btSignOut_Click(sender, e);
 	}
