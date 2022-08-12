@@ -352,7 +352,6 @@ namespace KeychainProject {
 
 		}
 #pragma endregion
-
 private: System::Void AddNewDataForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	labelUsername->Text = user->username;
 }
@@ -382,7 +381,6 @@ private: System::Void AddNewDataForm_Activated(System::Object^ sender, System::E
 
 	//all saved categories will be loaded into the combobox
 	Json::Value actualJson = json_parse(stringUser);
-
 	comboBoxAdd->Items->Clear();
 	int i = 0; //loading the data into combobox
 	while (actualJson["content"][i][0]) {
@@ -475,7 +473,6 @@ private: System::Void picProfile_Click(System::Object^ sender, System::EventArgs
 	ProfileForm^ profileForm = gcnew ProfileForm(user);
 	profileForm->ShowDialog();
 }
-
 private: System::Void btDeleteCat_Click(System::Object^ sender, System::EventArgs^ e) {
 	//get the name of selected category from the textbox
 	string cat = msclr::interop::marshal_as<std::string>(this->comboBoxAdd->Text);
@@ -488,6 +485,7 @@ private: System::Void btDeleteCat_Click(System::Object^ sender, System::EventArg
 		return;
 	}
 
+	//confirm deletion
 	if ((MessageBox::Show("Are you sure you want to delete this category with all saved data?", "Confirm delete", MessageBoxButtons::YesNo)) == ::System::Windows::Forms::DialogResult::Yes) {
 		Json::Value actualJson = json_parse(stringUser);
 

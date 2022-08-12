@@ -371,7 +371,6 @@ private: System::Void btEdit_Click(System::Object^ sender, System::EventArgs^ e)
 		this->Controls->Add(textBoxesList[i - 1]);
 		this->tableLayoutPanel1->Controls->Add(textBoxesList[i - 1], 1, i - 1);
 	}
-
 }
 private: System::Void btCancel_Click(System::Object^ sender, System::EventArgs^ e) {
 	//loading the initial form again
