@@ -338,10 +338,7 @@ private: System::Void btDelete_Click(System::Object^ sender, System::EventArgs^ 
 		actualJson[cat].removeIndex(category_index, &actualJson[cat][category_index]);
 
 		//writing json data into a file
-		ofstream outfile("Data/" + stringUser + ".json");
-		Json::StyledWriter styledWriter;
-		outfile << styledWriter.write(actualJson);
-		outfile.close();
+		json_write(stringUser, actualJson);
 
 		this->Close();
 		return;
@@ -444,10 +441,7 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 	}
 
 	//writing json data into a file
-	ofstream outfile("Data/" + stringUser + ".json");
-	Json::StyledWriter styledWriter;
-	outfile << styledWriter.write(actualJson);
-	outfile.close();
+	json_write(stringUser, actualJson);
 
 	//loading the initial form again
 	ViewingForm_Load(sender, e);

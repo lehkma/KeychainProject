@@ -43,3 +43,12 @@ inline Json::Value json_parse(std::string stringUser) {
     ifile.close();
     return actualJson;
 }
+
+inline void json_write(std::string stringUser, Json::Value actualJson) {
+    //writing json data into a file
+    ofstream outfile("Data/" + stringUser + ".json");
+    Json::StyledWriter styledWriter;
+    outfile << styledWriter.write(actualJson);
+    outfile.close();
+    return;
+}

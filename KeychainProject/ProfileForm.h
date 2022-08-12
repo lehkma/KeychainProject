@@ -441,10 +441,7 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 	actualJson["login"]["password"] = newPass;
 
 	//writing json data into a file
-	ofstream outfile("Data/" + stringUser + ".json");
-	Json::StyledWriter styledWriter;
-	outfile << styledWriter.write(actualJson);
-	outfile.close();
+	json_write(stringUser, actualJson);
 
 	btCancel_Click(sender, e);
 	MessageBox::Show("You have successfully changed your password", "Password change successful", MessageBoxButtons::OK);

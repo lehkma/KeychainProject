@@ -249,10 +249,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 
 	//writing json data into a file
-	ofstream outfile("Data/" + stringUser + ".json");
-	Json::StyledWriter styledWriter;
-	outfile << styledWriter.write(actualJson);
-	outfile.close();
+	json_write(stringUser, actualJson);
 
 	this->Close();
 }

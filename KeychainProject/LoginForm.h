@@ -565,10 +565,7 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 			actualJson["content"] = def_cat;
 
 			//writing json data into a file
-			ofstream outfile("Data/" + newUser + ".json"); 
-			Json::StyledWriter styledWriter;
-			outfile << styledWriter.write(actualJson);
-			outfile.close();
+			json_write(newUser, actualJson);
 
 			//emptying the textboxes after successful sign up
 			this->tbNewUsername->Text = "";

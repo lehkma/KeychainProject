@@ -514,10 +514,7 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 	*/
 
 	//writing json data into the file
-	ofstream ofile("Data/" + stringUser + ".json"); 
-	Json::StyledWriter styledWriter;
-	ofile << styledWriter.write(actualJson);
-	ofile.close();
+	json_write(stringUser, actualJson);
 	
 	this->Close();
 	return;

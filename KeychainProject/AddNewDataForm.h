@@ -528,10 +528,7 @@ private: System::Void btDeleteCat_Click(System::Object^ sender, System::EventArg
 		actualJson.removeMember(cat);
 
 		//writing json data into a file
-		ofstream outfile("Data/" + stringUser + ".json");
-		Json::StyledWriter styledWriter;
-		outfile << styledWriter.write(actualJson);
-		outfile.close();
+		json_write(stringUser, actualJson);
 
 		AddNewDataForm_Activated(sender, e);
 		this->comboBoxAdd->Text = "";
