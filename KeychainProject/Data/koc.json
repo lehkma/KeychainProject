@@ -2,7 +2,7 @@
    "Card" : [
       {
          "CVV" : "135",
-         "Description" : "My cardmmmmmmmmmmmmmmmmmm",
+         "Description" : "My card",
          "Expiry_date" : "2025",
          "Number" : "46532212178",
          "Type" : "credit card"
@@ -80,10 +80,16 @@
    ],
    "Phone" : [
       {
-         "Description" : "My phone",
+         "Description" : "Phone",
          "Number" : "dfsg",
          "Operator" : "fgsdfg",
          "PIN" : "sdfgs"
+      },
+      {
+         "Description" : "My phone",
+         "Number" : "1665465652",
+         "Operator" : "O2",
+         "PIN" : "1658"
       }
    ],
    "content" : [
@@ -107,10 +113,7 @@
          "Yups"
       ],
       [ "dsf", "sdf", "sfdf" ],
-      [ "ert", "trte", "ter" ],
-      [ "ter", "etrt", "rt" ],
-      [ "hg", "fgh", "fght" ],
-      [ "iuy", "yui", "iuuy" ]
+      [ "ert", "trte", "ter" ]
    ],
    "login" : {
       "password" : "pes",

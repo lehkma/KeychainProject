@@ -479,15 +479,11 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 	//if the user exists, check his password
 	if (exists_test("Data/" + user + ".json")) {
 		//open a json file and create the json object
-		ifstream infile("Data/" + user + ".json");
-		Json::Value actualJson;
-		Json::Reader reader;
-		reader.parse(infile, actualJson);
+		Json::Value actualJson = json_parse(user);
 
 		//get the saved details from the json file, close the file
 		savedUser = actualJson["login"]["username"].asString();
 		savedPass = actualJson["login"]["password"].asString();
-		infile.close();
 
 		//compare the saved details with the ones provided by the user
 		if (user == savedUser && pass == savedPass) {

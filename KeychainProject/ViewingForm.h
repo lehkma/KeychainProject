@@ -260,11 +260,7 @@ private: System::Void ViewingForm_Load(System::Object^ sender, System::EventArgs
 	string cat = msclr::interop::marshal_as<std::string>(labelCategory->Text);
 	int category_index = user->cat_index;
 
-	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
-	Json::Value actualJson;
-	Json::Reader reader;
-	reader.parse(ifile, actualJson);
-	ifile.close();
+	Json::Value actualJson = json_parse(stringUser);
 
 	//finding the index of selected category in the content array
 	int cat_i = 0;
@@ -336,11 +332,7 @@ private: System::Void btDelete_Click(System::Object^ sender, System::EventArgs^ 
 		string cat = msclr::interop::marshal_as<std::string>(labelCategory->Text);
 		int category_index = user->cat_index;
 
-		ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
-		Json::Value actualJson;
-		Json::Reader reader;
-		reader.parse(ifile, actualJson);
-		ifile.close();
+		Json::Value actualJson = json_parse(stringUser);
 
 		//delete the current index
 		actualJson[cat].removeIndex(category_index, &actualJson[cat][category_index]);
@@ -368,11 +360,7 @@ private: System::Void btEdit_Click(System::Object^ sender, System::EventArgs^ e)
 	string cat = msclr::interop::marshal_as<std::string>(labelCategory->Text);
 	int category_index = user->cat_index;
 
-	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
-	Json::Value actualJson;
-	Json::Reader reader;
-	reader.parse(ifile, actualJson);
-	ifile.close();
+	Json::Value actualJson = json_parse(stringUser);
 
 	//finding the index of selected category in the content array
 	int cat_i = 0;
@@ -432,11 +420,7 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 	string cat = msclr::interop::marshal_as<std::string>(labelCategory->Text);
 	int category_index = user->cat_index;
 
-	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
-	Json::Value actualJson;
-	Json::Reader reader;
-	reader.parse(ifile, actualJson);
-	ifile.close();
+	Json::Value actualJson = json_parse(stringUser);
 
 	//finding the index of selected category in the content array
 	int cat_i = 0;

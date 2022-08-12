@@ -390,10 +390,8 @@ private: System::Void AddNewDataForm_Activated(System::Object^ sender, System::E
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
 
 	//all saved categories will be loaded into the combobox
-	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
-	Json::Value actualJson;
-	Json::Reader reader;
-	reader.parse(ifile, actualJson);
+	Json::Value actualJson = json_parse(stringUser);
+
 	comboBoxAdd->Items->Clear();
 	int i = 0; //loading the data into combobox
 	while (actualJson["content"][i][0]) {
@@ -415,11 +413,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 		return;
 	}
 
-	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
-	Json::Value actualJson;
-	Json::Reader reader;
-	reader.parse(ifile, actualJson);
-	ifile.close();
+	Json::Value actualJson = json_parse(stringUser);
 
 	//finding the index of selected category in the content array
 	int cat_index = 0;
@@ -513,11 +507,7 @@ private: System::Void btDeleteCat_Click(System::Object^ sender, System::EventArg
 	}
 
 	if ((MessageBox::Show("Are you sure you want to delete this category with all saved data?", "Confirm delete", MessageBoxButtons::YesNo)) == ::System::Windows::Forms::DialogResult::Yes) {
-		ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
-		Json::Value actualJson;
-		Json::Reader reader;
-		reader.parse(ifile, actualJson);
-		ifile.close();
+		Json::Value actualJson = json_parse(stringUser);
 
 		//finding the index of selected category in the content array
 		int cat_index = 0;

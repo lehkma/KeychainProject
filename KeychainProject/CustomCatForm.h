@@ -447,11 +447,7 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 
 	//name duplicity check
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
-	ifstream ifile("Data/" + stringUser + ".json"); //reading data from the user file
-	Json::Value actualJson;
-	Json::Reader reader;
-	reader.parse(ifile, actualJson);
-	ifile.close();
+	Json::Value actualJson = json_parse(stringUser);
 
 	int i = 0;
 	while (actualJson["content"][i][0]) {

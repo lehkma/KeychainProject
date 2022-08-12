@@ -222,10 +222,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 		}
 	}
 
-	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
-	Json::Value actualJson;
-	Json::Reader reader;
-	reader.parse(ifile, actualJson);
+	Json::Value actualJson = json_parse(stringUser);
 
 	//finding the index of selected category in the content array
 	int cat_index = 0;

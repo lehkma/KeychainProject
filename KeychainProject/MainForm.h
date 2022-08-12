@@ -316,10 +316,7 @@ private: System::Void MainForm_Activated(System::Object^ sender, System::EventAr
 	string cat = msclr::interop::marshal_as<std::string>(this->comboBoxView->Text);
 
 	//all saved categories will be loaded into the combobox
-	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
-	Json::Value actualJson;
-	Json::Reader reader;
-	reader.parse(ifile, actualJson);
+	Json::Value actualJson = json_parse(stringUser);
 
 	comboBoxView->Items->Clear();
 	int i = 0; //loading the data into combobox
@@ -351,11 +348,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->flowLayoutPanel1->Controls->Clear();
 	myLabels->Clear();
 
-	ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
-	Json::Value actualJson;
-	Json::Reader reader;
-	reader.parse(ifile, actualJson);
-	ifile.close();
+	Json::Value actualJson = json_parse(stringUser);
 
 	//finding the index of selected category in the content array
 	int cat_index = 0;

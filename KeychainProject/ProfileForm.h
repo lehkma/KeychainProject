@@ -414,11 +414,7 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 		return;
 	}
 
-	ifstream infile("Data/" + stringUser + ".json");
-	Json::Value actualJson;
-	Json::Reader reader;
-	reader.parse(infile, actualJson);
-	infile.close();
+	Json::Value actualJson = json_parse(stringUser);
 
 	//get the saved details from the json file, close the file
 	string savedPass = actualJson["login"]["password"].asString();
