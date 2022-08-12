@@ -86,16 +86,8 @@
          "PIN" : "sdfgs"
       }
    ],
-   "Web_login" : [
-      {
-         "Password" : "fghgfh",
-         "Username" : "hfgh",
-         "Website" : "fasdffgsdfgfasdffgsdfgfas"
-      }
-   ],
    "content" : [
       [ "Card", "Description", "Expiry_date", "Number", "CVV", "Type" ],
-      [ "Web_login", "Website", "Username", "Password" ],
       [ "Phone", "Description", "Number", "PIN", "Operator" ],
       [ "Adress", "Person", "House_No.", "Street", "City" ],
       [ "Meme", "Name", "Author", "URL" ],
@@ -118,8 +110,7 @@
       [ "ert", "trte", "ter" ],
       [ "ter", "etrt", "rt" ],
       [ "hg", "fgh", "fght" ],
-      [ "iuy", "yui", "iuuy" ],
-      [ "tt", "ttf", "dfg" ]
+      [ "iuy", "yui", "iuuy" ]
    ],
    "login" : {
       "password" : "pes",

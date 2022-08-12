@@ -28,7 +28,18 @@ namespace KeychainProject {
 	{
 	public:
 		User^ user;
-		Form^ mainForm;
+	private: System::Windows::Forms::Label^ labelmanage;
+	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel5;
+
+	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel4;
+	private: System::Windows::Forms::Button^ btDeleteCat;
+
+
+	public:
+
+	public:
+
+		   Form^ mainForm;
 		AddNewDataForm(User^ usr, Form^ frm)
 		{
 			user = usr;
@@ -75,18 +86,24 @@ namespace KeychainProject {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AddNewDataForm::typeid));
 			this->labelAddNewData = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->btCreateCustomCat = (gcnew System::Windows::Forms::Button());
+			this->tableLayoutPanel5 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->btDeleteCat = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->btOK = (gcnew System::Windows::Forms::Button());
 			this->labelAdd = (gcnew System::Windows::Forms::Label());
 			this->comboBoxAdd = (gcnew System::Windows::Forms::ComboBox());
+			this->tableLayoutPanel4 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->labelmanage = (gcnew System::Windows::Forms::Label());
+			this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->btCreateCustomCat = (gcnew System::Windows::Forms::Button());
 			this->labelUsername = (gcnew System::Windows::Forms::Label());
 			this->btBack = (gcnew System::Windows::Forms::Button());
 			this->picProfile = (gcnew System::Windows::Forms::PictureBox());
 			this->tableLayoutPanel2->SuspendLayout();
-			this->tableLayoutPanel3->SuspendLayout();
+			this->tableLayoutPanel5->SuspendLayout();
 			this->tableLayoutPanel1->SuspendLayout();
+			this->tableLayoutPanel4->SuspendLayout();
+			this->tableLayoutPanel3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picProfile))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -111,45 +128,51 @@ namespace KeychainProject {
 			this->tableLayoutPanel2->ColumnCount = 1;
 			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
-			this->tableLayoutPanel2->Controls->Add(this->tableLayoutPanel3, 0, 0);
-			this->tableLayoutPanel2->Controls->Add(this->tableLayoutPanel1, 0, 1);
+			this->tableLayoutPanel2->Controls->Add(this->tableLayoutPanel5, 0, 4);
+			this->tableLayoutPanel2->Controls->Add(this->tableLayoutPanel1, 0, 0);
+			this->tableLayoutPanel2->Controls->Add(this->tableLayoutPanel4, 0, 2);
+			this->tableLayoutPanel2->Controls->Add(this->tableLayoutPanel3, 0, 3);
 			this->tableLayoutPanel2->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->tableLayoutPanel2->Location = System::Drawing::Point(30, 158);
 			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
-			this->tableLayoutPanel2->RowCount = 2;
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50.49505F)));
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 49.50495F)));
-			this->tableLayoutPanel2->Size = System::Drawing::Size(723, 115);
+			this->tableLayoutPanel2->RowCount = 5;
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 15)));
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
+			this->tableLayoutPanel2->Size = System::Drawing::Size(723, 276);
 			this->tableLayoutPanel2->TabIndex = 4;
 			// 
-			// tableLayoutPanel3
+			// tableLayoutPanel5
 			// 
-			this->tableLayoutPanel3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->tableLayoutPanel5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->tableLayoutPanel3->ColumnCount = 1;
-			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+			this->tableLayoutPanel5->ColumnCount = 1;
+			this->tableLayoutPanel5->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
-			this->tableLayoutPanel3->Controls->Add(this->btCreateCustomCat, 0, 0);
-			this->tableLayoutPanel3->Location = System::Drawing::Point(3, 3);
-			this->tableLayoutPanel3->Name = L"tableLayoutPanel3";
-			this->tableLayoutPanel3->RowCount = 1;
-			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel3->Size = System::Drawing::Size(717, 52);
-			this->tableLayoutPanel3->TabIndex = 5;
+			this->tableLayoutPanel5->Controls->Add(this->btDeleteCat, 0, 0);
+			this->tableLayoutPanel5->Location = System::Drawing::Point(3, 220);
+			this->tableLayoutPanel5->Name = L"tableLayoutPanel5";
+			this->tableLayoutPanel5->RowCount = 1;
+			this->tableLayoutPanel5->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel5->Size = System::Drawing::Size(717, 52);
+			this->tableLayoutPanel5->TabIndex = 11;
 			// 
-			// btCreateCustomCat
+			// btDeleteCat
 			// 
-			this->btCreateCustomCat->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->btDeleteCat->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->btCreateCustomCat->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btDeleteCat->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btCreateCustomCat->Location = System::Drawing::Point(3, 3);
-			this->btCreateCustomCat->Name = L"btCreateCustomCat";
-			this->btCreateCustomCat->Size = System::Drawing::Size(711, 46);
-			this->btCreateCustomCat->TabIndex = 4;
-			this->btCreateCustomCat->Text = L"+ Create Custom Category";
-			this->btCreateCustomCat->UseVisualStyleBackColor = true;
-			this->btCreateCustomCat->Click += gcnew System::EventHandler(this, &AddNewDataForm::btCreateCustomCat_Click);
+			this->btDeleteCat->Location = System::Drawing::Point(3, 3);
+			this->btDeleteCat->Name = L"btDeleteCat";
+			this->btDeleteCat->Size = System::Drawing::Size(711, 46);
+			this->btDeleteCat->TabIndex = 5;
+			this->btDeleteCat->Text = L"- Delete Category Selected Above\r\n";
+			this->btDeleteCat->UseVisualStyleBackColor = true;
+			this->btDeleteCat->Click += gcnew System::EventHandler(this, &AddNewDataForm::btDeleteCat_Click);
 			// 
 			// tableLayoutPanel1
 			// 
@@ -161,15 +184,15 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				85.94891F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				177)));
+				180)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelAdd, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxAdd, 1, 0);
-			this->tableLayoutPanel1->Location = System::Drawing::Point(3, 61);
+			this->tableLayoutPanel1->Location = System::Drawing::Point(3, 3);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 1;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 43)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(717, 51);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(717, 52);
 			this->tableLayoutPanel1->TabIndex = 2;
 			// 
 			// btOK
@@ -178,9 +201,9 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(542, 3);
+			this->btOK->Location = System::Drawing::Point(539, 3);
 			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(172, 45);
+			this->btOK->Size = System::Drawing::Size(175, 45);
 			this->btOK->TabIndex = 5;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
@@ -209,10 +232,67 @@ namespace KeychainProject {
 			this->comboBoxAdd->FormattingEnabled = true;
 			this->comboBoxAdd->IntegralHeight = false;
 			this->comboBoxAdd->ItemHeight = 26;
-			this->comboBoxAdd->Location = System::Drawing::Point(78, 8);
+			this->comboBoxAdd->Location = System::Drawing::Point(78, 9);
 			this->comboBoxAdd->Name = L"comboBoxAdd";
-			this->comboBoxAdd->Size = System::Drawing::Size(458, 34);
+			this->comboBoxAdd->Size = System::Drawing::Size(455, 34);
 			this->comboBoxAdd->TabIndex = 2;
+			// 
+			// tableLayoutPanel4
+			// 
+			this->tableLayoutPanel4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->tableLayoutPanel4->ColumnCount = 1;
+			this->tableLayoutPanel4->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel4->Controls->Add(this->labelmanage, 0, 0);
+			this->tableLayoutPanel4->Location = System::Drawing::Point(3, 104);
+			this->tableLayoutPanel4->Name = L"tableLayoutPanel4";
+			this->tableLayoutPanel4->RowCount = 1;
+			this->tableLayoutPanel4->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel4->Size = System::Drawing::Size(717, 52);
+			this->tableLayoutPanel4->TabIndex = 10;
+			// 
+			// labelmanage
+			// 
+			this->labelmanage->Anchor = System::Windows::Forms::AnchorStyles::Left;
+			this->labelmanage->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->labelmanage->ForeColor = System::Drawing::SystemColors::Control;
+			this->labelmanage->Location = System::Drawing::Point(3, 4);
+			this->labelmanage->Name = L"labelmanage";
+			this->labelmanage->Size = System::Drawing::Size(492, 44);
+			this->labelmanage->TabIndex = 9;
+			this->labelmanage->Text = L"Manage Your Categories:";
+			this->labelmanage->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// tableLayoutPanel3
+			// 
+			this->tableLayoutPanel3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->tableLayoutPanel3->ColumnCount = 1;
+			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel3->Controls->Add(this->btCreateCustomCat, 0, 0);
+			this->tableLayoutPanel3->Location = System::Drawing::Point(3, 162);
+			this->tableLayoutPanel3->Name = L"tableLayoutPanel3";
+			this->tableLayoutPanel3->RowCount = 1;
+			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel3->Size = System::Drawing::Size(717, 52);
+			this->tableLayoutPanel3->TabIndex = 5;
+			// 
+			// btCreateCustomCat
+			// 
+			this->btCreateCustomCat->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->btCreateCustomCat->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btCreateCustomCat->Location = System::Drawing::Point(3, 3);
+			this->btCreateCustomCat->Name = L"btCreateCustomCat";
+			this->btCreateCustomCat->Size = System::Drawing::Size(711, 46);
+			this->btCreateCustomCat->TabIndex = 4;
+			this->btCreateCustomCat->Text = L"+ Create Custom Category";
+			this->btCreateCustomCat->UseVisualStyleBackColor = true;
+			this->btCreateCustomCat->Click += gcnew System::EventHandler(this, &AddNewDataForm::btCreateCustomCat_Click);
 			// 
 			// labelUsername
 			// 
@@ -257,7 +337,7 @@ namespace KeychainProject {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
-			this->ClientSize = System::Drawing::Size(784, 306);
+			this->ClientSize = System::Drawing::Size(784, 480);
 			this->Controls->Add(this->picProfile);
 			this->Controls->Add(this->btBack);
 			this->Controls->Add(this->labelUsername);
@@ -265,7 +345,6 @@ namespace KeychainProject {
 			this->Controls->Add(this->labelAddNewData);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->MaximizeBox = false;
-			this->MaximumSize = System::Drawing::Size(800, 345);
 			this->MinimumSize = System::Drawing::Size(800, 345);
 			this->Name = L"AddNewDataForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
@@ -273,8 +352,10 @@ namespace KeychainProject {
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &AddNewDataForm::AddNewDataForm_FormClosed);
 			this->Load += gcnew System::EventHandler(this, &AddNewDataForm::AddNewDataForm_Load);
 			this->tableLayoutPanel2->ResumeLayout(false);
-			this->tableLayoutPanel3->ResumeLayout(false);
+			this->tableLayoutPanel5->ResumeLayout(false);
 			this->tableLayoutPanel1->ResumeLayout(false);
+			this->tableLayoutPanel4->ResumeLayout(false);
+			this->tableLayoutPanel3->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picProfile))->EndInit();
 			this->ResumeLayout(false);
 
@@ -417,6 +498,54 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 private: System::Void picProfile_Click(System::Object^ sender, System::EventArgs^ e) {
 	ProfileForm^ profileForm = gcnew ProfileForm(user);
 	profileForm->ShowDialog();
+}
+
+private: System::Void btDeleteCat_Click(System::Object^ sender, System::EventArgs^ e) {
+	//get the name of selected category from the textbox
+	string cat = msclr::interop::marshal_as<std::string>(this->comboBoxAdd->Text);
+	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
+	user->selected_cat = this->comboBoxAdd->Text;
+
+	//empty check
+	if (cat == "") {
+		MessageBox::Show("You haven't selected a category to delete", "Category not selected", MessageBoxButtons::OK);
+		return;
+	}
+
+	if ((MessageBox::Show("Are you sure you want to delete this category with all saved data?", "Confirm delete", MessageBoxButtons::YesNo)) == ::System::Windows::Forms::DialogResult::Yes) {
+		ifstream ifile("Data/" + stringUser + ".json"); //reading data from a file
+		Json::Value actualJson;
+		Json::Reader reader;
+		reader.parse(ifile, actualJson);
+		ifile.close();
+
+		//finding the index of selected category in the content array
+		int cat_index = 0;
+		bool notFound = true;
+		while (actualJson["content"][cat_index][0] && notFound) {
+			if (actualJson["content"][cat_index][0] == cat) {
+				notFound = false;
+			}
+			else {
+				cat_index += 1;
+			}
+		}
+
+		//removing the parameter array from the content array
+		actualJson["content"].removeIndex(cat_index, &actualJson["content"][cat_index]);
+
+		//removing the key-value pair
+		actualJson.removeMember(cat);
+
+		//writing json data into a file
+		ofstream outfile("Data/" + stringUser + ".json");
+		Json::StyledWriter styledWriter;
+		outfile << styledWriter.write(actualJson);
+		outfile.close();
+
+		AddNewDataForm_Activated(sender, e);
+		this->comboBoxAdd->Text = "";
+	}
 }
 };
 }
