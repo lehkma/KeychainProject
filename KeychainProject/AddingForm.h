@@ -26,9 +26,6 @@ namespace KeychainProject {
 	{ 
 	public:
 		User^ user;
-	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
-
-	public:
 		List <TextBox^>^ textBoxesList;
 		AddingForm(User^ usr, List <TextBox^>^ tb)
 		{
@@ -47,18 +44,13 @@ namespace KeychainProject {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
 	private: System::Windows::Forms::Label^ labelUsername;
 	private: System::Windows::Forms::PictureBox^ picProfile;
 	private: System::Windows::Forms::Button^ btAdd;
-	protected:
 	private: System::Windows::Forms::Button^ btCancel;
 	public: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::Label^ labelCategory;
-	public:
-
-	protected:
-
-
 	private:
 		/// <summary>
 		/// Required designer variable.

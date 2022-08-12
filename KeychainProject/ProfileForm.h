@@ -47,7 +47,6 @@ namespace KeychainProject {
 			}
 		}
 	private: System::Windows::Forms::Label^ labelManageProfile;
-	protected:
 	private: System::Windows::Forms::Label^ labelUsername;
 	private: System::Windows::Forms::Button^ btSignOut;
 	private: System::Windows::Forms::Button^ btChangePassword;
@@ -66,13 +65,10 @@ namespace KeychainProject {
 	private: System::Windows::Forms::TextBox^ tbConPass;
 	private: System::Windows::Forms::ToolTip^ toolTip1;
 	private: System::ComponentModel::IContainer^ components;
-	protected:
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-
-
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Required method for Designer support - do not modify

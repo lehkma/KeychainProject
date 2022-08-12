@@ -59,9 +59,6 @@ namespace KeychainProject {
 	private: System::Windows::Forms::Label^ labelUsername;
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
 	private: System::Windows::Forms::Label^ label;
-
-	protected:
-	protected:
 	private:
 		/// <summary>
 		/// Required designer variable.

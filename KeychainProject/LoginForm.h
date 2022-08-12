@@ -42,51 +42,30 @@ namespace KeychainProject {
 			}
 		}
 	private: System::Windows::Forms::Label^ labelKeychain;
-	protected:
-
-	protected:
-
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
 	private: System::Windows::Forms::Button^ btCreate;
 	private: System::Windows::Forms::Button^ btLogin;
 	private: System::Windows::Forms::TextBox^ tbNewUsername;
-
 	private: System::Windows::Forms::TextBox^ tbPassword;
 	private: System::Windows::Forms::Label^ labelCreate;
 	private: System::Windows::Forms::Label^ labelWelcome;
-
 	private: System::Windows::Forms::TextBox^ tbUsername;
-
 	private: System::Windows::Forms::Label^ labelUsername;
-
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
 	private: System::Windows::Forms::Label^ labelPassword;
-
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::TextBox^ tbConfirmPassword;
-
 	private: System::Windows::Forms::TextBox^ tbNewPassword;
-
 	private: System::Windows::Forms::Label^ labelConfirmPassword;
-
 	private: System::Windows::Forms::Label^ labelNewPassword;
-
 	private: System::Windows::Forms::Label^ labelNewUsername;
-
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel4;
 	private: System::Windows::Forms::ToolTip^ toolTip1;
 	private: System::ComponentModel::IContainer^ components;
-
-	protected:
-
-	protected:
-
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-
-
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Required method for Designer support - do not modify

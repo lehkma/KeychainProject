@@ -63,7 +63,6 @@ namespace KeychainProject {
 	private: System::Windows::Forms::Label^ labelCreateCustomCat;
 	private: System::Windows::Forms::Button^ btCancel;
 	private: System::ComponentModel::IContainer^ components;
-	protected:
 	private:
 		/// <summary>
 		/// Required designer variable.

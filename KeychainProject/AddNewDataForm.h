@@ -28,18 +28,7 @@ namespace KeychainProject {
 	{
 	public:
 		User^ user;
-	private: System::Windows::Forms::Label^ labelmanage;
-	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel5;
-
-	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel4;
-	private: System::Windows::Forms::Button^ btDeleteCat;
-
-
-	public:
-
-	public:
-
-		   Form^ mainForm;
+		Form^ mainForm;
 		AddNewDataForm(User^ usr, Form^ frm)
 		{
 			user = usr;
@@ -57,9 +46,12 @@ namespace KeychainProject {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Label^ labelmanage;
+	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel5;
+	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel4;
+	private: System::Windows::Forms::Button^ btDeleteCat;
 	private: System::Windows::Forms::PictureBox^ picProfile;
 	private: System::Windows::Forms::Label^ labelAddNewData;
-	protected:
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
 	private: System::Windows::Forms::Button^ btCreateCustomCat;
@@ -69,7 +61,6 @@ namespace KeychainProject {
 	private: System::Windows::Forms::ComboBox^ comboBoxAdd;
 	private: System::Windows::Forms::Label^ labelUsername;
 	private: System::Windows::Forms::Button^ btBack;
-	protected:
 	private:
 		/// <summary>
 		/// Required designer variable.

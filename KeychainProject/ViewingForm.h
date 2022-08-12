@@ -27,13 +27,6 @@ namespace KeychainProject {
 	{
 	private: 
 		List <TextBox^>^ textBoxesList;
-	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
-	public: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
-
-	public:
-	private:
-
-	private:
 	public:
 		User^ user;
 		ViewingForm(User^ usr)
@@ -41,7 +34,6 @@ namespace KeychainProject {
 			user = usr;
 			InitializeComponent();
 		}
-
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -53,23 +45,15 @@ namespace KeychainProject {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
+	public: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::PictureBox^ picProfile;
 	private: System::Windows::Forms::Label^ labelUsername;
 	private: System::Windows::Forms::Label^ labelCategory;
-
 	private: System::Windows::Forms::Button^ btDelete;
 	private: System::Windows::Forms::Button^ btEdit;
 	private: System::Windows::Forms::Button^ btCancel;
 	private: System::Windows::Forms::Button^ btSave;
-
-
-	public:
-	private:
-
-	public:
-
-	protected:
-
 	private:
 		/// <summary>
 		/// Required designer variable.
