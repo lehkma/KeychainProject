@@ -225,6 +225,7 @@ namespace KeychainProject {
 			this->comboBoxAdd->ItemHeight = 26;
 			this->comboBoxAdd->Location = System::Drawing::Point(78, 9);
 			this->comboBoxAdd->Name = L"comboBoxAdd";
+			this->comboBoxAdd->Text = L"Select your category here";
 			this->comboBoxAdd->Size = System::Drawing::Size(454, 34);
 			this->comboBoxAdd->TabIndex = 2;
 			// 
@@ -354,7 +355,6 @@ namespace KeychainProject {
 #pragma endregion
 private: System::Void AddNewDataForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	labelUsername->Text = user->username;
-	comboBoxAdd->Text = "Select the category here";
 }
 private: System::Void btBack_Click(System::Object^ sender, System::EventArgs^ e) {
 	//redirecting user to the previous main form 
@@ -398,7 +398,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	user->selected_cat = this->comboBoxAdd->Text;
 
 	//empty check
-	if (cat == "") {
+	if (cat == "" || cat == "Select your category here") {
 		MessageBox::Show("To add new data the category must be selected first", "Category not selected", MessageBoxButtons::OK);
 		return;
 	}
@@ -481,7 +481,7 @@ private: System::Void btDeleteCat_Click(System::Object^ sender, System::EventArg
 	user->selected_cat = this->comboBoxAdd->Text;
 
 	//empty check
-	if (cat == "") {
+	if (cat == "" || cat == "Select your category here") {
 		MessageBox::Show("You haven't selected a category to delete", "Category not selected", MessageBoxButtons::OK);
 		return;
 	}

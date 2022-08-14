@@ -166,6 +166,7 @@ namespace KeychainProject {
 			this->comboBoxView->ItemHeight = 26;
 			this->comboBoxView->Location = System::Drawing::Point(77, 8);
 			this->comboBoxView->Name = L"comboBoxView";
+			this->comboBoxView->Text = L"Select your category here";
 			this->comboBoxView->Size = System::Drawing::Size(448, 34);
 			this->comboBoxView->TabIndex = 2;
 			// 
@@ -300,7 +301,6 @@ namespace KeychainProject {
 private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	//label on top is set to be the username of the logged in user
 	labelUsername->Text = user->username;
-	comboBoxView->Text = "Select the category here";
 }
 private: System::Void btAddNewData_Click(System::Object^ sender, System::EventArgs^ e) {
 	//displaying the form for adding new data
@@ -326,7 +326,7 @@ private: System::Void MainForm_Activated(System::Object^ sender, System::EventAr
 	}
 
 	//when form gets activated, the flowPanel gets refreshed
-	if (cat != "") {
+	if (cat != "" && cat != "Select your category here") {
 		btOK_Click(sender, e);
 	}
 }
@@ -337,7 +337,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	user->selected_cat = this->comboBoxView->Text;
 
 	//empty check
-	if (cat == "") {
+	if (cat == "" || cat == "Select your category here") {
 		MessageBox::Show("To view data the category must be selected first", "Category not selected", MessageBoxButtons::OK);
 		return;
 	}
