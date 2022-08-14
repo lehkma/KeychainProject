@@ -76,11 +76,6 @@
          "Author" : "Rick Astley",
          "Name" : "RickRoll",
          "URL" : "sth"
-      },
-      {
-         "Author" : "me",
-         "Name" : "meow",
-         "URL" : "sdfsadfasdfa"
       }
    ],
    "Phone" : [
@@ -117,8 +112,7 @@
          "Interesting",
          "Yups"
       ],
-      [ "dsf", "sdf", "sfdf" ],
-      [ "ert", "trte", "ter" ]
+      [ "dsf", "sdf", "sfdf" ]
    ],
    "login" : {
       "password" : "pes",

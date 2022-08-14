@@ -300,6 +300,7 @@ namespace KeychainProject {
 private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	//label on top is set to be the username of the logged in user
 	labelUsername->Text = user->username;
+	comboBoxView->Text = "Select the category here";
 }
 private: System::Void btAddNewData_Click(System::Object^ sender, System::EventArgs^ e) {
 	//displaying the form for adding new data

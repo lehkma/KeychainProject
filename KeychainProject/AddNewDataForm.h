@@ -354,6 +354,7 @@ namespace KeychainProject {
 #pragma endregion
 private: System::Void AddNewDataForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	labelUsername->Text = user->username;
+	comboBoxAdd->Text = "Select the category here";
 }
 private: System::Void btBack_Click(System::Object^ sender, System::EventArgs^ e) {
 	//redirecting user to the previous main form 
