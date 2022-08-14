@@ -476,8 +476,8 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 			mainForm->Show();
 
 			//clear all the textboxes
-			this->tbUsername->Text = "";
-			this->tbPassword->Text = "";
+			this->tbUsername->Text = "koc";
+			this->tbPassword->Text = "pes";
 			this->tbNewUsername->Text = "";
 			this->tbNewPassword->Text = "";
 			this->tbConfirmPassword->Text = "";
