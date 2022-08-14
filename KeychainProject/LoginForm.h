@@ -193,7 +193,6 @@ namespace KeychainProject {
 			this->tbPassword->PasswordChar = '*';
 			this->tbPassword->Size = System::Drawing::Size(219, 32);
 			this->tbPassword->TabIndex = 3;
-			this->tbPassword->Text = L"pes";
 			this->tbPassword->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->tbPassword->WordWrap = false;
 			// 
@@ -236,7 +235,6 @@ namespace KeychainProject {
 			this->tbUsername->Name = L"tbUsername";
 			this->tbUsername->Size = System::Drawing::Size(219, 32);
 			this->tbUsername->TabIndex = 5;
-			this->tbUsername->Text = L"koc";
 			this->tbUsername->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->tbUsername->WordWrap = false;
 			// 
@@ -476,8 +474,8 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 			mainForm->Show();
 
 			//clear all the textboxes
-			this->tbUsername->Text = "koc";
-			this->tbPassword->Text = "pes";
+			this->tbUsername->Text = "";
+			this->tbPassword->Text = "";
 			this->tbNewUsername->Text = "";
 			this->tbNewPassword->Text = "";
 			this->tbConfirmPassword->Text = "";
