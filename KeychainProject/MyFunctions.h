@@ -74,8 +74,6 @@ inline void json_write(std::string stringUser, Json::Value actualJson, String^ p
             remove("Data/data.json");
         }
 
-        DecryptFile(StringUserFile, password);
-
         //writing json data into a file
         ofstream outfile("Data/data.json");
         Json::FastWriter fastWriter;
