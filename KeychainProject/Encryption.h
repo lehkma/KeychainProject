@@ -34,8 +34,8 @@ inline void encryptFile(String^ destinationFilename, String^ password) {
 		}
 		finally {
 			if (cs != nullptr) delete cs;
-			if (source != nullptr) delete source;
 			if (destination != nullptr) delete destination;
+			if (source != nullptr) delete source;
 		}
 	}
 	finally {

@@ -41,11 +41,11 @@ inline Json::Value json_parse(std::string stringUser, String^ password) {
     Json::Value actualJson;
     Json::Reader reader;
 
-    try {
-        if (exists_test("Data/data.json")) {
-            remove("Data/data.json");
-        }
+    if (exists_test("Data/data.json")) {
+        remove("Data/data.json");
+    }
 
+    try {
         decryptFile(StringUserFile, password);
 
         //reads data from a file and creates json object
@@ -69,17 +69,18 @@ inline void json_write(std::string stringUser, Json::Value actualJson, String^ p
     string userFile = "Data/" + stringUser + ".json";
     String^ StringUserFile = gcnew String(userFile.c_str());
 
+    if (exists_test("Data/data.json")) {
+        remove("Data/data.json");
+    }
+
+    //writing json data into a file
+    ofstream outfile("Data/data.json");
+    Json::FastWriter fastWriter;
+    outfile << fastWriter.write(actualJson);
+    outfile.close();
+    actualJson.clear();
+
     try {
-        if (exists_test("Data/data.json")) {
-            remove("Data/data.json");
-        }
-
-        //writing json data into a file
-        ofstream outfile("Data/data.json");
-        Json::FastWriter fastWriter;
-        outfile << fastWriter.write(actualJson);
-        outfile.close();
-
         remove(userFile.c_str());
         encryptFile(StringUserFile, password);
     }
