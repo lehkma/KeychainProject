@@ -56,9 +56,6 @@ inline Json::Value json_parse(std::string stringUser, String^ password) {
         remove(userFile.c_str());
         encryptFile(StringUserFile, password);
     }
-    catch(Exception^ e) {
-        String^ ex = e->Message;
-    }
     finally {
         if (exists_test("Data/data.json")) {
             remove("Data/data.json");
