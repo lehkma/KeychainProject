@@ -5,7 +5,7 @@ using namespace System::IO;
 using namespace System::Text;
 using namespace System::Security::Cryptography;
 
-inline void EncryptFile(String^ destinationFilename, String^ password) {
+inline void encryptFile(String^ destinationFilename, String^ password) {
 
 	//the salt bytes are used only to create longer passwords, that can be used for the AES 256-bit
 	//they have no effect on security
@@ -44,7 +44,7 @@ inline void EncryptFile(String^ destinationFilename, String^ password) {
 	return;
 }
 
-inline void DecryptFile(String^ sourceFilename, String^ password) {
+inline void decryptFile(String^ sourceFilename, String^ password) {
 
 	//the salt bytes are used only to create longer passwords, that can be used for the AES 256-bit
 	//they have no effect on security
