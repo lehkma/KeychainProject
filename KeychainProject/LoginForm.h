@@ -490,7 +490,7 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 				return;
 			}
 		}
-		catch (Exception^ ex) {
+		catch (const std::exception& ex) {
 			//incorrect password check
 			MessageBox::Show("Incorrect username or password", "Error", MessageBoxButtons::OK);
 			return;

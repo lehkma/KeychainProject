@@ -5,9 +5,9 @@ using namespace System::IO;
 using namespace System::Text;
 using namespace System::Security::Cryptography;
 
-inline void encryptFile(String^ destinationFilename, String^ password) {
+inline void EncryptFile(String^ destinationFilename, String^ password) {
 
-	//the salt bytes are used only to create longer passwords, that can be used for the AES
+	//the salt bytes are used only to create longer passwords, that can be used for the AES 256-bit
 	//they have no effect on security
 	cli::array<unsigned char>^ passwordBytes = System::Text::Encoding::Encoding::UTF8->GetBytes(password);
 	cli::array<unsigned char>^ saltBytes = gcnew cli::array<unsigned char>(8) { 1, 2, 3, 4, 5, 6, 7, 8 };
@@ -37,7 +37,6 @@ inline void encryptFile(String^ destinationFilename, String^ password) {
 			if (source != nullptr) delete source;
 			if (destination != nullptr) delete destination;
 		}
-		
 	}
 	finally {
 		if (AES != nullptr) delete AES;
@@ -45,9 +44,9 @@ inline void encryptFile(String^ destinationFilename, String^ password) {
 	return;
 }
 
-inline void decryptFile(String^ sourceFilename, String^ password) {
+inline void DecryptFile(String^ sourceFilename, String^ password) {
 
-	//the salt bytes are used only to create longer passwords, that can be used for the AES
+	//the salt bytes are used only to create longer passwords, that can be used for the AES 256-bit
 	//they have no effect on security
 	cli::array<unsigned char>^ passwordBytes = System::Text::Encoding::Encoding::UTF8->GetBytes(password);
 	cli::array<unsigned char>^ saltBytes = gcnew cli::array<unsigned char>(8) { 1, 2, 3, 4, 5, 6, 7, 8 };
