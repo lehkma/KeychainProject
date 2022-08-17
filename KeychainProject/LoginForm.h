@@ -491,15 +491,9 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 			}
 		}
 		catch (Exception^ ex) {
-			if (ex->Message == "Padding is invalid and cannot be removed.") {
-				MessageBox::Show("Incorrect username or password", "Error", MessageBoxButtons::OK);
-				remove("Data/data.json");
-				return;
-			}
-			else {
-				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK);
-				return;
-			}
+			//incorrect password check
+			MessageBox::Show("Incorrect username or password", "Error", MessageBoxButtons::OK);
+			return;
 		}
 	}
 	else {

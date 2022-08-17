@@ -1,4 +1,5 @@
 #pragma once
+
 using namespace System;
 using namespace System::IO;
 using namespace System::Text;
@@ -12,9 +13,7 @@ inline void encryptFile(String^ destinationFilename, String^ password) {
 	cli::array<unsigned char>^ saltBytes = gcnew cli::array<unsigned char>(8) { 1, 2, 3, 4, 5, 6, 7, 8 };
 
 	RijndaelManaged^ AES = gcnew RijndaelManaged();
-	FileStream^ destination;
-	FileStream^ source;
-	CryptoStream^ cs;
+
 	try {
 		//set parameters
 		AES->KeySize = 256;
@@ -26,16 +25,20 @@ inline void encryptFile(String^ destinationFilename, String^ password) {
 		AES->Key = key->GetBytes(AES->KeySize / 8);
 		AES->IV = key->GetBytes(AES->BlockSize / 8);
 
-		destination = gcnew FileStream(destinationFilename, FileMode::OpenOrCreate, FileAccess::Write, FileShare::None);
-		cs = gcnew CryptoStream(destination, AES->CreateEncryptor(), CryptoStreamMode::Write);
-		source = gcnew FileStream("Data/data.json", FileMode::Open, FileAccess::Read, FileShare::Read);
-		source->CopyTo(cs);
-		
+		FileStream^ destination = gcnew FileStream(destinationFilename, FileMode::OpenOrCreate, FileAccess::Write, FileShare::None);
+		auto cs = gcnew CryptoStream(destination, AES->CreateEncryptor(), CryptoStreamMode::Write);
+		FileStream^ source = gcnew FileStream("Data/data.json", FileMode::Open, FileAccess::Read, FileShare::Read);
+
+		try {
+			source->CopyTo(cs);
+		}
+		finally {
+			if (cs != nullptr) delete cs;
+			if (destination != nullptr) delete destination;
+			if (source != nullptr) delete source;
+		}
 	}
 	finally {
-		if (cs != nullptr) delete cs;
-		if (destination != nullptr) delete destination;
-		if (source != nullptr) delete source;
 		if (AES != nullptr) delete AES;
 	}
 	return;
@@ -49,9 +52,7 @@ inline void decryptFile(String^ sourceFilename, String^ password) {
 	cli::array<unsigned char>^ saltBytes = gcnew cli::array<unsigned char>(8) { 1, 2, 3, 4, 5, 6, 7, 8 };
 
 	RijndaelManaged^ AES = gcnew RijndaelManaged();
-	FileStream^ destination;
-	FileStream^ source;
-	CryptoStream^ cs;
+
 	try {
 		//set parameters
 		AES->KeySize = 256;
@@ -63,15 +64,20 @@ inline void decryptFile(String^ sourceFilename, String^ password) {
 		AES->Key = key->GetBytes(AES->KeySize / 8);
 		AES->IV = key->GetBytes(AES->BlockSize / 8);
 
-		destination = gcnew FileStream("Data/data.json", FileMode::OpenOrCreate, FileAccess::Write, FileShare::None);
-		cs = gcnew CryptoStream(destination, AES->CreateDecryptor(), CryptoStreamMode::Write);
-		source = gcnew FileStream(sourceFilename, FileMode::Open, FileAccess::Read, FileShare::Read);
-		source->CopyTo(cs);
+		FileStream^ destination = gcnew FileStream("Data/data.json", FileMode::OpenOrCreate, FileAccess::Write, FileShare::None);
+		auto cs = gcnew CryptoStream(destination, AES->CreateDecryptor(), CryptoStreamMode::Write);
+		FileStream^ source = gcnew FileStream(sourceFilename, FileMode::Open, FileAccess::Read, FileShare::Read);
+
+		try {
+			source->CopyTo(cs);
+		}
+		finally {
+			if (cs != nullptr) delete cs;
+			if (destination != nullptr) delete destination;
+			if (source != nullptr) delete source;
+		}
 	}
 	finally {
-		if (cs != nullptr) delete cs;
-		if (destination != nullptr) delete destination;
-		if (source != nullptr) delete source;
 		if (AES != nullptr) delete AES;
 	}
 	return;
