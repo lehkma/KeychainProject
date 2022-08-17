@@ -1,6 +1,7 @@
 #pragma once
 #include <msclr\marshal_cppstd.h>
 #include "User.h"
+#include "MyFunctions.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -214,7 +215,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 		}
 	}
 
-	Json::Value actualJson = json_parse(stringUser);
+	Json::Value actualJson = json_parse(stringUser, user->password);
 
 	//finding the index of selected category in the content array
 	int cat_index = find_index_in_content(actualJson, category);
@@ -232,7 +233,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 
 	//writing json data into a file
-	json_write(stringUser, actualJson);
+	json_write(stringUser, actualJson, user->password);
 
 	this->Close();
 }

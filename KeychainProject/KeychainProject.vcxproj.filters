@@ -77,5 +77,8 @@
     <ClInclude Include="ProfileForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Encryption.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

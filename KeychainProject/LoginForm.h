@@ -455,35 +455,42 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 
 	//if the user exists, check his password
 	if (exists_test("Data/" + user + ".json")) {
-		//open a json file and create the json object
-		Json::Value actualJson = json_parse(user);
+		try {
+			//open a json file and create the json object
+			Json::Value actualJson = json_parse(user, this->tbPassword->Text);
 
-		//get the saved details from the json file, close the file
-		savedUser = actualJson["login"]["username"].asString();
-		savedPass = actualJson["login"]["password"].asString();
+			//get the saved details from the json file, close the file
+			savedUser = actualJson["login"]["username"].asString();
+			savedPass = actualJson["login"]["password"].asString();
 
-		//compare the saved details with the ones provided by the user
-		if (user == savedUser && pass == savedPass) {
-			//login successful, create the object of logged in user
-			usr = gcnew User;
-			usr->username = this->tbUsername->Text;
-			usr->password = this->tbPassword->Text;
-			
-			//open the main form
-			MainForm^ mainForm = gcnew MainForm(usr);
-			mainForm->Show();
+			//compare the saved details with the ones provided by the user
+			if (user == savedUser && pass == savedPass) {
+				//login successful, create the object of logged in user
+				usr = gcnew User;
+				usr->username = this->tbUsername->Text;
+				usr->password = this->tbPassword->Text;
 
-			//clear all the textboxes
-			this->tbUsername->Text = "";
-			this->tbPassword->Text = "";
-			this->tbNewUsername->Text = "";
-			this->tbNewPassword->Text = "";
-			this->tbConfirmPassword->Text = "";
+				//open the main form
+				MainForm^ mainForm = gcnew MainForm(usr);
+				mainForm->Show();
 
-			//hide the login form
-			this->Hide();
+				//clear all the textboxes
+				this->tbUsername->Text = "";
+				this->tbPassword->Text = "";
+				this->tbNewUsername->Text = "";
+				this->tbNewPassword->Text = "";
+				this->tbConfirmPassword->Text = "";
+
+				//hide the login form
+				this->Hide();
+			}
+			else {
+				//incorrect password check
+				MessageBox::Show("Incorrect username or password", "Error", MessageBoxButtons::OK);
+				return;
+			}
 		}
-		else {
+		catch (const std::exception& ex) {
 			//incorrect password check
 			MessageBox::Show("Incorrect username or password", "Error", MessageBoxButtons::OK);
 			return;
@@ -542,7 +549,7 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 			actualJson["content"] = def_cat;
 
 			//writing json data into a file
-			json_write(newUser, actualJson);
+			json_write(newUser, actualJson, this->tbNewPassword->Text);
 
 			//emptying the textboxes after successful sign up
 			this->tbNewUsername->Text = "";

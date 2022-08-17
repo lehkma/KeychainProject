@@ -144,6 +144,7 @@
     <ClInclude Include="CustomCatForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Encryption.h" />
     <ClInclude Include="Json_lib\dist\json\json-forwards.h" />
     <ClInclude Include="Json_lib\dist\json\json.h" />
     <ClInclude Include="LoginForm.h">

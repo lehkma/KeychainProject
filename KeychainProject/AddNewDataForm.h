@@ -1,6 +1,7 @@
 #pragma once
 #include <msclr\marshal_cppstd.h>
 #include "User.h"
+#include "MyFunctions.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -381,7 +382,7 @@ private: System::Void AddNewDataForm_Activated(System::Object^ sender, System::E
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
 
 	//all saved categories will be loaded into the combobox
-	Json::Value actualJson = json_parse(stringUser);
+	Json::Value actualJson = json_parse(stringUser, user->password);
 	comboBoxAdd->Items->Clear();
 	int i = 0; //loading the data into combobox
 	while (actualJson["content"][i][0]) {
@@ -403,7 +404,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 		return;
 	}
 
-	Json::Value actualJson = json_parse(stringUser);
+	Json::Value actualJson = json_parse(stringUser, user->password);
 
 	//finding the index of selected category in the content array
 	int cat_index = find_index_in_content(actualJson, cat);
@@ -488,7 +489,7 @@ private: System::Void btDeleteCat_Click(System::Object^ sender, System::EventArg
 
 	//confirm deletion
 	if ((MessageBox::Show("Are you sure you want to delete this category with all saved data?", "Confirm delete", MessageBoxButtons::YesNo)) == ::System::Windows::Forms::DialogResult::Yes) {
-		Json::Value actualJson = json_parse(stringUser);
+		Json::Value actualJson = json_parse(stringUser, user->password);
 
 		//finding the index of selected category in the content array
 		int cat_index = find_index_in_content(actualJson, cat);
@@ -500,7 +501,7 @@ private: System::Void btDeleteCat_Click(System::Object^ sender, System::EventArg
 		actualJson.removeMember(cat);
 
 		//writing json data into a file
-		json_write(stringUser, actualJson);
+		json_write(stringUser, actualJson, user->password);
 
 		AddNewDataForm_Activated(sender, e);
 		this->comboBoxAdd->Text = "";

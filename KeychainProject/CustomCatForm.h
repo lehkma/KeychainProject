@@ -1,6 +1,7 @@
 #pragma once
 #include <msclr\marshal_cppstd.h>
 #include "User.h"
+#include "MyFunctions.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -446,7 +447,7 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 
 	//name duplicity check
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
-	Json::Value actualJson = json_parse(stringUser);
+	Json::Value actualJson = json_parse(stringUser, user->password);
 
 	int i = 0;
 	while (actualJson["content"][i][0]) {
@@ -513,7 +514,7 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 	*/
 
 	//writing json data into the file
-	json_write(stringUser, actualJson);
+	json_write(stringUser, actualJson, user->password);
 	
 	this->Close();
 	return;

@@ -1,6 +1,7 @@
 #pragma once
 #include <msclr\marshal_cppstd.h>
 #include "User.h"
+#include "MyFunctions.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -314,7 +315,7 @@ private: System::Void MainForm_Activated(System::Object^ sender, System::EventAr
 	string cat = msclr::interop::marshal_as<std::string>(this->comboBoxView->Text);
 
 	//all saved categories will be loaded into the combobox
-	Json::Value actualJson = json_parse(stringUser);
+	Json::Value actualJson = json_parse(stringUser, user->password);
 
 	comboBoxView->Items->Clear();
 	int i = 0; //loading the data into combobox
@@ -346,7 +347,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->flowLayoutPanel1->Controls->Clear();
 	myLabels->Clear();
 
-	Json::Value actualJson = json_parse(stringUser);
+	Json::Value actualJson = json_parse(stringUser, user->password);
 
 	//finding the index of selected category in the content array
 	int cat_index = find_index_in_content(actualJson, cat);

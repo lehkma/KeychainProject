@@ -6,6 +6,7 @@
 #include <fstream>
 #include <json/value.h>
 #include <json/json.h>
+#include "Encryption.h"
 
 using namespace std;
 
@@ -34,22 +35,62 @@ inline bool username_not_valid(const std::string word) {
     return !std::regex_match(word, regex);
 }
 
-inline Json::Value json_parse(std::string stringUser) {
-    //reads data from a file and creates json object
-    ifstream ifile("Data/" + stringUser + ".json");
+inline Json::Value json_parse(std::string stringUser, String^ password) {
+    string userFile = "Data/" + stringUser + ".json";
+    String^ StringUserFile = gcnew String(userFile.c_str());
     Json::Value actualJson;
     Json::Reader reader;
-    reader.parse(ifile, actualJson);
-    ifile.close();
+
+    try {
+        if (exists_test("Data/data.json")) {
+            remove("Data/data.json");
+        }
+
+        DecryptFile(StringUserFile, password);
+
+        //reads data from a file and creates json object
+        ifstream ifile("Data/data.json");
+        reader.parse(ifile, actualJson);
+        ifile.close();
+
+        remove(userFile.c_str());
+        EncryptFile(StringUserFile, password);
+    }
+    finally {
+        if (exists_test("Data/data.json")) {
+            remove("Data/data.json");
+        }
+    }
+
     return actualJson;
 }
 
-inline void json_write(std::string stringUser, Json::Value actualJson) {
-    //writing json data into a file
-    ofstream outfile("Data/" + stringUser + ".json");
-    Json::StyledWriter styledWriter;
-    outfile << styledWriter.write(actualJson);
-    outfile.close();
+inline void json_write(std::string stringUser, Json::Value actualJson, String^ password) {
+    string userFile = "Data/" + stringUser + ".json";
+    String^ StringUserFile = gcnew String(userFile.c_str());
+
+    try {
+        if (exists_test("Data/data.json")) {
+            remove("Data/data.json");
+        }
+
+        DecryptFile(StringUserFile, password);
+
+        //writing json data into a file
+        ofstream outfile("Data/data.json");
+        Json::FastWriter fastWriter;
+        outfile << fastWriter.write(actualJson);
+        outfile.close();
+
+        remove(userFile.c_str());
+        EncryptFile(StringUserFile, password);
+    }
+    finally {
+        if (exists_test("Data/data.json")) {
+            remove("Data/data.json");
+        }
+    }
+
     return;
 }
 

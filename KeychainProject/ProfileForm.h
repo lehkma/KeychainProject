@@ -410,7 +410,7 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 		return;
 	}
 
-	Json::Value actualJson = json_parse(stringUser);
+	Json::Value actualJson = json_parse(stringUser, user->password);
 
 	//get the saved details from the json file, close the file
 	string savedPass = actualJson["login"]["password"].asString();
@@ -437,7 +437,7 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 	actualJson["login"]["password"] = newPass;
 
 	//writing json data into a file
-	json_write(stringUser, actualJson);
+	json_write(stringUser, actualJson, user->password);
 
 	btCancel_Click(sender, e);
 	MessageBox::Show("You have successfully changed your password", "Password change successful", MessageBoxButtons::OK);

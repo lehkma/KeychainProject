@@ -244,7 +244,7 @@ private: System::Void ViewingForm_Load(System::Object^ sender, System::EventArgs
 	string cat = msclr::interop::marshal_as<std::string>(labelCategory->Text);
 	int category_index = user->cat_index;
 
-	Json::Value actualJson = json_parse(stringUser);
+	Json::Value actualJson = json_parse(stringUser, user->password);
 
 	//finding the index of selected category in the content array
 	int cat_i = find_index_in_content(actualJson, cat);
@@ -307,13 +307,13 @@ private: System::Void btDelete_Click(System::Object^ sender, System::EventArgs^ 
 		string cat = msclr::interop::marshal_as<std::string>(labelCategory->Text);
 		int category_index = user->cat_index;
 
-		Json::Value actualJson = json_parse(stringUser);
+		Json::Value actualJson = json_parse(stringUser, user->password);
 
 		//delete the current index
 		actualJson[cat].removeIndex(category_index, &actualJson[cat][category_index]);
 
 		//writing json data into a file
-		json_write(stringUser, actualJson);
+		json_write(stringUser, actualJson, user->password);
 
 		this->Close();
 		return;
@@ -332,7 +332,7 @@ private: System::Void btEdit_Click(System::Object^ sender, System::EventArgs^ e)
 	string cat = msclr::interop::marshal_as<std::string>(labelCategory->Text);
 	int category_index = user->cat_index;
 
-	Json::Value actualJson = json_parse(stringUser);
+	Json::Value actualJson = json_parse(stringUser, user->password);
 
 	//finding the index of selected category in the content array
 	int cat_i = find_index_in_content(actualJson, cat);
@@ -382,7 +382,7 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 	string cat = msclr::interop::marshal_as<std::string>(labelCategory->Text);
 	int category_index = user->cat_index;
 
-	Json::Value actualJson = json_parse(stringUser);
+	Json::Value actualJson = json_parse(stringUser, user->password);
 
 	//finding the index of selected category in the content array
 	int cat_i = find_index_in_content(actualJson, cat);
@@ -397,7 +397,7 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 	}
 
 	//writing json data into a file
-	json_write(stringUser, actualJson);
+	json_write(stringUser, actualJson, user->password);
 
 	//loading the initial form again
 	ViewingForm_Load(sender, e);
