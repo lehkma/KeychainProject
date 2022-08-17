@@ -455,10 +455,10 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 
 	//if the user exists, check his password
 	if (exists_test("Data/" + user + ".json")) {
-		try {
 			//open a json file and create the json object
 			Json::Value actualJson = json_parse(user, this->tbPassword->Text);
 
+		try {
 			//get the saved details from the json file, close the file
 			savedUser = actualJson["login"]["username"].asString();
 			savedPass = actualJson["login"]["password"].asString();
