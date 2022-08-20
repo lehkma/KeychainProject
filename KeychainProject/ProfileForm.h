@@ -476,19 +476,9 @@ private: System::Void btDeleteAccount_Click(System::Object^ sender, System::Even
 		string name = "Data/" + stringUser + ".json";
 
 		//delete user from the list of users
-		ifstream ifile("Data/KeychainUsersList.json");
-		Json::Value usersJson;
-		Json::Reader reader1;
-		reader1.parse(ifile, usersJson);
-		ifile.close();
-
+		Json::Value usersJson = users_json_parse();
 		usersJson.removeMember(stringUser);
-
-		ofstream outfile("Data/KeychainUsersList.json");
-		Json::FastWriter fastWriter;
-		outfile << fastWriter.write(usersJson);
-		outfile.close();
-		usersJson.clear();
+		users_json_write(usersJson);
 
 		//remove and sign out
 		remove(name.c_str());

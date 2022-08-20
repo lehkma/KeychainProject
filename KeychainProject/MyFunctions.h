@@ -93,6 +93,24 @@ inline void json_write(std::string stringUser, Json::Value actualJson, String^ p
     return;
 }
 
+inline Json::Value users_json_parse() {
+    ifstream ifile("Data/KeychainUsersList.json");
+    Json::Value usersJson;
+    Json::Reader reader1;
+    reader1.parse(ifile, usersJson);
+    ifile.close();
+    return usersJson;
+}
+
+inline void users_json_write(Json::Value usersJson) {
+    ofstream outfile("Data/KeychainUsersList.json");
+    Json::FastWriter fastWriter;
+    outfile << fastWriter.write(usersJson);
+    outfile.close();
+    usersJson.clear();
+    return;
+}
+
 inline int find_index_in_content(Json::Value actualJson, std::string cat) {
     //finding the index of selected category in the content array
     int cat_index = 0;

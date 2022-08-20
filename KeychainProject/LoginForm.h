@@ -456,12 +456,7 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 	if (exists_test("Data/" + user + ".json")) {
 
 		//get saved password from the list of users
-		ifstream ifile("Data/KeychainUsersList.json");
-		Json::Value usersJson;
-		Json::Reader reader1;
-		reader1.parse(ifile, usersJson);
-		ifile.close();
-
+		Json::Value usersJson = users_json_parse();
 		string saved = usersJson[user].asString();
 		usersJson.clear();
 
@@ -556,11 +551,7 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 			json_write(newUser, actualJson, this->tbNewPassword->Text);
 
 			//adding user to the list of users and encrypting his password
-			ifstream ifile("Data/KeychainUsersList.json");
-			Json::Value usersJson;
-			Json::Reader reader1;
-			reader1.parse(ifile, usersJson);
-			ifile.close();
+			Json::Value usersJson = users_json_parse();
 			
 			string encryptPass = newUser + newPass;
 			String^ EncryptPass = gcnew String(encryptPass.c_str());
@@ -568,11 +559,7 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 			string strPass = msclr::interop::marshal_as<std::string>(StrPass);
 			usersJson[newUser] = strPass;
 
-			ofstream outfile("Data/KeychainUsersList.json");
-			Json::FastWriter fastWriter;
-			outfile << fastWriter.write(usersJson);
-			outfile.close();
-			usersJson.clear();
+			users_json_write(usersJson);
 
 			//emptying the textboxes after successful sign up
 			this->tbNewUsername->Text = "";
