@@ -442,10 +442,9 @@ namespace KeychainProject {
 private: System::Void LoginForm_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e) {
-	//getting data from the login textboxes + init
+	//getting data from the login textboxes
 	string user = msclr::interop::marshal_as<std::string>(this->tbUsername->Text);
 	string pass = msclr::interop::marshal_as<std::string>(this->tbPassword->Text);
-	string savedUser, savedPass;
 
 	//empty check
 	if (user.length() == 0 || pass.length() == 0) {
@@ -455,42 +454,46 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 
 	//if the user exists, check his password
 	if (exists_test("Data/" + user + ".json")) {
-		try {
+
+		//get saved password from the list of users
+		ifstream ifile("Data/KeychainUsersList.json");
+		Json::Value usersJson;
+		Json::Reader reader1;
+		reader1.parse(ifile, usersJson);
+		ifile.close();
+
+		string saved = usersJson[user].asString();
+
+		//compute password from user provided dadta
+		string encryptPass = user + pass;
+		String^ EncryptPass = gcnew String(encryptPass.c_str());
+		String^ StrPass = EncryptText(this->tbPassword->Text, EncryptPass);
+		string computed = msclr::interop::marshal_as<std::string>(StrPass);
+
+		if (saved == computed) {
 			//open a json file and create the json object
 			Json::Value actualJson = json_parse(user, this->tbPassword->Text);
 
-			//get the saved details from the json file, close the file
-			savedUser = actualJson["login"]["username"].asString();
-			savedPass = actualJson["login"]["password"].asString();
+			//login successful, create the object of logged in user
+			usr = gcnew User;
+			usr->username = this->tbUsername->Text;
+			usr->password = this->tbPassword->Text;
 
-			//compare the saved details with the ones provided by the user
-			if (user == savedUser && pass == savedPass) {
-				//login successful, create the object of logged in user
-				usr = gcnew User;
-				usr->username = this->tbUsername->Text;
-				usr->password = this->tbPassword->Text;
+			//open the main form
+			MainForm^ mainForm = gcnew MainForm(usr);
+			mainForm->Show();
 
-				//open the main form
-				MainForm^ mainForm = gcnew MainForm(usr);
-				mainForm->Show();
+			//clear all the textboxes
+			this->tbUsername->Text = "";
+			this->tbPassword->Text = "";
+			this->tbNewUsername->Text = "";
+			this->tbNewPassword->Text = "";
+			this->tbConfirmPassword->Text = "";
 
-				//clear all the textboxes
-				this->tbUsername->Text = "";
-				this->tbPassword->Text = "";
-				this->tbNewUsername->Text = "";
-				this->tbNewPassword->Text = "";
-				this->tbConfirmPassword->Text = "";
-
-				//hide the login form
-				this->Hide();
-			}
-			else {
-				//incorrect password check
-				MessageBox::Show("Incorrect username or password", "Error", MessageBoxButtons::OK);
-				return;
-			}
+			//hide the login form
+			this->Hide();
 		}
-		catch (Exception^ ex) {
+		else {
 			//incorrect password check
 			MessageBox::Show("Incorrect username or password", "Error", MessageBoxButtons::OK);
 			return;
