@@ -463,6 +463,7 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 		ifile.close();
 
 		string saved = usersJson[user].asString();
+		usersJson.clear();
 
 		//compute password from user provided dadta
 		string encryptPass = user + pass;

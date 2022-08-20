@@ -475,6 +475,21 @@ private: System::Void btDeleteAccount_Click(System::Object^ sender, System::Even
 		string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
 		string name = "Data/" + stringUser + ".json";
 
+		//delete user from the list of users
+		ifstream ifile("Data/KeychainUsersList.json");
+		Json::Value usersJson;
+		Json::Reader reader1;
+		reader1.parse(ifile, usersJson);
+		ifile.close();
+
+		usersJson.removeMember(stringUser);
+
+		ofstream outfile("Data/KeychainUsersList.json");
+		Json::FastWriter fastWriter;
+		outfile << fastWriter.write(usersJson);
+		outfile.close();
+		usersJson.clear();
+
 		//remove and sign out
 		remove(name.c_str());
 		btSignOut_Click(sender, e);
