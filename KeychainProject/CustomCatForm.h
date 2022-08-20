@@ -489,29 +489,22 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 	}
 	if (parameters != "") {
 		actualJson["content"][i][j] = parameters;
+		j += 1;
 	}
 	
 	//parameters duplicity check and parameters length check
-	for (int m = 0; m <= j; m++) {
+	for (int m = 0; m < j; m++) {
 		if (actualJson["content"][i][m].asString().length() > 16) {
 			MessageBox::Show("The length of name of each parameter should not exceed 16 characters", "Parameter name is too long", MessageBoxButtons::OK);
 			return;
 		}
-		for (int n = m + 1; n <= j; n++) {
+		for (int n = m + 1; n < j; n++) {
 			if (actualJson["content"][i][m] == actualJson["content"][i][n]) {
 				MessageBox::Show("The name of the category and its parameters must be all unique", "Duplicate parameters", MessageBoxButtons::OK);
 				return;
 			}
 		}
 	}
-
-	/*
-	//limit of parameters check
-	if (actualJson["content"][i].size() > 13) {
-		MessageBox::Show("The maximal allowed number of parameters is 12", "Too many parameters", MessageBoxButtons::OK);
-		return;
-	}
-	*/
 
 	//writing json data into the file
 	json_write(stringUser, actualJson, user->password);
