@@ -12,6 +12,9 @@ inline void encryptFile(String^ destinationFilename, String^ password) {
 	cli::array<unsigned char>^ passwordBytes = System::Text::Encoding::Encoding::UTF8->GetBytes(password);
 	cli::array<unsigned char>^ saltBytes = gcnew cli::array<unsigned char>(8) { 1, 2, 3, 4, 5, 6, 7, 8 };
 
+	//hash the password with SHA256 -- that is going to be our key for  AES 256-bit decryption
+	passwordBytes = SHA256::Create()->ComputeHash(passwordBytes);
+
 	RijndaelManaged^ AES = gcnew RijndaelManaged();
 
 	try {
@@ -50,6 +53,9 @@ inline void decryptFile(String^ sourceFilename, String^ password) {
 	//they have no effect on security
 	cli::array<unsigned char>^ passwordBytes = System::Text::Encoding::Encoding::UTF8->GetBytes(password);
 	cli::array<unsigned char>^ saltBytes = gcnew cli::array<unsigned char>(8) { 1, 2, 3, 4, 5, 6, 7, 8 };
+
+	//hash the password with SHA256 -- that is going to be our key for  AES 256-bit decryption
+	passwordBytes = SHA256::Create()->ComputeHash(passwordBytes);
 
 	RijndaelManaged^ AES = gcnew RijndaelManaged();
 
