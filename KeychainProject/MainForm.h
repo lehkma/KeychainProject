@@ -130,7 +130,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				85.94891F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				178)));
+				179)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelView, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxView, 1, 0);
@@ -147,10 +147,10 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(531, 3);
+			this->btOK->Location = System::Drawing::Point(530, 3);
 			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(173, 45);
-			this->btOK->TabIndex = 5;
+			this->btOK->Size = System::Drawing::Size(174, 45);
+			this->btOK->TabIndex = 1;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
 			this->btOK->Click += gcnew System::EventHandler(this, &MainForm::btOK_Click);
@@ -167,9 +167,9 @@ namespace KeychainProject {
 			this->comboBoxView->ItemHeight = 26;
 			this->comboBoxView->Location = System::Drawing::Point(77, 8);
 			this->comboBoxView->Name = L"comboBoxView";
+			this->comboBoxView->Size = System::Drawing::Size(447, 34);
+			this->comboBoxView->TabIndex = 0;
 			this->comboBoxView->Text = L"Select your category here";
-			this->comboBoxView->Size = System::Drawing::Size(448, 34);
-			this->comboBoxView->TabIndex = 2;
 			// 
 			// tableLayoutPanel2
 			// 
@@ -212,7 +212,7 @@ namespace KeychainProject {
 			this->btAddNewData->Location = System::Drawing::Point(3, 3);
 			this->btAddNewData->Name = L"btAddNewData";
 			this->btAddNewData->Size = System::Drawing::Size(701, 46);
-			this->btAddNewData->TabIndex = 4;
+			this->btAddNewData->TabIndex = 0;
 			this->btAddNewData->Text = L"+ Add New Data";
 			this->btAddNewData->UseVisualStyleBackColor = true;
 			this->btAddNewData->Click += gcnew System::EventHandler(this, &MainForm::btAddNewData_Click);
@@ -226,7 +226,7 @@ namespace KeychainProject {
 			this->labelUsername->Location = System::Drawing::Point(205, 26);
 			this->labelUsername->Name = L"labelUsername";
 			this->labelUsername->Size = System::Drawing::Size(492, 44);
-			this->labelUsername->TabIndex = 4;
+			this->labelUsername->TabIndex = 0;
 			this->labelUsername->Text = L"username";
 			this->labelUsername->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 

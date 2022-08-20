@@ -23,7 +23,7 @@ inline void encryptFile(String^ destinationFilename, String^ password) {
 		AES->BlockSize = 128;
 		AES->Mode = CipherMode::CBC;
 		AES->Padding = System::Security::Cryptography::PaddingMode::PKCS7;
-		//generate pseudo-random key and init vector based on provided password
+		//generate key and init vector based on provided password
 		auto key = gcnew Rfc2898DeriveBytes(passwordBytes, saltBytes, 1000);
 		AES->Key = key->GetBytes(AES->KeySize / 8);
 		AES->IV = key->GetBytes(AES->BlockSize / 8);
@@ -65,7 +65,7 @@ inline void decryptFile(String^ sourceFilename, String^ password) {
 		AES->BlockSize = 128;
 		AES->Mode = CipherMode::CBC;
 		AES->Padding = System::Security::Cryptography::PaddingMode::PKCS7;
-		//generate pseudo-random key and init vector based on provided password
+		//generate key and init vector based on provided password
 		auto key = gcnew Rfc2898DeriveBytes(passwordBytes, saltBytes, 1000);
 		AES->Key = key->GetBytes(AES->KeySize / 8);
 		AES->IV = key->GetBytes(AES->BlockSize / 8);
@@ -107,7 +107,7 @@ inline cli::array<unsigned char>^ AES_Encrypt(cli::array<unsigned char>^ bytesTo
 			AES->BlockSize = 128;
 			AES->Mode = CipherMode::CBC;
 			AES->Padding = System::Security::Cryptography::PaddingMode::PKCS7;
-			//generate pseudo-random key and init vector based on provided password
+			//generate key and init vector based on provided password
 			auto key = gcnew Rfc2898DeriveBytes(passwordBytes, saltBytes, 1000);
 			AES->Key = key->GetBytes(AES->KeySize / 8);
 			AES->IV = key->GetBytes(AES->BlockSize / 8);
@@ -154,7 +154,7 @@ inline cli::array<unsigned char>^ AES_Decrypt(cli::array<unsigned char>^ bytesTo
 			AES->BlockSize = 128;
 			AES->Mode = CipherMode::CBC;
 			AES->Padding = System::Security::Cryptography::PaddingMode::PKCS7;
-			//generate pseudo-random key and init vector based on provided password
+			//generate key and init vector based on provided password
 			auto key = gcnew Rfc2898DeriveBytes(passwordBytes, saltBytes, 1000);
 			AES->Key = key->GetBytes(AES->KeySize / 8);
 			AES->IV = key->GetBytes(AES->BlockSize / 8);
