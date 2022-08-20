@@ -410,6 +410,7 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 		return;
 	}
 
+	//getting the data from user's file, using the old password
 	Json::Value actualJson = json_parse(stringUser, user->password);
 
 	//get the saved details from the json file, close the file
@@ -433,12 +434,25 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 		return;
 	}
 
-	//saving the new password
+	//saving the new password to the user's file
 	actualJson["login"]["password"] = newPass;
 
-	//writing json data into a file
+	//alter the password in the User object
+	user->password = this->tbNewPass->Text;
+
+	//writing json data into the file, using the new password!!!
 	json_write(stringUser, actualJson, user->password);
 
+	//alter user's password in the list of users
+	Json::Value usersJson = users_json_parse();
+	string encryptPass = stringUser + newPass;
+	String^ EncryptPass = gcnew String(encryptPass.c_str());
+	String^ StrPass = EncryptText(this->tbNewPass->Text, EncryptPass);
+	string strPass = msclr::interop::marshal_as<std::string>(StrPass);
+	usersJson[stringUser] = strPass;
+	users_json_write(usersJson);
+
+	//returning to the previous page and displaying message to the user
 	btCancel_Click(sender, e);
 	MessageBox::Show("You have successfully changed your password", "Password change successful", MessageBoxButtons::OK);
 	return;
