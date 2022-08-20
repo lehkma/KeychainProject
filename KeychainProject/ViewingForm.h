@@ -196,7 +196,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->Location = System::Drawing::Point(3, 3);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 1;
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 43)));
 			this->tableLayoutPanel1->Size = System::Drawing::Size(822, 43);
 			this->tableLayoutPanel1->TabIndex = 8;
 			// 
