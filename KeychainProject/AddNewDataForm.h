@@ -504,7 +504,7 @@ private: System::Void btDeleteCat_Click(System::Object^ sender, System::EventArg
 		json_write(stringUser, actualJson, user->password);
 
 		AddNewDataForm_Activated(sender, e);
-		this->comboBoxAdd->Text = "";
+		this->comboBoxAdd->Text = "Select your category here";
 	}
 }
 };

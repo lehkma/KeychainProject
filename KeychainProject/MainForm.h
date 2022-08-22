@@ -317,17 +317,36 @@ private: System::Void MainForm_Activated(System::Object^ sender, System::EventAr
 	//all saved categories will be loaded into the combobox
 	Json::Value actualJson = json_parse(stringUser, user->password);
 
+	bool currCatDeleted = true;
 	comboBoxView->Items->Clear();
 	int i = 0; //loading the data into combobox
 	while (actualJson["content"][i][0]) {
 		string stdDataString = actualJson["content"][i][0].asString();
+		if (stdDataString == cat) {
+			currCatDeleted = false;
+		}
 		String^ newSystemString = gcnew String(stdDataString.c_str());
 		comboBoxView->Items->Add(newSystemString);
 		i += 1;
 	}
 
+	if (currCatDeleted) {
+		this->comboBoxView->Text = "Select your category here";
+		this->flowLayoutPanel1->Controls->Clear();
+		Label^ lbl = gcnew Label();
+		lbl->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
+		lbl->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(0)));
+		lbl->ForeColor = System::Drawing::SystemColors::Control;
+		lbl->Size = System::Drawing::Size(680, 36);
+		lbl->Text = L"Select the data you want to view above.";
+		lbl->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+		this->Controls->Add(lbl);
+		this->flowLayoutPanel1->Controls->Add(lbl);
+	}
+
 	//when form gets activated, the flowPanel gets refreshed
-	if (cat != "" && cat != "Select your category here") {
+	if (this->comboBoxView->Text != "" && this->comboBoxView->Text != "Select your category here") {
 		btOK_Click(sender, e);
 	}
 }
