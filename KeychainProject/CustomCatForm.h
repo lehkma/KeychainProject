@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include <json/value.h>
 #include <json/json.h>
 #include "ProfileForm.h"
@@ -472,6 +473,8 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 	
 	//getting the parameters names from the textbox
 	parameters.erase(remove(parameters.begin(), parameters.end(), ' '), parameters.end());
+	parameters.erase(remove(parameters.begin(), parameters.end(), '\n'), parameters.end());
+	parameters.erase(remove(parameters.begin(), parameters.end(), '\r'), parameters.end());
 	size_t pos = 0;
 	int j = 2;
 	string name;
