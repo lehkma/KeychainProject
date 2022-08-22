@@ -513,6 +513,12 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 		return;
 	}
 
+	//not allowed username
+	if (newUser == "data") {
+		MessageBox::Show("This username is already taken.Please choose another one.", "Invadlid username", MessageBoxButtons::OK);
+		return;
+	}
+
 	//mismatching passwords check
 	if (newPass != newPassCon) {
 		MessageBox::Show("Please make sure your passwords match", "Password mismatch", MessageBoxButtons::OK);
