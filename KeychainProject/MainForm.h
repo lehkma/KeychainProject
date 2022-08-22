@@ -310,6 +310,11 @@ private: System::Void btAddNewData_Click(System::Object^ sender, System::EventAr
 	addForm->ShowDialog();
 }
 private: System::Void MainForm_Activated(System::Object^ sender, System::EventArgs^ e) {
+	//don't activate form, when the user is signing out
+	if (user->signedOut) {
+		return;
+	}
+
 	//get the username in std string format
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
 	string cat = msclr::interop::marshal_as<std::string>(this->comboBoxView->Text);

@@ -378,6 +378,11 @@ private: System::Void btCreateCustomCat_Click(System::Object^ sender, System::Ev
 	ccForm->ShowDialog();
 }
 private: System::Void AddNewDataForm_Activated(System::Object^ sender, System::EventArgs^ e) {
+	//don't activate form, when the user is signing out
+	if (user->signedOut) {
+		return;
+	}
+
 	//get the username in std string format
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
 
