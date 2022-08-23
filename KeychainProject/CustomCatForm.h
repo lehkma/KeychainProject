@@ -9,6 +9,8 @@
 #include <json/value.h>
 #include <json/json.h>
 #include "ProfileForm.h"
+#include <locale>
+#include <codecvt>
 
 namespace KeychainProject {
 
@@ -496,8 +498,10 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 	}
 	
 	//parameters duplicity check and parameters length check
+	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
 	for (int m = 0; m < j; m++) {
-		if (actualJson["content"][i][m].asString().length() > 16) {
+		std::wstring wstr = converter.from_bytes(actualJson["content"][i][m].asString());
+		if (wstr.length() > 16) {
 			MessageBox::Show("The length of name of each parameter should not exceed 16 characters", "Parameter name is too long", MessageBoxButtons::OK);
 			return;
 		}
