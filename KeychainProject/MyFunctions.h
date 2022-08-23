@@ -7,11 +7,13 @@
 #include <json/value.h>
 #include <json/json.h>
 #include "Encryption.h"
+#include <locale>
+#include <codecvt>
 
 using namespace std;
 
+//test if given file exists
 inline bool exists_test(const std::string& name) {
-    //test if given file exists
     FILE* file;
     errno_t err;
     if (err = fopen_s(&file ,name.c_str(), "r") != 0){
@@ -23,18 +25,19 @@ inline bool exists_test(const std::string& name) {
     }
 }
 
+//checks if there is upper and lower case, number; specifies allowed characters; sets minimum to 8 characters
 inline bool password_not_valid(const std::string password) {
-    //checks if there is upper and lower case, number; specifies allowed characters; sets minimum to 8 characters
     std::regex regex_password ("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9@$!%*?&]{8,}$");
     return !std::regex_match(password, regex_password);
 }
 
+//specifies allowed characters for an username
 inline bool username_not_valid(const std::string word) {
-    //specifies allowed characters for an username
     std::regex regex ("^[A-Za-z0-9@$!%*?&]{1,}$");
     return !std::regex_match(word, regex);
 }
 
+//decrypts data from Data/stringUser.json, places them in a buffer file, creates json object, deletes buffer file
 inline Json::Value json_parse(std::string stringUser, String^ password) {
     string userFile = "Data/" + stringUser + ".json";
     String^ StringUserFile = gcnew String(userFile.c_str());
@@ -65,6 +68,7 @@ inline Json::Value json_parse(std::string stringUser, String^ password) {
     return actualJson;
 }
 
+//writes json object into a buffer file, that is then encrypted to the Data/stringUser.json file
 inline void json_write(std::string stringUser, Json::Value actualJson, String^ password) {
     string userFile = "Data/" + stringUser + ".json";
     String^ StringUserFile = gcnew String(userFile.c_str());
@@ -93,6 +97,7 @@ inline void json_write(std::string stringUser, Json::Value actualJson, String^ p
     return;
 }
 
+//creates object of pairs of all registered users
 inline Json::Value users_json_parse() {
     ifstream ifile("Data/KeychainUsersList.json");
     Json::Value usersJson;
@@ -102,6 +107,7 @@ inline Json::Value users_json_parse() {
     return usersJson;
 }
 
+//saves the object of all registered users to its file
 inline void users_json_write(Json::Value usersJson) {
     ofstream outfile("Data/KeychainUsersList.json");
     Json::FastWriter fastWriter;
@@ -111,8 +117,8 @@ inline void users_json_write(Json::Value usersJson) {
     return;
 }
 
+//finding the index of selected category in the content array
 inline int find_index_in_content(Json::Value actualJson, std::string cat) {
-    //finding the index of selected category in the content array
     int cat_index = 0;
     bool notFound = true;
     while (actualJson["content"][cat_index][0] && notFound) {

@@ -8,6 +8,8 @@
 #include <json/value.h>
 #include <json/json.h>
 #include "ProfileForm.h"
+#include <locale>
+#include <codecvt>
 
 namespace KeychainProject {
 
@@ -228,6 +230,9 @@ namespace KeychainProject {
 		}
 #pragma endregion
 private: System::Void ViewingForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	//converter between encodings to allow Czech characters to be displayed
+	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+
 	//setting the labels
 	labelCategory->Text = user->selected_cat;
 	labelUsername->Text = user->username;
@@ -241,7 +246,8 @@ private: System::Void ViewingForm_Load(System::Object^ sender, System::EventArgs
 
 	//getting necessary data
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
-	string cat = msclr::interop::marshal_as<std::string>(labelCategory->Text);
+	wstring wcat = msclr::interop::marshal_as<std::wstring>(labelCategory->Text);
+	string cat = converter.to_bytes(wcat);
 	int category_index = user->cat_index;
 
 	Json::Value actualJson = json_parse(stringUser, user->password);
@@ -270,7 +276,8 @@ private: System::Void ViewingForm_Load(System::Object^ sender, System::EventArgs
 			static_cast<System::Byte>(0)));
 		label1->ForeColor = System::Drawing::SystemColors::Control;
 		string textStr = actualJson["content"][cat_i][i].asString() + ":";
-		String^ text = gcnew String(textStr.c_str());
+		std::wstring ws = converter.from_bytes(textStr);
+		String^ text = gcnew String(ws.c_str());
 		label1->Text = text;
 		label1->Name = L"label1" + text;
 		label1->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -288,7 +295,8 @@ private: System::Void ViewingForm_Load(System::Object^ sender, System::EventArgs
 			static_cast<System::Byte>(0)));
 		label1->ForeColor = System::Drawing::SystemColors::Control;
 		string textStr = actualJson[cat][category_index][actualJson["content"][cat_i][i].asString()].asString();
-		String^ text = gcnew String(textStr.c_str());
+		std::wstring ws = converter.from_bytes(textStr);
+		String^ text = gcnew String(ws.c_str());
 		label1->Text = text;
 		label1->Name = L"label1" + text;
 		label1->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -302,9 +310,14 @@ private: System::Void ViewingForm_Load(System::Object^ sender, System::EventArgs
 private: System::Void btDelete_Click(System::Object^ sender, System::EventArgs^ e) {
 	//ask for confirmation
 	if ((MessageBox::Show("Are you sure you want to delete this item?", "Confirm delete", MessageBoxButtons::YesNo)) == ::System::Windows::Forms::DialogResult::Yes) {
+		
+		//converter between encodings to allow Czech characters to be displayed
+		std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+		
 		//get the data
 		string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
-		string cat = msclr::interop::marshal_as<std::string>(labelCategory->Text);
+		wstring wcat = msclr::interop::marshal_as<std::wstring>(labelCategory->Text);
+		string cat = converter.to_bytes(wcat);
 		int category_index = user->cat_index;
 
 		Json::Value actualJson = json_parse(stringUser, user->password);
@@ -323,13 +336,17 @@ private: System::Void btDelete_Click(System::Object^ sender, System::EventArgs^ 
 	}
 }
 private: System::Void btEdit_Click(System::Object^ sender, System::EventArgs^ e) {
+	//converter between encodings to allow Czech characters to be displayed
+	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+
 	//make the top buttons invisible
 	this->btDelete->Visible = false;
 	this->btEdit->Visible = false;
 
 	//getting necessary data
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
-	string cat = msclr::interop::marshal_as<std::string>(labelCategory->Text);
+	wstring wcat = msclr::interop::marshal_as<std::wstring>(labelCategory->Text);
+	string cat = converter.to_bytes(wcat);
 	int category_index = user->cat_index;
 
 	Json::Value actualJson = json_parse(stringUser, user->password);
@@ -358,7 +375,8 @@ private: System::Void btEdit_Click(System::Object^ sender, System::EventArgs^ e)
 			static_cast<System::Byte>(0)));
 		textBox1->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 		string textStr = actualJson[cat][category_index][actualJson["content"][cat_i][i].asString()].asString();
-		String^ text = gcnew String(textStr.c_str());
+		std::wstring ws = converter.from_bytes(textStr);
+		String^ text = gcnew String(ws.c_str());
 		textBox1->Text = text;
 		textBox1->MaxLength = 25;
 		textBox1->Size = System::Drawing::Size(491, 32);
@@ -377,9 +395,13 @@ private: System::Void btCancel_Click(System::Object^ sender, System::EventArgs^ 
 	ViewingForm_Load(sender, e);
 }
 private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e) {
+	//converter between encodings to allow Czech characters to be displayed
+	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+
 	//getting necessary data
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
-	string cat = msclr::interop::marshal_as<std::string>(labelCategory->Text);
+	wstring wcat = msclr::interop::marshal_as<std::wstring>(labelCategory->Text);
+	string cat = converter.to_bytes(wcat);
 	int category_index = user->cat_index;
 
 	Json::Value actualJson = json_parse(stringUser, user->password);
@@ -392,7 +414,8 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 
 	//entering provided data to json
 	for (int i = 1; i < cat_size; i++) {
-		string parameter = msclr::interop::marshal_as<std::string>(this->textBoxesList[i - 1]->Text);
+		wstring wparameter = msclr::interop::marshal_as<std::wstring>(this->textBoxesList[i - 1]->Text);
+		string parameter = converter.to_bytes(wparameter);
 		actualJson[cat][category_index][actualJson["content"][cat_i][i].asString()] = parameter;
 	}
 

@@ -10,6 +10,8 @@
 #include "CustomCatForm.h"
 #include "AddingForm.h"
 #include "ProfileForm.h"
+#include <locale>
+#include <codecvt>
 
 namespace KeychainProject {
 
@@ -383,6 +385,9 @@ private: System::Void AddNewDataForm_Activated(System::Object^ sender, System::E
 		return;
 	}
 
+	//converter between encodings to allow Czech characters to be displayed
+	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+
 	//get the username in std string format
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
 
@@ -392,14 +397,19 @@ private: System::Void AddNewDataForm_Activated(System::Object^ sender, System::E
 	int i = 0; //loading the data into combobox
 	while (actualJson["content"][i][0]) {
 		string stdDataString = actualJson["content"][i][0].asString();
-		String^ newSystemString = gcnew String(stdDataString.c_str());
+		std::wstring ws = converter.from_bytes(stdDataString);
+		String^ newSystemString = gcnew String(ws.c_str());
 		comboBoxAdd->Items->Add(newSystemString);
 		i += 1;
 	}
 }
 private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
+	//converter between encodings to allow Czech characters to be displayed
+	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+
 	//get the name of selected category from the textbox
-	string cat = msclr::interop::marshal_as<std::string>(this->comboBoxAdd->Text);
+	wstring wcat = msclr::interop::marshal_as<std::wstring>(this->comboBoxAdd->Text);
+	string cat = converter.to_bytes(wcat);
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
 	user->selected_cat = this->comboBoxAdd->Text;
 
@@ -441,7 +451,8 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 			static_cast<System::Byte>(0)));
 		label1->ForeColor = System::Drawing::SystemColors::Control;
 		string textStr = actualJson["content"][cat_index][i].asString() + ":";
-		String^ text = gcnew String(textStr.c_str());
+		std::wstring ws = converter.from_bytes(textStr);
+		String^ text = gcnew String(ws.c_str());
 		label1->Text = text;
 		label1->Name = L"label1" + text;
 		label1->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -459,7 +470,8 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 			static_cast<System::Byte>(0)));
 		textBox1->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 		string textStr = actualJson["content"][cat_index][i].asString();
-		String^ text = gcnew String(textStr.c_str());
+		std::wstring ws = converter.from_bytes(textStr);
+		String^ text = gcnew String(ws.c_str());
 		textBox1->Name = text;
 		textBox1->MaxLength = 25;
 		textBox1->Size = System::Drawing::Size(491, 32);
@@ -481,8 +493,12 @@ private: System::Void picProfile_Click(System::Object^ sender, System::EventArgs
 	profileForm->ShowDialog();
 }
 private: System::Void btDeleteCat_Click(System::Object^ sender, System::EventArgs^ e) {
+	//converter between encodings to allow Czech characters to be displayed
+	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+
 	//get the name of selected category from the textbox
-	string cat = msclr::interop::marshal_as<std::string>(this->comboBoxAdd->Text);
+	wstring wcat = msclr::interop::marshal_as<std::wstring>(this->comboBoxAdd->Text);
+	string cat = converter.to_bytes(wcat);
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
 	user->selected_cat = this->comboBoxAdd->Text;
 
