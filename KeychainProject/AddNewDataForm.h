@@ -413,6 +413,13 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 	//finding the index of selected category in the content array
 	int cat_index = find_index_in_content(actualJson, cat);
 	
+	//check if the selected category exists
+	if (cat_index == -1) {
+		MessageBox::Show("Select a listed category from the drop down.", "Invalid category", MessageBoxButtons::OK);
+		this->comboBoxAdd->Text = "Select your category here";
+		return;
+	}
+
 	//finding the number of parameters of selected category
 	int cat_size = actualJson["content"][cat_index].size();
 

@@ -115,7 +115,7 @@ namespace KeychainProject {
 			this->labelView->ForeColor = System::Drawing::SystemColors::Control;
 			this->labelView->Location = System::Drawing::Point(3, 14);
 			this->labelView->Name = L"labelView";
-			this->labelView->Size = System::Drawing::Size(68, 23);
+			this->labelView->Size = System::Drawing::Size(67, 23);
 			this->labelView->TabIndex = 1;
 			this->labelView->Text = L"View:";
 			this->labelView->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -130,7 +130,7 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				85.94891F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				179)));
+				181)));
 			this->tableLayoutPanel1->Controls->Add(this->btOK, 2, 0);
 			this->tableLayoutPanel1->Controls->Add(this->labelView, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBoxView, 1, 0);
@@ -147,9 +147,9 @@ namespace KeychainProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btOK->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btOK->Location = System::Drawing::Point(530, 3);
+			this->btOK->Location = System::Drawing::Point(528, 3);
 			this->btOK->Name = L"btOK";
-			this->btOK->Size = System::Drawing::Size(174, 45);
+			this->btOK->Size = System::Drawing::Size(176, 45);
 			this->btOK->TabIndex = 1;
 			this->btOK->Text = L"OK";
 			this->btOK->UseVisualStyleBackColor = true;
@@ -165,9 +165,9 @@ namespace KeychainProject {
 			this->comboBoxView->FormattingEnabled = true;
 			this->comboBoxView->IntegralHeight = false;
 			this->comboBoxView->ItemHeight = 26;
-			this->comboBoxView->Location = System::Drawing::Point(77, 8);
+			this->comboBoxView->Location = System::Drawing::Point(76, 8);
 			this->comboBoxView->Name = L"comboBoxView";
-			this->comboBoxView->Size = System::Drawing::Size(447, 34);
+			this->comboBoxView->Size = System::Drawing::Size(446, 34);
 			this->comboBoxView->TabIndex = 0;
 			this->comboBoxView->Text = L"Select your category here";
 			// 
@@ -375,6 +375,13 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	//finding the index of selected category in the content array
 	int cat_index = find_index_in_content(actualJson, cat);
+
+	//check if the selected category exists
+	if (cat_index == -1) {
+		MessageBox::Show("Select a listed category from the drop down.", "Invalid category", MessageBoxButtons::OK);
+		this->comboBoxView->Text = "Select your category here";
+		return;
+	}
 
 	//find the number of inputs from selected category
 	noOfInputs = actualJson[cat].size();

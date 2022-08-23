@@ -130,6 +130,7 @@ inline int find_index_in_content(Json::Value actualJson, std::string cat) {
             cat_index += 1;
         }
     }
+    if (notFound) return -1;
     return cat_index;
 }
 
