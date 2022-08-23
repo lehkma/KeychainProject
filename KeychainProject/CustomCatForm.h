@@ -9,8 +9,6 @@
 #include <json/value.h>
 #include <json/json.h>
 #include "ProfileForm.h"
-#include <locale>
-#include <codecvt>
 
 namespace KeychainProject {
 
@@ -437,16 +435,10 @@ private: System::Void CustomCatForm_FormClosed(System::Object^ sender, System::W
 	//addNewDataForm->Show();
 }
 private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ e) {
-	//converter between encodings to allow Czech characters to be displayed
-	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-
 	//get the data from the textboxes to std strings
-	wstring wcatName = msclr::interop::marshal_as<std::wstring>(this->tbCatName->Text);
-	string catName = converter.to_bytes(wcatName);
-	wstring wmainParameter = msclr::interop::marshal_as<std::wstring>(this->tbMainParameter->Text);
-	string mainParameter = converter.to_bytes(wmainParameter);
-	wstring wparameters = msclr::interop::marshal_as<std::wstring>(this->tbParameters->Text);
-	string parameters = converter.to_bytes(wparameters);
+	string catName = sysStringToString(this->tbCatName->Text);
+	string mainParameter = sysStringToString(this->tbMainParameter->Text);
+	string parameters = sysStringToString(this->tbParameters->Text);
 
 	//empty check
 	if (catName.length() == 0 || parameters.length() == 0 || mainParameter.length() == 0) {
@@ -471,9 +463,7 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 	catName.erase(remove(catName.begin(), catName.end(), ' '), catName.end());
 	mainParameter.erase(remove(mainParameter.begin(), mainParameter.end(), ' '), mainParameter.end());
 	if (catName != "" && mainParameter != "") {
-		//string cn = converter.to_bytes(wcatName);
 		actualJson["content"][i][0] = catName;
-		//string mp = converter.to_bytes(wmainParameter);
 		actualJson["content"][i][1] = mainParameter;
 	}
 	else {
@@ -482,25 +472,19 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 	}
 	
 	//getting the parameters names from the textbox
-	//wstring wparameters = msclr::interop::marshal_as<std::wstring>(this->tbParameters->Text);
 	parameters.erase(remove(parameters.begin(), parameters.end(), ' '), parameters.end());
 	parameters.erase(remove(parameters.begin(), parameters.end(), '\n'), parameters.end());
 	parameters.erase(remove(parameters.begin(), parameters.end(), '\r'), parameters.end());
-	//wparameters.erase(remove(wparameters.begin(), wparameters.end(), ' '), wparameters.end());
-	//wparameters.erase(remove(wparameters.begin(), wparameters.end(), '\n'), wparameters.end());
-	//wparameters.erase(remove(wparameters.begin(), wparameters.end(), '\r'), wparameters.end());
 	size_t pos = 0;
 	int j = 2;
 	string name;
 	while ((pos = parameters.find(";")) != string::npos) {
 		name = parameters.substr(0, pos);
 		if (name != "") {
-			//string name = converter.to_bytes(wname);
 			actualJson["content"][i][j] = name;
 			j += 1;
 		}
 		parameters.erase(0, pos + 1);
-		//wparameters.erase(0, pos + 1);
 	}
 	if (j == 2 && parameters == "") {
 		MessageBox::Show("Enter at least one parameter in the last text box", "Invalid input", MessageBoxButtons::OK);

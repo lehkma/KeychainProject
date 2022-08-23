@@ -10,8 +10,6 @@
 #include "AddNewDataForm.h"
 #include "ViewingForm.h"
 #include "ProfileForm.h"
-#include <locale>
-#include <codecvt>
 
 namespace KeychainProject {
 
@@ -317,13 +315,9 @@ private: System::Void MainForm_Activated(System::Object^ sender, System::EventAr
 		return;
 	}
 
-	//converter between encodings to allow Czech characters to be displayed
-	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-
 	//get the username in std string format
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
-	wstring wcat = msclr::interop::marshal_as<std::wstring>(this->comboBoxView->Text);
-	string cat = converter.to_bytes(wcat);
+	string cat = sysStringToString(this->comboBoxView->Text);
 
 	//all saved categories will be loaded into the combobox
 	Json::Value actualJson = json_parse(stringUser, user->password);
@@ -336,8 +330,7 @@ private: System::Void MainForm_Activated(System::Object^ sender, System::EventAr
 		if (stdDataString == cat) {
 			currCatDeleted = false;
 		}
-		std::wstring ws = converter.from_bytes(stdDataString);
-		String^ newSystemString = gcnew String(ws.c_str());
+		String^ newSystemString = stdStrToSysStr(stdDataString);
 		comboBoxView->Items->Add(newSystemString);
 		i += 1;
 	}
@@ -363,12 +356,8 @@ private: System::Void MainForm_Activated(System::Object^ sender, System::EventAr
 	}
 }
 private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
-	//converter between encodings to allow Czech characters to be displayed
-	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-
 	//get the name of selected category from the textbox
-	wstring wcat = msclr::interop::marshal_as<std::wstring>(this->comboBoxView->Text);
-	string cat = converter.to_bytes(wcat);
+	string cat = sysStringToString(this->comboBoxView->Text);
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
 	user->selected_cat = this->comboBoxView->Text;
 
@@ -413,9 +402,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 			static_cast<System::Byte>(0)));
 		lbl->ForeColor = System::Drawing::SystemColors::Control;
 		lbl->Size = System::Drawing::Size(680, 36);
-		string textStr = actualJson[cat][i][actualJson["content"][cat_index][1].asString()].asString();
-		std::wstring ws = converter.from_bytes(textStr);
-		String^ text = gcnew String(ws.c_str());
+		String^ text = stdStrToSysStr(actualJson[cat][i][actualJson["content"][cat_index][1].asString()].asString());
 		lbl->Text = text;
 		lbl->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 		myLabels->Add(lbl);

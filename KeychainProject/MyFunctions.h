@@ -1,4 +1,5 @@
 #pragma once
+#include <msclr\marshal_cppstd.h>
 #include <regex>
 #include <sys/stat.h>
 #include <errno.h>
@@ -130,4 +131,20 @@ inline int find_index_in_content(Json::Value actualJson, std::string cat) {
         }
     }
     return cat_index;
+}
+
+//converts System String^ to std::string through std::wstring
+inline std::string sysStringToString(String^ sysStr) {
+    std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+    wstring wstr = msclr::interop::marshal_as<std::wstring>(sysStr);
+    string str = converter.to_bytes(wstr);
+    return str;
+}
+
+//converts std::string to System String^ through std::wstring
+inline String^ stdStrToSysStr(std::string str) {
+    std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+    std::wstring wstr = converter.from_bytes(str);
+    String^ sysStr = gcnew String(wstr.c_str());
+    return sysStr;
 }

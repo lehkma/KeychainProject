@@ -8,8 +8,6 @@
 #include <json/value.h>
 #include <json/json.h>
 #include "ProfileForm.h"
-#include <locale>
-#include <codecvt>
 
 namespace KeychainProject {
 
@@ -205,13 +203,9 @@ private: System::Void btCancel_Click(System::Object^ sender, System::EventArgs^ 
 	this->Close();
 }
 private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
-	//converter between encodings to allow Czech characters to be displayed
-	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-
 	//getting the username and selected category
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
-	wstring wcategory = msclr::interop::marshal_as<std::wstring>(labelCategory->Text);
-	string category = converter.to_bytes(wcategory);
+	string category = sysStringToString(labelCategory->Text);
 
 	//empty check
 	for each (TextBox^ tb in textBoxesList) {
@@ -234,9 +228,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	//entering provided data to json
 	for (int i = 1; i < cat_size; i++) {
-		wstring wparameter = msclr::interop::marshal_as<std::wstring>(this->textBoxesList[i - 1]->Text);
-		string parameter = converter.to_bytes(wparameter);
-		actualJson[category][pos][actualJson["content"][cat_index][i].asString()] = parameter;
+		actualJson[category][pos][actualJson["content"][cat_index][i].asString()] = sysStringToString(this->textBoxesList[i - 1]->Text);;
 	}
 
 	//writing json data into a file

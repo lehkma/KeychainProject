@@ -10,8 +10,6 @@
 #include "CustomCatForm.h"
 #include "AddingForm.h"
 #include "ProfileForm.h"
-#include <locale>
-#include <codecvt>
 
 namespace KeychainProject {
 
@@ -385,9 +383,6 @@ private: System::Void AddNewDataForm_Activated(System::Object^ sender, System::E
 		return;
 	}
 
-	//converter between encodings to allow Czech characters to be displayed
-	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-
 	//get the username in std string format
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
 
@@ -396,20 +391,14 @@ private: System::Void AddNewDataForm_Activated(System::Object^ sender, System::E
 	comboBoxAdd->Items->Clear();
 	int i = 0; //loading the data into combobox
 	while (actualJson["content"][i][0]) {
-		string stdDataString = actualJson["content"][i][0].asString();
-		std::wstring ws = converter.from_bytes(stdDataString);
-		String^ newSystemString = gcnew String(ws.c_str());
+		String^ newSystemString = stdStrToSysStr(actualJson["content"][i][0].asString());
 		comboBoxAdd->Items->Add(newSystemString);
 		i += 1;
 	}
 }
 private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
-	//converter between encodings to allow Czech characters to be displayed
-	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-
 	//get the name of selected category from the textbox
-	wstring wcat = msclr::interop::marshal_as<std::wstring>(this->comboBoxAdd->Text);
-	string cat = converter.to_bytes(wcat);
+	string cat = sysStringToString(this->comboBoxAdd->Text);
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
 	user->selected_cat = this->comboBoxAdd->Text;
 
@@ -450,9 +439,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 		label1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
 		label1->ForeColor = System::Drawing::SystemColors::Control;
-		string textStr = actualJson["content"][cat_index][i].asString() + ":";
-		std::wstring ws = converter.from_bytes(textStr);
-		String^ text = gcnew String(ws.c_str());
+		String^ text = stdStrToSysStr(actualJson["content"][cat_index][i].asString() + ":");
 		label1->Text = text;
 		label1->Name = L"label1" + text;
 		label1->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -469,9 +456,7 @@ private: System::Void btOK_Click(System::Object^ sender, System::EventArgs^ e) {
 		textBox1->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
 		textBox1->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-		string textStr = actualJson["content"][cat_index][i].asString();
-		std::wstring ws = converter.from_bytes(textStr);
-		String^ text = gcnew String(ws.c_str());
+		String^ text = stdStrToSysStr(actualJson["content"][cat_index][i].asString());
 		textBox1->Name = text;
 		textBox1->MaxLength = 25;
 		textBox1->Size = System::Drawing::Size(491, 32);
@@ -493,12 +478,9 @@ private: System::Void picProfile_Click(System::Object^ sender, System::EventArgs
 	profileForm->ShowDialog();
 }
 private: System::Void btDeleteCat_Click(System::Object^ sender, System::EventArgs^ e) {
-	//converter between encodings to allow Czech characters to be displayed
-	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
 
 	//get the name of selected category from the textbox
-	wstring wcat = msclr::interop::marshal_as<std::wstring>(this->comboBoxAdd->Text);
-	string cat = converter.to_bytes(wcat);
+	string cat = sysStringToString(this->comboBoxAdd->Text);
 	string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
 	user->selected_cat = this->comboBoxAdd->Text;
 
