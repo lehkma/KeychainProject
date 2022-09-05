@@ -8,6 +8,8 @@
 #include <json/value.h>
 #include <json/json.h>
 #include "MainForm.h"
+#include <direct.h>
+#include <stdlib.h>
 
 namespace KeychainProject {
 
