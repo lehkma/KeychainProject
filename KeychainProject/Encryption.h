@@ -30,7 +30,7 @@ inline void encryptFile(String^ destinationFilename, String^ password) {
 
 		FileStream^ destination = gcnew FileStream(destinationFilename, FileMode::OpenOrCreate, FileAccess::Write, FileShare::None);
 		auto cs = gcnew CryptoStream(destination, AES->CreateEncryptor(), CryptoStreamMode::Write);
-		FileStream^ source = gcnew FileStream("Data/data.json", FileMode::Open, FileAccess::Read, FileShare::Read);
+		FileStream^ source = gcnew FileStream("C:\\Keychain_Data\\data.json", FileMode::Open, FileAccess::Read, FileShare::Read);
 
 		try {
 			source->CopyTo(cs);
@@ -70,7 +70,7 @@ inline void decryptFile(String^ sourceFilename, String^ password) {
 		AES->Key = key->GetBytes(AES->KeySize / 8);
 		AES->IV = key->GetBytes(AES->BlockSize / 8);
 
-		FileStream^ destination = gcnew FileStream("Data/data.json", FileMode::OpenOrCreate, FileAccess::Write, FileShare::None);
+		FileStream^ destination = gcnew FileStream("C:\\Keychain_Data\\data.json", FileMode::OpenOrCreate, FileAccess::Write, FileShare::None);
 		auto cs = gcnew CryptoStream(destination, AES->CreateDecryptor(), CryptoStreamMode::Write);
 		FileStream^ source = gcnew FileStream(sourceFilename, FileMode::Open, FileAccess::Read, FileShare::Read);
 

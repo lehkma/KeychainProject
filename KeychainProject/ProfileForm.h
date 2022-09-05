@@ -487,7 +487,7 @@ private: System::Void btDeleteAccount_Click(System::Object^ sender, System::Even
 	if ((MessageBox::Show("Are you sure you want to delete your account? All saved data will be lost", "Confirm delete", MessageBoxButtons::YesNo)) == ::System::Windows::Forms::DialogResult::Yes) {
 		//get data
 		string stringUser = msclr::interop::marshal_as<std::string>(this->labelUsername->Text);
-		string name = "Data/" + stringUser + ".json";
+		string name = "C:\\Keychain_Data\\" + stringUser + ".json";
 
 		//delete user from the list of users
 		Json::Value usersJson = users_json_parse();

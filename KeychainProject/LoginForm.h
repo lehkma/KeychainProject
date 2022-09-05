@@ -453,7 +453,7 @@ private: System::Void btLogin_Click(System::Object^ sender, System::EventArgs^ e
 	}
 
 	//if the user exists, check his password
-	if (exists_test("Data/" + user + ".json")) {
+	if (exists_test("C:\\Keychain_Data\\" + user + ".json")) {
 
 		//get saved password from the list of users
 		Json::Value usersJson = users_json_parse();
@@ -536,7 +536,7 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 			return;
 		}
 		//check if user already exists
-		if (exists_test("Data/" + newUser + ".json")) {
+		if (exists_test("C:\\Keychain_Data\\" + newUser + ".json")) {
 			MessageBox::Show("This username is already taken. Please choose another one.", "Invalid username", MessageBoxButtons::OK);
 			return;
 		}

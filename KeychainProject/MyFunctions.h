@@ -40,20 +40,20 @@ inline bool username_not_valid(const std::string word) {
 
 //decrypts data from Data/stringUser.json, places them in a buffer file, creates json object, deletes buffer file
 inline Json::Value json_parse(std::string stringUser, String^ password) {
-    string userFile = "Data/" + stringUser + ".json";
+    string userFile = "C:\\Keychain_Data\\" + stringUser + ".json";
     String^ StringUserFile = gcnew String(userFile.c_str());
     Json::Value actualJson;
     Json::Reader reader;
 
-    if (exists_test("Data/data.json")) {
-        remove("Data/data.json");
+    if (exists_test("C:\\Keychain_Data\\data.json")) {
+        remove("C:\\Keychain_Data\\data.json");
     }
 
     try {
         decryptFile(StringUserFile, password);
 
         //reads data from a file and creates json object
-        ifstream ifile("Data/data.json");
+        ifstream ifile("C:\\Keychain_Data\\data.json");
         reader.parse(ifile, actualJson);
         ifile.close();
 
@@ -61,8 +61,8 @@ inline Json::Value json_parse(std::string stringUser, String^ password) {
         encryptFile(StringUserFile, password);
     }
     finally {
-        if (exists_test("Data/data.json")) {
-            remove("Data/data.json");
+        if (exists_test("C:\\Keychain_Data\\data.json")) {
+            remove("C:\\Keychain_Data\\data.json");
         }
     }
 
@@ -71,15 +71,15 @@ inline Json::Value json_parse(std::string stringUser, String^ password) {
 
 //writes json object into a buffer file, that is then encrypted to the Data/stringUser.json file
 inline void json_write(std::string stringUser, Json::Value actualJson, String^ password) {
-    string userFile = "Data/" + stringUser + ".json";
+    string userFile = "C:\\Keychain_Data\\" + stringUser + ".json";
     String^ StringUserFile = gcnew String(userFile.c_str());
 
-    if (exists_test("Data/data.json")) {
-        remove("Data/data.json");
+    if (exists_test("C:\\Keychain_Data\\data.json")) {
+        remove("C:\\Keychain_Data\\data.json");
     }
 
     //writing json data into a file
-    ofstream outfile("Data/data.json");
+    ofstream outfile("C:\\Keychain_Data\\data.json");
     Json::FastWriter fastWriter;
     outfile << fastWriter.write(actualJson);
     outfile.close();
@@ -90,8 +90,8 @@ inline void json_write(std::string stringUser, Json::Value actualJson, String^ p
         encryptFile(StringUserFile, password);
     }
     finally {
-        if (exists_test("Data/data.json")) {
-            remove("Data/data.json");
+        if (exists_test("C:\\Keychain_Data\\data.json")) {
+            remove("C:\\Keychain_Data\\data.json");
         }
     }
 
@@ -100,7 +100,7 @@ inline void json_write(std::string stringUser, Json::Value actualJson, String^ p
 
 //creates object of pairs of all registered users
 inline Json::Value users_json_parse() {
-    ifstream ifile("Data/KeychainUsersList.json");
+    ifstream ifile("C:\\Keychain_Data\\KeychainUsersList.json");
     Json::Value usersJson;
     Json::Reader reader1;
     reader1.parse(ifile, usersJson);
@@ -110,7 +110,7 @@ inline Json::Value users_json_parse() {
 
 //saves the object of all registered users to its file
 inline void users_json_write(Json::Value usersJson) {
-    ofstream outfile("Data/KeychainUsersList.json");
+    ofstream outfile("C:\\Keychain_Data\\KeychainUsersList.json");
     Json::FastWriter fastWriter;
     outfile << fastWriter.write(usersJson);
     outfile.close();
