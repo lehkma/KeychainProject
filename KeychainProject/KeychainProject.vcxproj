@@ -157,6 +157,7 @@
     <ClInclude Include="ProfileForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="ViewingForm.h">
       <FileType>CppForm</FileType>
@@ -184,6 +185,12 @@
     <EmbeddedResource Include="ViewingForm.resx">
       <DependentUpon>ViewingForm.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="KeychainProject.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\icons8-keychain-60.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
