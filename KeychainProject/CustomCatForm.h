@@ -455,10 +455,15 @@ private: System::Void btCreate_Click(System::Object^ sender, System::EventArgs^ 
 	int i = 0;
 	while (actualJson["content"][i][0]) {
 		if (actualJson["content"][i][0].asString() == catName) {
-			MessageBox::Show("Category with this name already exists. Please change the name.", "Existing category", MessageBoxButtons::OK);
+			MessageBox::Show("Category with this name already exists. Please change the name.", "Existing category name", MessageBoxButtons::OK);
 			return;
 		}
 		i += 1;
+	}
+	
+	if (catName == "login" || catName == "content") {
+		MessageBox::Show("Category cannot have this name. Please change it.", "Invalid category", MessageBoxButtons::OK);
+		return;
 	}
 
 	//load the name of the category and main parameter to json
