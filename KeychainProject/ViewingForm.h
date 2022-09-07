@@ -27,6 +27,7 @@ namespace KeychainProject {
 	{
 	private: 
 		List <TextBox^>^ textBoxesList;
+	private: System::Windows::Forms::Button^ btBack;
 	public:
 		User^ user;
 		ViewingForm(User^ usr)
@@ -77,6 +78,7 @@ namespace KeychainProject {
 			this->picProfile = (gcnew System::Windows::Forms::PictureBox());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->btBack = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picProfile))->BeginInit();
 			this->flowLayoutPanel1->SuspendLayout();
 			this->SuspendLayout();
@@ -200,6 +202,18 @@ namespace KeychainProject {
 			this->tableLayoutPanel1->Size = System::Drawing::Size(822, 43);
 			this->tableLayoutPanel1->TabIndex = 8;
 			// 
+			// btBack
+			// 
+			this->btBack->Font = (gcnew System::Drawing::Font(L"Rubik", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btBack->Location = System::Drawing::Point(44, 26);
+			this->btBack->Name = L"btBack";
+			this->btBack->Size = System::Drawing::Size(155, 45);
+			this->btBack->TabIndex = 20;
+			this->btBack->Text = L"Back";
+			this->btBack->UseVisualStyleBackColor = true;
+			this->btBack->Click += gcnew System::EventHandler(this, &ViewingForm::btBack_Click);
+			// 
 			// ViewingForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -207,6 +221,7 @@ namespace KeychainProject {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
 			this->ClientSize = System::Drawing::Size(944, 661);
+			this->Controls->Add(this->btBack);
 			this->Controls->Add(this->flowLayoutPanel1);
 			this->Controls->Add(this->picProfile);
 			this->Controls->Add(this->btDelete);
@@ -404,6 +419,9 @@ private: System::Void btSave_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void picProfile_Click(System::Object^ sender, System::EventArgs^ e) {
 	ProfileForm^ profileForm = gcnew ProfileForm(user);
 	profileForm->ShowDialog();
+}
+private: System::Void btBack_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
 }
 };
 }

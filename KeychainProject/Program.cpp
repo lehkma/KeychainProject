@@ -1,8 +1,3 @@
-//KeyChain Project
-//Martina Lehka, II. rocnik MOMP MFF UK
-//ZS 2021/2
-//Programovani 3
-
 #include "LoginForm.h"
 
 using namespace System;
